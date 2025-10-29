@@ -1,0 +1,29 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/.gitlab": true,
+    "**/.vscode": true,
+    "**/coverage": true,
+    "**/node_modules": true,
+    "**/compiled": true,
+    "**/build": true
+  },
+  "editor.rulers": [
+    240
+  ],
+  "editor.tabSize": 2,
+  "editor.autoIndent": "full",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": [
+    "source.fixAll"
+  ],
+  "files.trimTrailingWhitespace": true,
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 240,
+  "eslint.lintTask.options": "-c ./.eslintrc.json --ignore-path ./.eslintignore .",
+}

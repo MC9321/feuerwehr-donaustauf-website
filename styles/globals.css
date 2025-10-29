@@ -1,0 +1,53 @@
+/* stylelint-disable at-rule-no-unknown */
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ffffff;
+  --color-secondary: #f70000;
+  --color-secondary-dark: #f70000;
+  --color-header: #ffffff;
+  --color-link: #f70000;
+  --color-link-dark: #f70000;
+  --color-link-dark-hover: #f70000;
+  --color-heading: #f70000;
+  --color-heading-dark: #f70000;
+  --color-paragraph: #101828;
+  --color-paragraph-dark: #d1d5dc;
+}
+
+:target {
+  display: block;
+  position: relative;
+  top: -92px;
+  visibility: hidden;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.index-page-article p {
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+  }
+
+  .images-dark {
+    filter: grayscale(60%);
+  }
+}

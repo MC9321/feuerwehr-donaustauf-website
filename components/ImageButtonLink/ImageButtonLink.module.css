@@ -1,0 +1,29 @@
+.link {
+  align-items: center;
+  background-color: var(--color-white);
+  border-color: var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  display: flex;
+  height: 100%;
+}
+
+.link:hover {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-300);
+  text-decoration-line: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link {
+    background-color: var(--color-black);
+    border-color: var(--color-gray-500);
+  }
+
+  .link:hover {
+    background-color: var(--color-gray-500);
+    border-color: var(--color-gray-600);
+    text-decoration-line: none;
+  }
+}

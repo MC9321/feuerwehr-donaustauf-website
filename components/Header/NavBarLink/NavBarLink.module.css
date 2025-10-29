@@ -1,0 +1,107 @@
+.activated,
+.link {
+  --tw-font-weight: var(--font-weight-light);
+  --tw-tracking: var(--tracking-widest);
+  --tw-duration: 300ms;
+  --tw-ease: var(--ease-in-out);
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--tracking-widest);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  position: relative;
+  text-transform: uppercase;
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-timing-function: var(--ease-in-out);
+}
+
+.activated {
+  color: var(--color-white);
+}
+
+.activated::before,
+.link::before {
+  --tw-font-weight: var(--font-weight-thin);
+  --tw-tracking: var(--tracking-widest);
+  --tw-duration: 300ms;
+  --tw-ease: var(--ease-in-out);
+  background-color: var(--color-white);
+  bottom: -2px;
+  content: "";
+  height: 2px;
+  margin: 2px 0 0;
+  opacity: 0%;
+  position: absolute;
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-timing-function: var(--ease-in-out);
+  width: calc(var(--spacing) * 0);
+}
+
+.activated:before {
+  opacity: 100%;
+  width: 100%;
+}
+
+.activated:hover,
+.link:hover {
+  --tw-font-weight: var(--font-weight-light);
+  --tw-tracking: var(--tracking-widest);
+  --tw-duration: 300ms;
+  --tw-ease: var(--ease-in-out);
+  color: var(--color-blue-600);
+  opacity: 75%;
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-timing-function: var(--ease-in-out);
+}
+
+.activated:hover::before,
+.link:hover::before {
+  --tw-font-weight: var(--font-weight-light);
+  --tw-tracking: var(--tracking-widest);
+  --tw-duration: 300ms;
+  --tw-ease: var(--ease-in-out);
+  background-color: var(--color-blue-600);
+  opacity: 75%;
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-timing-function: var(--ease-in-out);
+  width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link {
+    color: var(--color-gray-300);
+  }
+
+  .activated {
+    color: var(--color-gray-300);
+  }
+
+  .activated::before,
+  .link::before {
+    background-color: var(--color-gray-300);
+  }
+
+  .activated:hover,
+  .activated:hover::before,
+  .link:hover::before,
+  .link:hover {
+    color: var(--color-blue-400);
+  }
+
+  .activated:hover::before,
+  .link:hover::before {
+    background-color: var(--color-blue-400);
+  }
+}

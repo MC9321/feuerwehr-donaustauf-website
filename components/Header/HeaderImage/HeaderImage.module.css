@@ -1,0 +1,21 @@
+.headerimage {
+  min-height: 360px;
+}
+
+@media screen and (max-width: 1024px) {
+  .headerimage {
+    min-height: 320px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .headerimage {
+    min-height: 240px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .headerimage {
+    filter: grayscale(60%);
+  }
+}

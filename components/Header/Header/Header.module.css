@@ -1,0 +1,41 @@
+.logo {
+  background-image: url('/assets/images/logo-7ddb1f8f39.png');
+  background-size: 226px 34px;
+  display: block;
+  height: 34px;
+  width: 226px;
+}
+
+.side {
+  background-image: url('/assets/images/logo-alternative.png');
+  background-size: 226px 34px;
+  display: block;
+  height: 34px;
+  margin-inline: auto;
+  width: 226px;
+}
+
+.background {
+  background-image: url('/assets/images/header-bg.gif');
+  background-position: center;
+  background-repeat: repeat-x;
+}
+
+@media screen and (max-width: 639px) {
+  .logo {
+    background-size: 200px 30px;
+    height: 30px;
+    width: 200px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .background {
+    background-image: url('/assets/images/header-bg-dark.gif');
+  }
+
+  .logo,
+  .side {
+    background-image: url('/assets/images/logo-dark-7ddb1f8f39.png');
+  }
+}
