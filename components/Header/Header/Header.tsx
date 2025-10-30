@@ -22,7 +22,7 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
     <>
       <header className={cn("fixed z-10 w-full dark:bg-gray-900", styles.background)}>
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-14 items-center justify-between sm:h-16">
+          <div className={cn("flex h-14 items-center justify-between sm:h-16", styles.margin)}>
             <div className="flex items-center">
               <div className="shrink-0 bg-secondary dark:bg-black">
                 <Link href="/" className={styles.logo} tabIndex={-1}>
