@@ -62,11 +62,19 @@
           "of": [
             {
               "type": "string",
+              "value": "Besondere Einsätze"
+            },
+            {
+              "type": "string",
               "value": "Brände"
             },
             {
               "type": "string",
               "value": "First Responder THL"
+            },
+            {
+              "type": "string",
+              "value": "Sicherheitswache"
             },
             {
               "type": "string",
@@ -78,15 +86,11 @@
             },
             {
               "type": "string",
+              "value": "Verkehrsabsicherung"
+            },
+            {
+              "type": "string",
               "value": "Wasserdienst"
-            },
-            {
-              "type": "string",
-              "value": "Besondere Einsätze"
-            },
-            {
-              "type": "string",
-              "value": "Sicherheitswache"
             }
           ]
         },

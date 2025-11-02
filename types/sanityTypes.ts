@@ -22,7 +22,7 @@ export type Einsatz = {
   title?: string;
   locality?: string;
   data?: string;
-  category?: 'Br\xE4nde' | 'First Responder THL' | 'THL' | '\xDCbungen / Lehrg\xE4nge / Veranstaltungen' | 'Wasserdienst' | 'Besondere Eins\xE4tze' | 'Sicherheitswache';
+  category?: 'Besondere Eins\xE4tze' | 'Br\xE4nde' | 'First Responder THL' | 'Sicherheitswache' | 'THL' | '\xDCbungen / Lehrg\xE4nge / Veranstaltungen' | 'Verkehrsabsicherung' | 'Wasserdienst';
   ffNr?: number;
   frNr?: number;
   alias?: Slug;
