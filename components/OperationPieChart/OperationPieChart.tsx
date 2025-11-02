@@ -56,17 +56,15 @@ function OperationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element
 
   return <ResponsivePie
     data={ffChartData}
-    margin={{ top: 32, right: 32, bottom: 32, left: 32 }}
+    margin={{ top: 16, right: 16, bottom: 16, left: 16 }}
     innerRadius={0.5}
     padAngle={0.6}
     cornerRadius={2}
     activeOuterRadiusOffset={8}
-    arcLinkLabelsSkipAngle={10}
-    arcLinkLabelsTextColor={isDarkMode ? "#d1d5dc" : "#101828"}
-    arcLinkLabelsThickness={2}
-    arcLinkLabelsColor={{ from: 'color' }}
-    arcLabelsSkipAngle={10}
+    arcLabel={(data) => `${data.label} (${data.value})`}
     arcLabelsTextColor={{ from: 'color', modifiers: [['darker', 2]] }}
+    enableArcLinkLabels={false}
+    arcLabelsSkipAngle={10}
     colors={(data) => data.data.color}
     layers={['arcs', 'arcLabels', 'arcLinkLabels', CenteredMetricWrapper]}
   />;
