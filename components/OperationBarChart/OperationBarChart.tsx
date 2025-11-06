@@ -1,7 +1,7 @@
 'use client';
 
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { JSX, useEffect, useState } from 'react';
+import { JSX } from 'react';
 import { OperationBarChartDataType } from './types/operationBarChartTypes';
 import { ResponsiveBar } from '@nivo/bar';
 
@@ -11,22 +11,7 @@ interface OperationBarChartProps {
 }
 
 function OperationBarChart(props: Readonly<OperationBarChartProps>): JSX.Element {
-  const { operations, year } = props;
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const darkModeQuery = globalThis.matchMedia('(prefers-color-scheme: dark)');
-
-    const updateDarkMode = (e: MediaQueryListEvent | MediaQueryList) => {
-      setIsDarkMode(e.matches);
-    };
-
-    updateDarkMode(darkModeQuery);
-
-    darkModeQuery.addEventListener('change', updateDarkMode);
-
-    return () => darkModeQuery.removeEventListener('change', updateDarkMode);
-  }, []);
+  const { operations } = props;
 
   const ffChartData = operations?.reduce<Array<OperationBarChartDataType>>((acc, op) => {
     const locality = op.locality ?? 'Unbekannt';
