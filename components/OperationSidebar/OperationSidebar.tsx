@@ -1,6 +1,5 @@
 import { JSX } from 'react';
 import path from 'node:path';
-import cn from 'classnames';
 import { parseCategory } from '@/lib/operationUtils';
 import OperationCatLink from '../OperationCatLink';
 
