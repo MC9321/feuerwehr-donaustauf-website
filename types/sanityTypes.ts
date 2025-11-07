@@ -240,11 +240,22 @@ export type OPERATION_QUERYResult = Array<{
   slug: Slug | null;
 }>;
 
+// Source: ./lib/OperationStatsService.ts
+// Variable: OPERATION_STATS_QUERY
+// Query: *[_type == "einsatzStats"]{ _id, year, ff, fr }
+export type OPERATION_STATS_QUERYResult = Array<{
+  _id: string;
+  year: number | null;
+  ff: number | null;
+  fr: number | null;
+}>;
+
 // Query TypeMap
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == "info"]{ _id, title, message }': INFO_QUERYResult;
     '*[_type == "einsatz"]{ _id, title, locality, date, category, ffNr, frNr, slug }': OPERATION_QUERYResult;
+    '*[_type == "einsatzStats"]{ _id, year, ff, fr }': OPERATION_STATS_QUERYResult;
   }
 }

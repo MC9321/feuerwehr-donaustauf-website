@@ -9,6 +9,8 @@ import OperationsWithMonth from '@/components/OperationsWithMonth';
 import OperationLocationPieChart from '@/components/OperationLocationPieChart';
 import { getCurrentYear } from '@/lib/operationUtils';
 import OperationSidebar from '@/components/OperationSidebar';
+import { OperationStatsBarChartDataType } from '@/components/OperationStatsBarChart/types/operationBarChartTypes';
+import OperationStatsBarChart from '@/components/OperationStatsBarChart';
 
 interface OperationContentProps {
   operations: OPERATION_QUERYResult;
@@ -19,10 +21,11 @@ interface OperationContentProps {
   operationPath?: string;
   activeCategory?: string;
   kind?: 'FF' | 'FR';
+  statistics?: OperationStatsBarChartDataType[];
 }
 
 function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
-  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory, category, kind } = props;
+  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory, category, kind, statistics } = props;
   const showSidebar = (years.length > 0 || categories.length > 0) && operationPath;
 
   return (
@@ -37,6 +40,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           {operations.length > 0 && (
             <>
               <OperationsWithMonth operations={operations} kind={kind} />
+              <h3 className="text-lg tracking-tight text-secondary mt-6 upp sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">DIAGRAMME</h3>
               <div className="flex flex-wrap">
                 <div className={cn('w-full md:w-1/2 h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
                   <OperationPieChart operations={operations} />
@@ -44,6 +48,14 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
                 <div className={cn('w-full md:w-1/2 h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
                   <OperationLocationPieChart operations={operations} />
                 </div>
+              </div>
+            </>
+          )}
+          {statistics && (
+            <>
+              <h3 className="text-lg tracking-tight text-secondary mt-6 upp sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">JAHRESSTATISTIK</h3>
+              <div className={cn('w-full h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
+                <OperationStatsBarChart data={statistics} />
               </div>
             </>
           )}
