@@ -3,9 +3,13 @@
 import { ButtonLink, PageSection } from '@salzpate/react-ui';
 import { JSX } from 'react';
 
-function SpendenContent(): JSX.Element {
+interface SpendenContentProps {
+  subSection?: boolean;
+}
+
+function SpendenContent({ subSection }: Readonly<SpendenContentProps>): JSX.Element {
   return (
-    <PageSection headline="Spenden" id="spenden">
+    <PageSection headline="Spenden" subSection={subSection} id="spenden">
       <div className="page-section pb-8">
         Die Ausbildung der Helferinnen und Helfer sowie die Anschaffung und Wartung der notwendigen Ausrüstung werden vollständig durch den Förderverein Freiwillige Feuerwehr Donaustauf e.V. finanziert. Um diese wichtige Aufgabe auch künftig erfüllen zu können, ist der Verein weiterhin auf Spenden angewiesen.
         <br />

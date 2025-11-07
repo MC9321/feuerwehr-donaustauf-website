@@ -49,7 +49,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
           </div>
         </div>
       </PageSection >
-      <SpendenContent />
+      <SpendenContent subSection />
     </>
   );
 }
