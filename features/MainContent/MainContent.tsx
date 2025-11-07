@@ -2,7 +2,7 @@
 
 import Operations from '@/components/Operations/Operations';
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { PageSection } from '@salzpate/react-ui';
+import { MoreLink, PageSection } from '@salzpate/react-ui';
 import { JSX } from 'react';
 import cn from 'classnames';
 import SpendenContent from '../SpendenContent';
@@ -37,7 +37,9 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
               <div className={cn('w-full h-[400px] my-4 bg-white dark:bg-black text-gray-900', { 'hidden': hideFfChart, 'md:block': !hideAll })}>
                 <OperationPieChart year={year} operations={ffOpsThisYear} />
               </div>
-              <Operations operations={ffOps?.slice(0, 5)} alternate />
+              <MoreLink href="/feuerwehr/einsaetze/" linkText="Weitere Einsätze">
+                <Operations operations={ffOps?.slice(0, 5)} kind="FF" alternate />
+              </MoreLink>
             </div>
           </div>
           <div className="w-full md:w-1/2 mt-4 md:mt-0">
@@ -45,7 +47,9 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
             <div className={cn('w-full h-[400px] my-4 bg-white dark:bg-black text-gray-900', { 'hidden': hideFrChart, 'md:block': !hideAll })}>
               <OperationPieChart year={year} operations={frOpsThisYear} />
             </div>
-            <Operations operations={frOps?.slice(0, 5)} alternate />
+            <MoreLink href="/first-responder/einsaetze/" linkText="Weitere Einsätze">
+              <Operations operations={frOps?.slice(0, 5)} kind="FR" alternate />
+            </MoreLink>
           </div>
         </div>
       </PageSection >

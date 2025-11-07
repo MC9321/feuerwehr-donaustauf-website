@@ -18,7 +18,7 @@ async function FeuerwehrEinsaetze(): Promise<JSX.Element> {
 
   const ffOps = sortOperations(ffOperationsOfYear) ?? [];
 
-  return <OperationContent operations={ffOps} year={year} years={years} categories={categories} operationPath="/feuerwehr/einsaetze/" />;
+  return <OperationContent operations={ffOps} year={year} years={years} categories={categories} operationPath="/feuerwehr/einsaetze/" kind='FF' />;
 }
 
 export default FeuerwehrEinsaetze;

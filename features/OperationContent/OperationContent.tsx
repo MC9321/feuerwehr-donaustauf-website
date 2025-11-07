@@ -18,14 +18,15 @@ interface OperationContentProps {
   categories?: string[];
   operationPath?: string;
   activeCategory?: string;
+  kind?: 'FF' | 'FR';
 }
 
 function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
-  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory, category } = props;
+  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory, category, kind } = props;
   const showSidebar = (years.length > 0 || categories.length > 0) && operationPath;
 
   return (
-    <PageSection headline={category ? `Einsätze ${year} - ${category}` : `Einsätze ${year}`} id="feuerwehr-einsaetze">
+    <PageSection headline={category ? `Einsätze ${year} - ${category}` : `Einsätze ${year}`} id={kind === 'FF' ? 'feuerwehr-einsaetze' : 'first-responder-einsaetze'}>
       <div className="my-6 grid grid-cols-1 gap-4 sm:my-8 sm:grid-cols-12">
         <div className={cn('grid-cols-1 sm:col-span-8', { 'lg:col-span-9': showSidebar, 'lg:col-span-12': !showSidebar })}>
           {operations.length === 0 && (
@@ -35,7 +36,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           )}
           {operations.length > 0 && (
             <>
-              <OperationsWithMonth operations={operations} />
+              <OperationsWithMonth operations={operations} kind={kind} />
               <div className="flex flex-wrap">
                 <div className={cn('w-full md:w-1/2 h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
                   <OperationPieChart operations={operations} />

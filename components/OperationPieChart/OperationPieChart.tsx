@@ -3,9 +3,9 @@
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 import { ResponsivePie, PieCustomLayerProps } from '@nivo/pie';
 import { JSX, useEffect, useState } from 'react';
-import { getCategoryColor } from '../Operations';
 import CenteredMetric from './components/CenteredMetric/CenteredMetric';
 import { OperationChartDataType } from './types/operationPieChartTypes';
+import { getCategoryColor } from '@/lib/operationUtils';
 
 interface OperationPieChartProps {
   operations?: OPERATION_QUERYResult;

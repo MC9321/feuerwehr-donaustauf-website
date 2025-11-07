@@ -1,5 +1,24 @@
 import { OPERATION_QUERYResult } from "@/types/sanityTypes";
 
+function getCategoryColor(category: string): string {
+  switch (category) {
+    case 'Brände':
+      return '#fdd49e';
+    case 'First Responder THL':
+      return '#ff6b6b';
+    case 'Sicherheitswache':
+      return '#d9f0a3';
+    case 'THL':
+      return '#95e1d3';
+    case 'Verkehrsabsicherung':
+      return '#ece7f2';
+    case 'Wasserdienst':
+      return '#74a9cf';
+    default:
+      return '#f38181';
+  }
+};
+
 function getFrOperations(operations: OPERATION_QUERYResult | undefined): OPERATION_QUERYResult | undefined {
   return operations?.filter((ops) => ops.category === 'First Responder THL');
 }
@@ -69,4 +88,31 @@ function parseCategory(category: string): string {
   return category.replaceAll(/\s/g, '_').replaceAll('Ü', 'Ue').replaceAll('ä', 'ae').toLowerCase();
 }
 
-export { getFrOperations, getFfOperations, sortOperations, getOperationsOfYear, getCurrentYear, getOperationYear, parseToNumber, getOperationYears, getOperationCategories, parseCategory, getOperationsOfCategory }
+function parseOperationTitle(title: string | null): string | null {
+  if (!title) {
+    return title;
+  }
+
+  if (title.startsWith('#')) {
+    return title.split('#').filter(Boolean).toReversed()[0];
+  }
+
+  return title;
+}
+
+function parseOperationAlert(title: string | null): string | null {
+  if (!title) {
+    return title;
+  }
+
+  if (title.startsWith('#')) {
+    const alert = title.split('#').filter(Boolean);
+    alert.pop();
+
+    return alert.toReversed().join(' - ');
+  }
+
+  return null;
+}
+
+export { getCategoryColor, getFrOperations, getFfOperations, sortOperations, getOperationsOfYear, getCurrentYear, getOperationYear, parseToNumber, getOperationYears, getOperationCategories, parseCategory, getOperationsOfCategory, parseOperationTitle, parseOperationAlert }

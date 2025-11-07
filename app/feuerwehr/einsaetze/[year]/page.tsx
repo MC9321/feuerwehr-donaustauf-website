@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Readonly<PageProps<'/feuerweh
   const { year } = await params;
 
   return {
-    title: `${year} - Einsätze - Feuerwehr - ${SITE_TITLE}`,
+    title: `Einsätze ${year} - Feuerwehr - ${SITE_TITLE}`,
   };
 }
 
@@ -36,7 +36,7 @@ async function FeuerwehrEinsaetze({ params }: Readonly<PageProps<'/feuerwehr/ein
 
   const ffOps = sortOperations(ffOperationsOfYear) ?? [];
 
-  return <OperationContent operations={ffOps} year={operationYear} years={years} categories={categories} operationPath="/feuerwehr/einsaetze/" />;
+  return <OperationContent operations={ffOps} year={operationYear} years={years} categories={categories} operationPath="/feuerwehr/einsaetze/" kind='FF' />;
 }
 
 export default FeuerwehrEinsaetze;

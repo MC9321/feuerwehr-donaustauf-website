@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Readonly<PageProps<'/feuerweh
   const { year } = await params;
 
   return {
-    title: `${year} - Einsätze - Feuerwehr - ${SITE_TITLE}`,
+    title: `Einsätze ${year} - Feuerwehr - ${SITE_TITLE}`,
   };
 }
 
@@ -51,7 +51,7 @@ async function FeuerwehrEinsaetzeCategory({ params }: Readonly<PageProps<'/feuer
 
   const ffOps = sortOperations(ffOperationsOfCat) ?? [];
 
-  return <OperationContent operations={ffOps} year={operationYear} years={years} category={category} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} />;
+  return <OperationContent operations={ffOps} year={operationYear} years={years} category={category} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} kind='FF' />;
 }
 
 export default FeuerwehrEinsaetzeCategory;
