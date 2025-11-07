@@ -20,6 +20,10 @@ function getOperationsOfYear(operations: OPERATION_QUERYResult | undefined, year
   return operations?.filter((ops) => getOperationYear(ops.date) === year);
 }
 
+function getOperationsOfCategory(operations: OPERATION_QUERYResult | undefined, category: string): OPERATION_QUERYResult | undefined {
+  return operations?.filter((ops) => parseCategory(ops.category ?? '') === category);
+}
+
 function getCurrentYear(): number {
   return new Date().getFullYear();
 }
@@ -65,4 +69,4 @@ function parseCategory(category: string): string {
   return category.replaceAll(/\s/g, '_').replaceAll('Ü', 'Ue').replaceAll('ä', 'ae').toLowerCase();
 }
 
-export { getFrOperations, getFfOperations, sortOperations, getOperationsOfYear, getCurrentYear, getOperationYear, parseToNumber, getOperationYears, getOperationCategories, parseCategory }
+export { getFrOperations, getFfOperations, sortOperations, getOperationsOfYear, getCurrentYear, getOperationYear, parseToNumber, getOperationYears, getOperationCategories, parseCategory, getOperationsOfCategory }

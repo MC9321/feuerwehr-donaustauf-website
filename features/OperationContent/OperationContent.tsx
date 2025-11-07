@@ -16,11 +16,11 @@ interface OperationContentProps {
   years?: number[];
   categories?: string[];
   operationPath?: string;
-  hideActiveCategory?: boolean;
+  activeCategory?: string;
 }
 
 function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
-  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, hideActiveCategory } = props;
+  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory } = props;
   const showSidebar = (years.length > 0 || categories.length > 0) && operationPath;
 
   return (
@@ -48,7 +48,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
         </div>
         {showSidebar && operationPath && (
           <div className="grid-cols-1 sm:col-span-4 lg:col-span-3">
-            <OperationSidebar categories={categories} years={years} year={year} operationPath={operationPath} activeCategory={hideActiveCategory ? '' : year.toString()} />
+            <OperationSidebar categories={categories} years={years} year={year} operationPath={operationPath} activeCategory={activeCategory} />
           </div>
         )}
       </div>

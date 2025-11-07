@@ -9,7 +9,7 @@ type OperationSidebarProps = {
   year: number;
   years: readonly number[];
   operationPath: string;
-  activeCategory: string;
+  activeCategory?: string;
 };
 
 function OperationSidebar(props: Readonly<OperationSidebarProps>): JSX.Element {
