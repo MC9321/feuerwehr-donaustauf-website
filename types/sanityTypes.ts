@@ -64,6 +64,7 @@ export type Info = {
     _type: 'block';
     _key: string;
   }>;
+  index?: number;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -202,7 +203,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./lib/InfoService.ts
 // Variable: INFO_QUERY
-// Query: *[_type == "info"]{ _id, title, message }
+// Query: *[_type == "info"]{ _id, title, message, index }
 export type INFO_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -224,6 +225,7 @@ export type INFO_QUERYResult = Array<{
     _type: 'block';
     _key: string;
   }> | null;
+  index: number | null;
 }>;
 
 // Source: ./lib/OperationService.ts
@@ -254,7 +256,7 @@ export type OPERATION_STATS_QUERYResult = Array<{
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type == "info"]{ _id, title, message }': INFO_QUERYResult;
+    '*[_type == "info"]{ _id, title, message, index }': INFO_QUERYResult;
     '*[_type == "einsatz"]{ _id, title, locality, date, category, ffNr, frNr, slug }': OPERATION_QUERYResult;
     '*[_type == "einsatzStats"]{ _id, year, ff, fr }': OPERATION_STATS_QUERYResult;
   }

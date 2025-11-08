@@ -398,6 +398,13 @@
           }
         },
         "optional": true
+      },
+      "index": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
       }
     }
   },
