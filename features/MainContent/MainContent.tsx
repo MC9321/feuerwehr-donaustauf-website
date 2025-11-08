@@ -2,7 +2,7 @@
 
 import Operations from '@/components/Operations/Operations';
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { MoreLink, PageSection } from '@salzpate/react-ui';
+import { MoreLink } from '@salzpate/react-ui';
 import { JSX } from 'react';
 import cn from 'classnames';
 import SpendenContent from '../SpendenContent';
@@ -10,6 +10,7 @@ import OperationPieChart from '@/components/OperationPieChart/OperationPieChart'
 import { getCurrentYear, getFfOperations, getFrOperations, getOperationsOfYear, sortOperations } from '@/lib/operationUtils';
 import BeitrittContent from '../BeitrittContent';
 import ContactContent from '../ContactContent';
+import { FfPageSection } from '@/components/FfPageSection';
 
 interface MainContentProps {
   operations?: OPERATION_QUERYResult;
@@ -31,7 +32,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
 
   return (
     <>
-      <PageSection headline="Einsätze" id="einsatz-content" subSection className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8 dark:bg-gray-900">
+      <FfPageSection headline="Einsätze" id="einsatz-content" subSection className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8 dark:bg-gray-900">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2">
             <div className="mr-0 md:mr-2">
@@ -54,7 +55,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
             </MoreLink>
           </div>
         </div>
-      </PageSection>
+      </FfPageSection>
       <SpendenContent subSection />
       <div className="bg-gray-100 dark:bg-gray-900">
         <BeitrittContent subSection showContact={false} />

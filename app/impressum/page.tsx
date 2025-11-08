@@ -1,11 +1,12 @@
 'use client';
 
 import { JSX } from 'react';
-import { PageLink, PageSection } from '@salzpate/react-ui';
+import { PageLink } from '@salzpate/react-ui';
+import { FfPageSection } from '@/components/FfPageSection';
 
 function Impressum(): JSX.Element {
   return (
-    <PageSection headline="Impressum" id="impressum">
+    <FfPageSection headline="Impressum" id="impressum">
       <div className="page-section pb-8">
         <h2 className="text-xl uppercase sm:text-2xl lg:text-3xl dark:text-gray-200">Angaben gemäß § 5 TMG</h2>
         <br />
@@ -153,7 +154,7 @@ function Impressum(): JSX.Element {
           Impressum Generator von e-recht24.de
         </PageLink>
       </div>
-    </PageSection>
+    </FfPageSection>
   );
 }
 

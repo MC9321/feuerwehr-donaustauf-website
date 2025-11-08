@@ -1,7 +1,8 @@
 'use client';
 
 import { JSX } from 'react';
-import { ContactCard, PageSection } from '@salzpate/react-ui';
+import { ContactCard } from '@salzpate/react-ui';
+import { FfPageSection } from '@/components/FfPageSection';
 
 interface ContactContentProps {
   subSection?: boolean;
@@ -9,7 +10,7 @@ interface ContactContentProps {
 
 function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Element {
   return (
-    <PageSection headline="Kontakt" id="kontakt" subSection={subSection} className="page-section">
+    <FfPageSection headline="Kontakt" id="kontakt" subSection={subSection} className="page-section">
       <div>Hast du Fragen rund um die Feuerwehr Donaustauf? Wir versenden keine Ärmelabzeichen an Sammler.</div>
       <div className="my-6 grid auto-rows-fr grid-cols-1 gap-6 sm:my-8 sm:grid-cols-2 lg:grid-cols-3">
         <div>
@@ -84,7 +85,7 @@ function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Elem
           />
         </div>
       </div>
-    </PageSection>
+    </FfPageSection>
   );
 }
 

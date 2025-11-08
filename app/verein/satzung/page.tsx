@@ -1,11 +1,11 @@
 'use client';
 
 import { JSX } from 'react';
-import { PageSection } from '@salzpate/react-ui';
+import { FfPageSection } from '@/components/FfPageSection';
 
 function Satzung(): JSX.Element {
   return (
-    <PageSection headline="Satzung Freiwillige Feuerwehr Donaustauf e.V." id="satzung">
+    <FfPageSection headline="Satzung Freiwillige Feuerwehr Donaustauf e.V." id="satzung">
       <div className="page-section pb-8">
         <h2 className="text-xl uppercase sm:text-2xl lg:text-3xl dark:text-gray-200">&sect; 1 - Name, Sitz, Geschäftsjahr</h2>
         <br />
@@ -268,7 +268,7 @@ function Satzung(): JSX.Element {
         <br />
         <div>Donaustauf, den 08.04.2022</div>
       </div>
-    </PageSection>
+    </FfPageSection>
   );
 }
 

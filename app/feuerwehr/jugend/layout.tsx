@@ -3,11 +3,11 @@ import { Metadata } from 'next';
 import { SITE_TITLE } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: `Mannschaft - Feuerwehr - ${SITE_TITLE}`,
+  title: `Jugend - Feuerwehr - ${SITE_TITLE}`,
 };
 
-function MannschaftLayout({ children }: LayoutProps<'/feuerwehr/mannschaft'>): JSX.Element {
+function JugendLayout({ children }: LayoutProps<'/feuerwehr/jugend'>): JSX.Element {
   return <>{children}</>;
 }
 
-export default MannschaftLayout;
+export default JugendLayout;

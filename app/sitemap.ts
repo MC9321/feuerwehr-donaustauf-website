@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${SITE_URL}/first-responder/spenden/`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
       url: `${SITE_URL}/first-responder/einsaetze/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

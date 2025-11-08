@@ -2,7 +2,7 @@
 
 import OperationPieChart from '@/components/OperationPieChart';
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { Banner, PageSection } from '@salzpate/react-ui';
+import { Banner } from '@salzpate/react-ui';
 import { JSX } from 'react';
 import cn from 'classnames';
 import OperationsWithMonth from '@/components/OperationsWithMonth';
@@ -11,6 +11,7 @@ import { getCurrentYear } from '@/lib/operationUtils';
 import OperationSidebar from '@/components/OperationSidebar';
 import { OperationStatsBarChartDataType } from '@/components/OperationStatsBarChart/types/operationBarChartTypes';
 import OperationStatsBarChart from '@/components/OperationStatsBarChart';
+import { FfPageSection } from '@/components/FfPageSection';
 
 interface OperationContentProps {
   operations: OPERATION_QUERYResult;
@@ -29,7 +30,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
   const showSidebar = (years.length > 0 || categories.length > 0) && operationPath;
 
   return (
-    <PageSection headline={category ? `Einsätze ${year} - ${category}` : `Einsätze ${year}`} id={kind === 'FF' ? 'feuerwehr-einsaetze' : 'first-responder-einsaetze'}>
+    <FfPageSection headline={category ? `Einsätze ${year} - ${category}` : `Einsätze ${year}`} id={kind === 'FF' ? 'feuerwehr-einsaetze' : 'first-responder-einsaetze'}>
       <div className="my-6 grid grid-cols-1 gap-4 sm:my-8 sm:grid-cols-12">
         <div className={cn('grid-cols-1 sm:col-span-8', { 'lg:col-span-9': showSidebar, 'lg:col-span-12': !showSidebar })}>
           {operations.length === 0 && (
@@ -66,7 +67,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           </div>
         )}
       </div>
-    </PageSection>
+    </FfPageSection>
   );
 }
 

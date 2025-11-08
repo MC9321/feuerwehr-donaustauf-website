@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: `Vorstandschaft - Verein - ${SITE_TITLE}`,
 };
 
-function VorstandschaftLayout({ children }: LayoutProps<'/verein/chronik'>): JSX.Element {
+function VorstandschaftLayout({ children }: LayoutProps<'/verein/vorstandschaft'>): JSX.Element {
   return <>{children}</>;
 }
 

@@ -1,12 +1,12 @@
 'use client';
 
+import { FfPageSection } from '@/components/FfPageSection';
 import FunctionCard from '@/components/FunctionCard';
-import { PageSection } from '@salzpate/react-ui';
 import { JSX } from 'react';
 
-function Vorstandschaft(): JSX.Element {
+function Mannschaft(): JSX.Element {
   return (
-    <PageSection headline="Vorstandschaft" id="vorstandschaft">
+    <FfPageSection headline="Vorstandschaft" id="vorstandschaft">
       <FunctionCard role="Kommandant" name="Christopher Möck" leadership className="mb-4" />
       <FunctionCard role="Stellvertretender Kommandant" name="Patrick Schrödel" leadership className="mb-4" />
       <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -55,8 +55,8 @@ function Vorstandschaft(): JSX.Element {
           </FunctionCard>
         </div>
       </div>
-    </PageSection>
+    </FfPageSection>
   );
 }
 
-export default Vorstandschaft;
+export default Mannschaft;

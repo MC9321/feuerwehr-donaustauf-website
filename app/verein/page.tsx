@@ -1,12 +1,12 @@
 'use client';
 
 import { JSX } from 'react';
-import { PageSection } from '@salzpate/react-ui';
 import PageMenuLink from '@/components/PageMenuLink';
+import { FfPageSection } from '@/components/FfPageSection';
 
 function Verein(): JSX.Element {
   return (
-    <PageSection headline="Verein" id="verein">
+    <FfPageSection headline="Verein" id="verein">
       <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <PageMenuLink href="/verein/vorstandschaft/" name="Vorstandschaft" image="/assets/images/menu/verein-vorstandschaft.png">
           Hier stellen wir das Vorstandsteam unseres Feuerwehrvereins vor.
@@ -21,7 +21,7 @@ function Verein(): JSX.Element {
           Unsere Satzung regelt Organisation, Ziele und Rechte unseres Feuerwehrvereins. Hier finden Sie die wichtigsten Informationen und Bestimmungen.
         </PageMenuLink>
       </div>
-    </PageSection>
+    </FfPageSection>
   );
 }
 

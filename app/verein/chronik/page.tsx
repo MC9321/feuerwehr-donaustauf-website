@@ -1,13 +1,13 @@
 'use client';
 
 import { JSX } from 'react';
-import { PageSection } from '@salzpate/react-ui';
 import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
+import { FfPageSection } from '@/components/FfPageSection';
 
 function Chronik(): JSX.Element {
   return (
     <>
-      <PageSection headline="Chronik" id="chronik">
+      <FfPageSection headline="Chronik" id="chronik">
         <div className="page-section pb-8">
           <h3 className="mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Gründungszeit 1868</h3>
           <div className="mb-4">
@@ -53,8 +53,8 @@ function Chronik(): JSX.Element {
             </CloudinaryPageImage>
           </div>
         </div>
-      </PageSection>
-      <PageSection headline="Großer Brand 1880" id="1880" subSection className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
+      </FfPageSection>
+      <FfPageSection headline="Großer Brand 1880" id="1880" subSection className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
         <div className="mb-4">
           Streng war der Winter 1879/80. Die Donau führte stark Treibeis. Mit Not war es den Staufern gelungen, ihre Holzbrücke rechtzeitig abzutragen und die langen &quot;Endsbäume&quot; bis zum Aufbau im nächsten Frühjahr am Brückenhaus
           zu lagern. Im Dezember hatte sich ein Eisstoß gebildet. Ein Hochwasser zu Beginn des Jahres 1880 trug die Eisschollen auf die Staufer Flur und sperrte die Tegernheimer Straße. Über zwei Meter hoch lagen teilweise die Schollen auf
@@ -100,8 +100,8 @@ function Chronik(): JSX.Element {
           Der Markt bat um öffentliche Unterstützung in dieser Notlage. An vielen Orten bildeten sich Hilfsstellungen.König Ludwig II., das Haus Thurn und Taxis, Bischöfe, Grafen, Städte, Banken und Vereine halfen den Brandgeschädigten.
           Sogar die Stadt München brachte durch die Caritas über 26.000 Mark herbei. Der Wiederaufbau brachte eine völlige Neugestaltung des Ortsbildes.
         </div>
-      </PageSection>
-      <PageSection headline="Chronik 1880 - 1960" id="1880-1960" subSection>
+      </FfPageSection>
+      <FfPageSection headline="Chronik 1880 - 1960" id="1880-1960" subSection>
         <div className="mb-4">
           Im Jahre 1883 wurden die Gebäude des Ortes erstmals nummeriert. 1888 begann der Bahnbau Stadtamhof - Donaustauf- Walhalla. 1889 fand die Fahnenweihe der Freiwilligen Feuerwehr statt. 1891/1892 erhält die Donaubrücke in ihrer
           gesamten Breite eine Eisenkonstruktion. Der Bau der Wasserleitung in den Jahren 1894-1896 war für das Feuerlöschwesen von großer Bedeutung.
@@ -221,8 +221,8 @@ function Chronik(): JSX.Element {
           Nachmittag bewegte sich der Festzug durch den festlich geschmückten Markt. Bis in die späten Abendstunden herrschte im Festzelt Hochstimmung. Die Donaustaufer Wehr, welche seit 1952 als Stützpunktfeuerwehr gilt, verfügte damals
           über ein Löschfahrzeug &quot;LF 8&quot; und eine &quot;TS 8&quot;. In vielen Übungen und durch das Ablegen der Leistungsprüfungen wurde die erforderliche Schlagkraft erhalten und gefördert.
         </div>
-      </PageSection>
-      <PageSection headline="Leistungsabzeichen 1954" id="1954" subSection className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
+      </FfPageSection>
+      <FfPageSection headline="Leistungsabzeichen 1954" id="1954" subSection className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
         <div className="mb-4">Wirksamer Feuerschutz wurde in früheren Jahren durch unzulängliche Ausrüstung und vor allem auch geringen Ausbildungsstand der Helfer sowie mangelnde Organisation und Koordination beim Einsatz verhindert.</div>
         <div className="mb-4">
           Um wirkungsvoll helfen zu können, müssen unsere Feuerwehren gut ausgerüstet und ausgebildet sein. Diese Erkenntnis war sicher auch der Anlass, dass 1953 im Landkreis Passau ein entscheidender Schritt in diese Richtung begangen
@@ -258,7 +258,7 @@ function Chronik(): JSX.Element {
           Sicher war es vor 55 Jahren für viele Feuerwehren wegen fehlender Gerätschaften schwer, die Leistungsprüfung abzulegen. Aber der Anreiz war so stark, dass in den darauf folgenden Jahren die notwendige Ausrüstung nach und nach
           beschafft wurde. Somit war das eigentliche Ziel der Leistungsprüfung - die geordnete Arbeit der Mannschaft und die Vervollständigung der Geräte - erreicht.
         </div>
-      </PageSection>
+      </FfPageSection>
     </>
   );
 }

@@ -20,6 +20,11 @@ export function Themefix(): JSX.Element {
       <div className="text-paragraph">--color-paragraph: #101828;</div>
       <div className="dark:text-paragraph-dark"> --color-paragraph-dark: #d1d5dc;</div>
       <div className="text-alternate">--color-alternate: #007cc2;</div>
+      <div className="text-alternate">--color-alternate: #007cc2;</div>
+      <div className="text-alternate">--color-alternate: #007cc2;</div>
+      <div className="text-alternate">--color-alternate: #007cc2;</div>
+      <div className="text-alternate">--color-alternate: #007cc2;</div>
+      <div className="text-alternate">--color-alternate: #007cc2;</div>
     </>
   );
 }
