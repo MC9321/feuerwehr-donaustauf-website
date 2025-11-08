@@ -7,11 +7,7 @@ export const metadata: Metadata = {
 };
 
 function FeuerwehrEinsaetzeLayout({ children }: LayoutProps<'/feuerwehr/einsaetze'>): JSX.Element {
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
 
 export default FeuerwehrEinsaetzeLayout;

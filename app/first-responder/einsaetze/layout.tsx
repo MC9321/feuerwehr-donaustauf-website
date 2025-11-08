@@ -7,11 +7,7 @@ export const metadata: Metadata = {
 };
 
 function FirstResponserEinsaetzeLayout({ children }: LayoutProps<'/first-responder/einsaetze'>): JSX.Element {
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
 
 export default FirstResponserEinsaetzeLayout;

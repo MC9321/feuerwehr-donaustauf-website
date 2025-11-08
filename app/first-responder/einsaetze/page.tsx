@@ -27,7 +27,7 @@ async function FeuerwehrEinsaetze(): Promise<JSX.Element> {
 
   stats?.push({ id: year.toString(), label: year.toString(), count: frOperationsOfYear?.length ?? 0 });
 
-  return <OperationContent operations={frOps} year={year} years={years} operationPath="/first-responder/einsaetze/" kind='FR' statistics={stats} />;
+  return <OperationContent operations={frOps} year={year} years={years} operationPath="/first-responder/einsaetze/" kind="FR" statistics={stats} />;
 }
 
 export default FeuerwehrEinsaetze;

@@ -16,9 +16,9 @@ function PageImage(props: Readonly<PropsWithChildren<PageImageProps>>): JSX.Elem
   const { src, alt, width, height, fill, className, alternate, children } = props;
 
   return (
-    <div className={cn('p-2 inline-block', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate }, className)}>
+    <div className={cn('inline-block p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate }, className)}>
       <Image src={src} alt={alt} width={width} height={height} fill={fill} />
-      <div className="text-xs mt-2">{children}</div>
+      <div className="mt-2 text-xs">{children}</div>
     </div>
   );
 }

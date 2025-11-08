@@ -19,7 +19,7 @@ export async function generateStaticParams(): Promise<StaticYearCategoryParams[]
     const operationOfYear = getOperationsOfYear(getFfOperations(operations), year);
     const categories = getOperationCategories(operationOfYear).filter(Boolean);
     for (const category of categories) {
-      yearCat.push({ year: year.toString(), cat: category })
+      yearCat.push({ year: year.toString(), cat: category });
     }
   }
   console.log(yearCat);
@@ -47,11 +47,11 @@ async function FeuerwehrEinsaetzeCategory({ params }: Readonly<PageProps<'/feuer
   const ffOperationsOfYear = getOperationsOfYear(ffOperations, operationYear);
   const categories = getOperationCategories(ffOperationsOfYear);
   const ffOperationsOfCat = getOperationsOfCategory(ffOperationsOfYear, cat);
-  const category = categories.find((c) => parseCategory(c) === cat);
+  const category = categories.find(c => parseCategory(c) === cat);
 
   const ffOps = sortOperations(ffOperationsOfCat) ?? [];
 
-  return <OperationContent operations={ffOps} year={operationYear} years={years} category={category} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} kind='FF' />;
+  return <OperationContent operations={ffOps} year={operationYear} years={years} category={category} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} kind="FF" />;
 }
 
 export default FeuerwehrEinsaetzeCategory;

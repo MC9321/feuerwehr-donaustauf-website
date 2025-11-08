@@ -3,7 +3,6 @@ import path from 'node:path';
 import { parseCategory } from '@/lib/operationUtils';
 import OperationCatLink from '../OperationCatLink';
 
-
 type OperationSidebarProps = {
   categories: readonly string[];
   year: number;
@@ -32,11 +31,7 @@ function OperationSidebar(props: Readonly<OperationSidebarProps>): JSX.Element {
             </OperationCatLink>
             <hr className="text-gray-300 dark:text-gray-700" />
             {categories.map(category => (
-              <OperationCatLink
-                key={parseCategory(category)}
-                href={path.join(`/${operationPath}`, year.toString(), encodeURIComponent(parseCategory(category))) + '/'}
-                active={activeCategory === parseCategory(category)}
-              >
+              <OperationCatLink key={parseCategory(category)} href={path.join(`/${operationPath}`, year.toString(), encodeURIComponent(parseCategory(category))) + '/'} active={activeCategory === parseCategory(category)}>
                 {category}
               </OperationCatLink>
             ))}
@@ -44,7 +39,7 @@ function OperationSidebar(props: Readonly<OperationSidebarProps>): JSX.Element {
         )}
         {showYear && (
           <>
-            {showCategory && (<div className="pt-2" />)}
+            {showCategory && <div className="pt-2" />}
             <>
               <h3 className="mb-2 text-lg font-medium text-secondary uppercase sm:text-lg lg:text-xl dark:text-secondary-dark">JAHR</h3>
               {years.map(opsYear => (
@@ -56,7 +51,7 @@ function OperationSidebar(props: Readonly<OperationSidebarProps>): JSX.Element {
           </>
         )}
       </div>
-    </div >
+    </div>
   );
 }
 export default OperationSidebar;

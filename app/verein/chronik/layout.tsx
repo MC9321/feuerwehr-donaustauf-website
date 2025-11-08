@@ -7,11 +7,7 @@ export const metadata: Metadata = {
 };
 
 function VereinChronikLayout({ children }: LayoutProps<'/verein/chronik'>): JSX.Element {
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
 
 export default VereinChronikLayout;

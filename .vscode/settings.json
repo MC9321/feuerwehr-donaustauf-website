@@ -23,7 +23,5 @@
   ],
   "files.trimTrailingWhitespace": true,
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "prettier.singleQuote": true,
-  "prettier.printWidth": 240,
   "eslint.lintTask.options": "-c ./.eslintrc.json --ignore-path ./.eslintignore .",
 }

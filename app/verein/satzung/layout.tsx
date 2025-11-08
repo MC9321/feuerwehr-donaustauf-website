@@ -7,11 +7,7 @@ export const metadata: Metadata = {
 };
 
 function VereinSatzungLayout({ children }: LayoutProps<'/verein/satzung'>): JSX.Element {
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
 
 export default VereinSatzungLayout;

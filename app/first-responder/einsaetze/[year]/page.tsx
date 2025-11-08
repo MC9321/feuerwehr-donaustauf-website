@@ -12,7 +12,7 @@ export async function generateStaticParams(): Promise<{ year: string }[]> {
   const operations = await operationService.getOperations();
   const years = getOperationYears(operations);
 
-  return years.map((year) => ({ year: year.toString() }));
+  return years.map(year => ({ year: year.toString() }));
 }
 
 async function getStatsData(): Promise<OPERATION_STATS_QUERYResult> {
@@ -46,7 +46,7 @@ async function FirstResponderYearEinsaetze({ params }: Readonly<PageProps<'/firs
 
   const frOps = sortOperations(frOperationsOfYear) ?? [];
 
-  return <OperationContent operations={frOps} year={operationYear} years={years} operationPath="/first-responder/einsaetze/" kind='FR' statistics={stats} />;
+  return <OperationContent operations={frOps} year={operationYear} years={years} operationPath="/first-responder/einsaetze/" kind="FR" statistics={stats} />;
 }
 
 export default FirstResponderYearEinsaetze;

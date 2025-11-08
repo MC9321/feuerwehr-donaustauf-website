@@ -13,10 +13,13 @@ function Operations(props: Readonly<OperationsProps>): JSX.Element {
 
   return (
     <>
-      {operations?.map((operation) => (
-        <div key={operation._id}><Operation {...operation} alternate={alternate} kind={kind} /></div>
-      ))}</>
-  )
+      {operations?.map(operation => (
+        <div key={operation._id}>
+          <Operation {...operation} alternate={alternate} kind={kind} />
+        </div>
+      ))}
+    </>
+  );
 }
 
 export default Operations;

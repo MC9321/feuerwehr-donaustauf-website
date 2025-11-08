@@ -8,7 +8,11 @@ interface OperationCounterProps {
 function OperationCounter(props: Readonly<OperationCounterProps>): JSX.Element {
   const { year, count } = props;
 
-  return <div className='text-sm mb-4'>{year}: {count} Einsätze</div>;
+  return (
+    <div className="mb-4 text-sm">
+      {year}: {count} Einsätze
+    </div>
+  );
 }
 
 export default OperationCounter;

@@ -12,11 +12,11 @@ import operationService from '@/lib/OperationService';
 
 import styles from '@/styles/index.module.css';
 
-async function getData(): Promise<{ infos?: INFO_QUERYResult, operations?: OPERATION_QUERYResult }> {
+async function getData(): Promise<{ infos?: INFO_QUERYResult; operations?: OPERATION_QUERYResult }> {
   const infos = await infoService.getInfos();
   const operations = await operationService.getOperations();
 
-  return ({ infos, operations });
+  return { infos, operations };
 }
 
 async function Home(): Promise<JSX.Element> {

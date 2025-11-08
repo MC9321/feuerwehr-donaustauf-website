@@ -17,7 +17,7 @@ export type PageMenuLinkProps = {
 };
 
 function PageMenuLink(props: Readonly<PropsWithChildren<PageMenuLinkProps>>): JSX.Element {
-  const { name, id, image, href, children, } = props;
+  const { name, id, image, href, children } = props;
 
   return (
     <Link href={href} id={id} className={[styles.link, 'rounded-lg'].join(' ')}>

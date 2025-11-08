@@ -7,11 +7,7 @@ export const metadata: Metadata = {
 };
 
 function VorstandschaftLayout({ children }: LayoutProps<'/verein/chronik'>): JSX.Element {
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
 
 export default VorstandschaftLayout;

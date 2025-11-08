@@ -18,7 +18,6 @@ const config = {
   useTabs: false,
   plugins: ['prettier-plugin-tailwindcss'],
   tailwindStylesheet: './styles/globals.css',
-  tailwindConfig: './tailwind.config.ts',
   tailwindFunctions: ['cn'],
   overrides: [
     {

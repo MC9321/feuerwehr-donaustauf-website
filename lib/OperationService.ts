@@ -15,7 +15,7 @@ class OperationService {
   getOperationsOfYear = async (year: number): Promise<OPERATION_QUERYResult> => {
     const data = client.fetch<OPERATION_QUERYResult>(OPERATION_QUERY, {}, options);
 
-    return (await data).filter((ops) => (getOperationYear(ops.date) ?? 0) === year);
+    return (await data).filter(ops => (getOperationYear(ops.date) ?? 0) === year);
   };
 }
 

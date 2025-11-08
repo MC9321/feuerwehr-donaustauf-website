@@ -1,4 +1,4 @@
-import { OPERATION_QUERYResult } from "@/types/sanityTypes";
+import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 
 function getCategoryColor(category: string): string {
   switch (category) {
@@ -17,14 +17,14 @@ function getCategoryColor(category: string): string {
     default:
       return '#f38181';
   }
-};
+}
 
 function getFrOperations(operations: OPERATION_QUERYResult | undefined): OPERATION_QUERYResult | undefined {
-  return operations?.filter((ops) => ops.category === 'First Responder THL');
+  return operations?.filter(ops => ops.category === 'First Responder THL');
 }
 
 function getFfOperations(operations: OPERATION_QUERYResult | undefined): OPERATION_QUERYResult | undefined {
-  return operations?.filter((ops) => ops.category !== 'First Responder THL');
+  return operations?.filter(ops => ops.category !== 'First Responder THL');
 }
 
 function sortOperations(operations: OPERATION_QUERYResult | undefined): OPERATION_QUERYResult | undefined {
@@ -36,11 +36,11 @@ function getOperationYear(date: string | null): number | undefined {
 }
 
 function getOperationsOfYear(operations: OPERATION_QUERYResult | undefined, year: number): OPERATION_QUERYResult | undefined {
-  return operations?.filter((ops) => getOperationYear(ops.date) === year);
+  return operations?.filter(ops => getOperationYear(ops.date) === year);
 }
 
 function getOperationsOfCategory(operations: OPERATION_QUERYResult | undefined, category: string): OPERATION_QUERYResult | undefined {
-  return operations?.filter((ops) => parseCategory(ops.category ?? '') === category);
+  return operations?.filter(ops => parseCategory(ops.category ?? '') === category);
 }
 
 function getCurrentYear(): number {
@@ -115,4 +115,19 @@ function parseOperationAlert(title: string | null): string | null {
   return null;
 }
 
-export { getCategoryColor, getFrOperations, getFfOperations, sortOperations, getOperationsOfYear, getCurrentYear, getOperationYear, parseToNumber, getOperationYears, getOperationCategories, parseCategory, getOperationsOfCategory, parseOperationTitle, parseOperationAlert }
+export {
+  getCategoryColor,
+  getFrOperations,
+  getFfOperations,
+  sortOperations,
+  getOperationsOfYear,
+  getCurrentYear,
+  getOperationYear,
+  parseToNumber,
+  getOperationYears,
+  getOperationCategories,
+  parseCategory,
+  getOperationsOfCategory,
+  parseOperationTitle,
+  parseOperationAlert,
+};

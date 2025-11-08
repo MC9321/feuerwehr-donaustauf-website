@@ -14,10 +14,7 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
   const groupedOperations = useMemo(() => {
     if (!operations) return [];
 
-    const monthNames = [
-      'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-      'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
-    ];
+    const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
 
     const sorted = operations
       .filter(op => op.date)
@@ -28,7 +25,7 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
       });
 
     // Group by month and year
-    const groups: Array<{ monthKey: string; monthName: string; headline: string, operations: typeof sorted }> = [];
+    const groups: Array<{ monthKey: string; monthName: string; headline: string; operations: typeof sorted }> = [];
     let currentMonthKey: string | null = null;
     let currentGroup: typeof sorted = [];
 
@@ -40,7 +37,7 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
         monthKey,
         monthName: monthNames[firstDate.getMonth()],
         headline: `${monthNames[firstDate.getMonth()]} ${firstDate.getFullYear()}`,
-        operations: [...group]
+        operations: [...group],
       });
     };
 
@@ -72,22 +69,17 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
 
   return (
     <div style={{ marginTop: '-1rem' }}>
-      {groupedOperations.map((group) => (
+      {groupedOperations.map(group => (
         <div key={group.monthKey}>
           <a id={group.monthName}></a>
-          <h3 className="text-lg tracking-tight text-secondary my-4 uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">
-            {group.headline}
-          </h3>
-          {
-            group.operations.map((operation) => (
-              <div key={operation._id}>
-                <Operation {...operation} alternate={alternate} kind={kind} />
-              </div>
-            ))
-          }
-        </div >
-      ))
-      }
+          <h3 className="my-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">{group.headline}</h3>
+          {group.operations.map(operation => (
+            <div key={operation._id}>
+              <Operation {...operation} alternate={alternate} kind={kind} />
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

@@ -31,28 +31,30 @@ function OperationStatsBarChart(props: Readonly<OperationStatsBarChartProps>): J
     return <></>;
   }
 
-  return <ResponsiveBar
-    theme={{
-      labels: {
-        text: {
-          fontSize: '0.75rem',
-        },
-      },
-      axis: {
-        ticks: {
+  return (
+    <ResponsiveBar
+      theme={{
+        labels: {
           text: {
-            fill: isDarkMode ? 'rgb(209, 213, 220)' : 'rgb(51, 51, 51)',
+            fontSize: '0.75rem',
           },
         },
-      },
-    }}
-    data={data}
-    margin={{ top: 16, right: 16, bottom: 32, left: 32 }}
-    tooltipLabel={(data) => `${data.data.label} - Einsätze`}
-    colors="#ff6b6b"
-    indexBy="label"
-    keys={["count"]}
-  />;
+        axis: {
+          ticks: {
+            text: {
+              fill: isDarkMode ? 'rgb(209, 213, 220)' : 'rgb(51, 51, 51)',
+            },
+          },
+        },
+      }}
+      data={data}
+      margin={{ top: 16, right: 16, bottom: 32, left: 32 }}
+      tooltipLabel={data => `${data.data.label} - Einsätze`}
+      colors="#ff6b6b"
+      indexBy="label"
+      keys={['count']}
+    />
+  );
 }
 
 export default OperationStatsBarChart;

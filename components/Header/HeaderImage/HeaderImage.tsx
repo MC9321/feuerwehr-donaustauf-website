@@ -25,7 +25,7 @@ function HeaderImage(props: Readonly<PropsWithChildren<HeaderImageProps>>): JSX.
             <section className="absolute w-full">
               <div className="relative mt-4 w-full sm:mt-4">
                 <div className="flex flex-col items-end">
-                  <div className="grow mr-2">
+                  <div className="mr-2 grow">
                     <Image src="/assets/images/header-logo.png" width={70} height={80} alt="FEUERWEHR MARKT DONAUSTAUF" />
                   </div>
                 </div>

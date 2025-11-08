@@ -40,12 +40,12 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           {operations.length > 0 && (
             <>
               <OperationsWithMonth operations={operations} kind={kind} />
-              <h3 className="text-lg tracking-tight text-secondary mt-6 uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Diagramme</h3>
+              <h3 className="mt-6 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Diagramme</h3>
               <div className="flex flex-wrap">
-                <div className={cn('w-full md:w-1/2 h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
+                <div className={cn('my-4 h-[400px] w-full bg-white text-gray-900 md:w-1/2 dark:bg-black')}>
                   <OperationPieChart operations={operations} />
                 </div>
-                <div className={cn('w-full md:w-1/2 h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
+                <div className={cn('my-4 h-[400px] w-full bg-white text-gray-900 md:w-1/2 dark:bg-black')}>
                   <OperationLocationPieChart operations={operations} />
                 </div>
               </div>
@@ -53,8 +53,8 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           )}
           {statistics && (
             <>
-              <h3 className="text-lg tracking-tight text-secondary mt-6 uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Jahresstatistik</h3>
-              <div className={cn('w-full h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
+              <h3 className="mt-6 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Jahresstatistik</h3>
+              <div className={cn('my-4 h-[400px] w-full bg-white text-gray-900 dark:bg-black')}>
                 <OperationStatsBarChart data={statistics} />
               </div>
             </>
@@ -66,7 +66,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           </div>
         )}
       </div>
-    </PageSection >
+    </PageSection>
   );
 }
 
