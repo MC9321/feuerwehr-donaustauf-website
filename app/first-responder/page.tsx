@@ -15,8 +15,8 @@ function FirstResponder(): JSX.Element {
           <PageMenuLink href="/first-responder/einsaetze/" name="Einsätze" image="/assets/images/menu/first-responder-einsatz.jpg">
             Unsere First Responder sind rund um die Uhr für schnelle medizinische Erstversorgung bei Notfällen im Einsatz, bis der Rettungsdienst vor Ort ist. Hier finden Sie aktuelle Informationen zu unseren Einsätzen.
           </PageMenuLink>
-          <PageMenuLink href="/first-responder/fahrzeug/" name="Technik" image="/assets/images/menu/first-responder-einsatz.jpg">
-            Fahrzeug und Gerätschaften der First Responder Einheit.
+          <PageMenuLink href="/first-responder/fahrzeug/" name="Technik" image="/assets/images/menu/feuerwehr-fahrzeuge-79-1.jpg">
+            First Responder Fahrzeug Florian Donaustauf 79/1.
           </PageMenuLink>
           <PageMenuLink href="/first-responder/spenden/" name="Spenden" image="/assets/images/menu/first-responder-spenden.jpg">
             Unterstützen Sie die First Responder Einheit mit einer Spende.

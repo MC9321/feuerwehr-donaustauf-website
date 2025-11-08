@@ -18,6 +18,9 @@ function Feuerwehr(): JSX.Element {
           <PageMenuLink href="/feuerwehr/jugend/" name="Jugendfeuerwehr" image="/assets/images/menu/feuerwehr-jugend.jpg">
             In der Jugendfeuerwehr lernen Kinder und Jugendliche die Arbeit der Feuerwehr kennen – mit Spaß, Teamgeist und spannenden Aktionen.
           </PageMenuLink>
+          <PageMenuLink href="/feuerwehr/fahrzeuge/" name="Fahrzeuge" image="/assets/images/menu/feuerwehr-fahrzeuge.jpg">
+            Ein Überblick über unsere Einsatzfahrzeuge – von modernen Löschfahrzeugen bis zu unserem First Responder.
+          </PageMenuLink>
           <PageMenuLink href="/feuerwehr/beitritt/" name="Mitglied werden" image="/assets/images/menu/verein-beitritt.jpg">
             Sie interessieren sich für eine Mitgliedschaft in unserer Feuerwehr?
           </PageMenuLink>
