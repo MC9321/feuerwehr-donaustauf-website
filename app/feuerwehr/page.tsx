@@ -12,6 +12,9 @@ function Feuerwehr(): JSX.Element {
           <PageMenuLink href="/feuerwehr/einsaetze/" name="Einsätze" image="/assets/images/menu/einsatz.jpg">
             Unsere Feuerwehr ist 24/7 im Einsatz für Brände, technische Hilfe und Verkehrssicherheit. Hier finden Sie aktuelle Informationen zu unseren Einsätzen.
           </PageMenuLink>
+          <PageMenuLink href="/feuerwehr/beitritt/" name="Mitglied werden" image="/assets/images/menu/verein-beitritt.jpg">
+            Sie interessieren sich für eine Mitgliedschaft in unserer Feuerwehr?
+          </PageMenuLink>
         </div>
       </div>
     </PageSection>

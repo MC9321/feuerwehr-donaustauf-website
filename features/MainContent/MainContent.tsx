@@ -2,12 +2,14 @@
 
 import Operations from '@/components/Operations/Operations';
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { MoreLink, PageSection } from '@salzpate/react-ui';
+import { ContactCard, MoreLink, PageSection } from '@salzpate/react-ui';
 import { JSX } from 'react';
 import cn from 'classnames';
 import SpendenContent from '../SpendenContent';
 import OperationPieChart from '@/components/OperationPieChart/OperationPieChart';
 import { getCurrentYear, getFfOperations, getFrOperations, getOperationsOfYear, sortOperations } from '@/lib/operationUtils';
+import BeitrittContent from '../BeitrittContent';
+import ContactContent from '../ContactContent';
 
 interface MainContentProps {
   operations?: OPERATION_QUERYResult;
@@ -54,6 +56,10 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
         </div>
       </PageSection>
       <SpendenContent subSection />
+      <div className="bg-gray-100 dark:bg-gray-900">
+        <BeitrittContent subSection showContact={false} />
+      </div>
+      <ContactContent subSection />
     </>
   );
 }
