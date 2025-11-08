@@ -2,8 +2,8 @@ import { JSX } from 'react';
 
 import SpendenContent from '@/features/SpendenContent';
 
-function FirstResponderSpenden(): JSX.Element {
+function FirstResponderInfos(): JSX.Element {
   return <SpendenContent />;
 }
 
-export default FirstResponderSpenden;
+export default FirstResponderInfos;

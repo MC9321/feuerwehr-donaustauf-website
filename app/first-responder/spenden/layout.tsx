@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: `Spenden - First Responder - ${SITE_TITLE}`,
 };
 
-function FirstResponderSpendenLayout({ children }: LayoutProps<'/first-responder/einsaetze'>): JSX.Element {
+function FirstResponderSpendenLayout({ children }: LayoutProps<'/first-responder/spenden'>): JSX.Element {
   return <>{children}</>;
 }
 
