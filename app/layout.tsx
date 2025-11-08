@@ -22,14 +22,16 @@ export const metadata: Metadata = {
 };
 
 function RootLayout({ children }: PropsWithChildren<object>): JSX.Element {
+  const footerMainMenuItems = MenuData.main;
   const footerMenuItems = MenuData.footer;
+
   return (
     <html lang="de">
       <head />
       <body>
         <SnackBarProvider>
           {children}
-          <Footer text={footerText} menuItems={footerMenuItems} />
+          <Footer text={footerText} menuItems={footerMenuItems} mainMenuItems={footerMainMenuItems} />
         </SnackBarProvider>
       </body>
     </html>

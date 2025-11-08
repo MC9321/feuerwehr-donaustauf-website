@@ -1,5 +1,5 @@
 import { HTMLAttributeAnchorTarget, ReactNode } from 'react';
-import { UrlObject } from 'url';
+import { UrlObject } from 'node:url';
 
 type Url = string | UrlObject;
 
@@ -8,13 +8,18 @@ interface NavMenuItem {
   href: Url;
   activeMenuName?: string;
   target?: HTMLAttributeAnchorTarget;
+  subMenue?: NavMenuItem[];
+  id?: string;
+  hideFooter?: boolean;
 }
 
 interface ActiveMenuItem {
   activeMenu?: string;
 }
 
-interface NavMenu extends NavMenuItem, ActiveMenuItem {}
+interface NavMenu extends Omit<NavMenuItem, 'id'>, ActiveMenuItem {
+  id?: string;
+}
 
 interface AppMenu {
   main: NavMenuItem[];

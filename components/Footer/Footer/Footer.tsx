@@ -1,17 +1,20 @@
 import { JSX, ReactNode } from 'react';
 import { NavMenuItem } from '@/components/types/Menu/Menu';
 import FooterLink from '@/components/Footer/FooterLink';
+import FooterMainLinks from '../components/FooterMainLinks';
 
 interface FooterProps {
   text: ReactNode;
   menuItems: NavMenuItem[];
+  mainMenuItems: NavMenuItem[];
 }
 
 function Footer(props: Readonly<FooterProps>): JSX.Element {
-  const { text, menuItems } = props;
+  const { text, menuItems, mainMenuItems } = props;
   return (
     <footer className="w-full bg-gray-800 py-6 dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <FooterMainLinks menuItems={mainMenuItems} />
         <div className="flex flex-col md:flex-row md:items-stretch md:justify-end">
           <div className="mb-2 grow text-center md:mb-0 md:text-left">
             <a
