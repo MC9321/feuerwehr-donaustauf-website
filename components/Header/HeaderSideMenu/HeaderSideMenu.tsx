@@ -25,9 +25,11 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
         </Link>
       </span>
       {navMenuItems.map(item => {
+        const hasChildren = (item.subMenue?.length ?? 0) > 0;
+
         return (
           <span key={`mobile-menu-${item.activeMenuName}`} className="mb-1 flex px-2">
-            <NavLink href={item.href} activeMenuName={item.activeMenuName} activeMenu={activeMenu}>
+            <NavLink href={item.href} activeMenuName={item.activeMenuName} activeMenu={activeMenu} hasChildren={hasChildren}>
               {item.children}
             </NavLink>
           </span>

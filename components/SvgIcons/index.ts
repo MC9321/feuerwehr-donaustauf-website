@@ -7,4 +7,5 @@ export * from './MapPinSvgIcon';
 export * from './ArrowDownTraySvgIcon';
 export * from './PayPalSvgIcon';
 export * from './CloseSvgIcon';
+export * from './ChevronRightSvgIcon';
 export type { SvgIconProps } from './types/svgIconsTypes';
