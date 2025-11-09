@@ -51,9 +51,9 @@ function Impressum(): JSX.Element {
         <br />
         <h2 className="text-xl uppercase sm:text-2xl lg:text-3xl dark:text-gray-200">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
         <br />
-        Ronny Krammer
+        Tobias Müller
         <br />
-        Regensburgerstraße 30
+        Baronstr. 81
         <br />
         93093 Donaustauf
         <br />
