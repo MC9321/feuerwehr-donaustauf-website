@@ -8,4 +8,5 @@ export * from './ArrowDownTraySvgIcon';
 export * from './PayPalSvgIcon';
 export * from './CloseSvgIcon';
 export * from './ChevronRightSvgIcon';
+export * from './ChevronLeftSvgIcon';
 export type { SvgIconProps } from './types/svgIconsTypes';

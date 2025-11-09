@@ -18,7 +18,7 @@ interface ActiveMenuItem {
 }
 
 interface NavMenu extends Omit<NavMenuItem, 'id'>, ActiveMenuItem {
-  hasChildren?: boolean;
+  id?: string;
 }
 
 interface AppMenu {
