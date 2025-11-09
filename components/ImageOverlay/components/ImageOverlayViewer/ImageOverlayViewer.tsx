@@ -17,7 +17,6 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
 
   const [hasError, setHasError] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
-  const [loaded, setLoaded] = useState(false);
 
   console.log(isZoomed);
 
@@ -129,15 +128,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           </div>
         ) : (
           <div {...handlers}>
-            <CloudinaryImage
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]"
-              onError={handleImageError}
-              onLoad={() => setLoaded(true)}
-            />
+            <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" onError={handleImageError} />
           </div>
         )}
       </div>
@@ -147,7 +138,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      {hasPrevious && loaded && (
+      {hasPrevious && (
         <button onClick={handlePrevious} aria-label="Previous image" className="absolute inset-y-0 left-0 flex w-16 cursor-pointer items-center justify-center text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none">
           <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M15 19l-7-7 7-7" stroke="black" />
@@ -155,7 +146,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           </svg>
         </button>
       )}
-      {hasNext && loaded && (
+      {hasNext && (
         <button onClick={handleNext} aria-label="Next image" className="absolute inset-y-0 right-0 flex w-16 cursor-pointer items-center justify-center text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none">
           <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" stroke="black" />
