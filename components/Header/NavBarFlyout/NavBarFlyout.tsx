@@ -1,0 +1,77 @@
+'use client';
+
+import { JSX, useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { NavMenuItem } from '@/components/types/Menu/Menu';
+
+import linkStyles from '../NavBarLink/NavBarLink.module.css';
+import styles from './NavBarFlyout.module.css';
+
+interface NavBarFlyoutProps {
+  item: NavMenuItem;
+  activeMenu?: string;
+}
+
+function NavBarFlyout(props: Readonly<NavBarFlyoutProps>): JSX.Element {
+  const { item, activeMenu } = props;
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const isActive = item.activeMenuName && activeMenu && activeMenu === item.activeMenuName;
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const toggleMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div ref={menuRef} className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+      <button type="button" onClick={toggleMenu} className={`${styles.button} ${isActive ? linkStyles.activated : linkStyles.link} ${isActive ? styles.activated : ''}`}>
+        <span className={styles.textWrapper}>{item.children}</span>
+        <svg className={`ml-1 h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {isOpen && item.subMenue && item.subMenue.length > 0 && (
+        <div className="ring-opacity-5 absolute top-full left-0 z-50 min-w-[200px] pt-4">
+          <div className="rounded-md bg-white shadow-lg ring-1 ring-gray-200 dark:bg-gray-800">
+            <div className="py-1">
+              {item.subMenue.map((subItem, index) => (
+                <Link
+                  key={`submenu-${item.activeMenuName}-${index}`}
+                  href={subItem.href}
+                  target={subItem.target}
+                  className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-secondary hover:text-white dark:text-gray-200 dark:hover:bg-secondary"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {subItem.children}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default NavBarFlyout;
