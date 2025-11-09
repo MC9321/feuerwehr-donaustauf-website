@@ -52,15 +52,23 @@ function NavBarFlyout(props: Readonly<NavBarFlyoutProps>): JSX.Element {
       </button>
 
       {isOpen && item.subMenue && item.subMenue.length > 0 && (
-        <div className="ring-opacity-5 absolute top-full left-0 z-50 min-w-[200px] pt-4">
+        <div className="ring-opacity-5 absolute top-full left-0 z-50 min-w-[200px] pt-5">
           <div className="rounded-md bg-white shadow-lg ring-1 ring-gray-200 dark:bg-gray-800">
             <div className="py-1">
+              <Link
+                href={item.href}
+                target={item.target}
+                className="block border-b border-gray-200 px-4 py-3 text-sm font-semibold text-gray-900 uppercase transition-colors hover:bg-secondary hover:text-white dark:border-gray-700 dark:text-white dark:hover:bg-secondary"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.children}
+              </Link>
               {item.subMenue.map((subItem, index) => (
                 <Link
                   key={`submenu-${item.activeMenuName}-${index}`}
                   href={subItem.href}
                   target={subItem.target}
-                  className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-secondary hover:text-white dark:text-gray-200 dark:hover:bg-secondary"
+                  className="block px-4 py-2 text-sm text-gray-700 uppercase transition-colors hover:bg-secondary hover:text-white dark:text-gray-200 dark:hover:bg-secondary"
                   onClick={() => setIsOpen(false)}
                 >
                   {subItem.children}
