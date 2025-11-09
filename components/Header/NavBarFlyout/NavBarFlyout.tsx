@@ -53,7 +53,7 @@ function NavBarFlyout(props: Readonly<NavBarFlyoutProps>): JSX.Element {
 
       {isOpen && item.subMenue && item.subMenue.length > 0 && (
         <div className="ring-opacity-5 absolute top-full left-0 z-50 min-w-[200px] pt-5">
-          <div className="rounded-md bg-white shadow-lg ring-1 ring-gray-200 dark:bg-gray-800">
+          <div className={`${styles.flyoutMenu} rounded-md bg-white shadow-lg ring-1 ring-gray-200 dark:bg-gray-800`}>
             <div className="py-1">
               <Link
                 href={item.href}
