@@ -1,0 +1,15 @@
+import { JSX } from 'react';
+import { SvgIconProps } from '../types/svgIconsTypes';
+
+function FacebookSvgIcon({ className }: Readonly<SvgIconProps>): JSX.Element {
+  return (
+    <svg className={className} viewBox="0 0 77.809997 156.31039">
+      <path
+        d="m64.13 24.850402c-9.65 0-12.44 4.28-12.44 13.72v15.66h25.739997l-2.58 25.299997h-23.149997v76.780001h-30.89v-76.780001h-20.81v-25.299997h20.81v-15.23c0-25.52 10.29-38.99999996 39-38.99999996a146.17 146.17 0 0 1 17.999997 1.06999996v23.81z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+export default FacebookSvgIcon;

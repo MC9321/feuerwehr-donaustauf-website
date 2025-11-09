@@ -1,0 +1,9 @@
+export * from './FfLogoSvgIcon';
+export * from './FacebookSvgIcon';
+export * from './InstagramSvgIcon';
+export * from './BellAlertSvgIcon';
+export * from './CalendarSvgIcon';
+export * from './MapPinSvgIcon';
+export * from './ArrowDownTraySvgIcon';
+export * from './PayPalSvgIcon';
+export type { SvgIconProps } from './types/svgIconsTypes';
