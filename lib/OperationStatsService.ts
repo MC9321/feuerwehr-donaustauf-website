@@ -7,8 +7,12 @@ const OPERATION_STATS_QUERY = defineQuery('*[_type == "einsatzStats"]{ _id, year
 const options: FilteredResponseQueryOptions = { next: { revalidate: 30 } };
 
 class OperationStatsService {
+  cachedOperationStats: OPERATION_STATS_QUERYResult | undefined;
+
   getOperationStats = async (): Promise<OPERATION_STATS_QUERYResult> => {
-    return client.fetch<OPERATION_STATS_QUERYResult>(OPERATION_STATS_QUERY, {}, options);
+    this.cachedOperationStats = await client.fetch<OPERATION_STATS_QUERYResult>(OPERATION_STATS_QUERY, {}, options);
+
+    return this.cachedOperationStats;
   };
 }
 

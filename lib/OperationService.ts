@@ -8,12 +8,16 @@ const OPERATION_QUERY = defineQuery('*[_type == "einsatz"]{ _id, title, locality
 const options: FilteredResponseQueryOptions = { next: { revalidate: 30 } };
 
 class OperationService {
+  cachedOperations: OPERATION_QUERYResult | undefined;
+
   getOperations = async (): Promise<OPERATION_QUERYResult> => {
-    return client.fetch<OPERATION_QUERYResult>(OPERATION_QUERY, {}, options);
+    this.cachedOperations ??= await client.fetch<OPERATION_QUERYResult>(OPERATION_QUERY, {}, options);
+
+    return this.cachedOperations;
   };
 
   getOperationsOfYear = async (year: number): Promise<OPERATION_QUERYResult> => {
-    const data = client.fetch<OPERATION_QUERYResult>(OPERATION_QUERY, {}, options);
+    const data = this.getOperations();
 
     return (await data).filter(ops => (getOperationYear(ops.date) ?? 0) === year);
   };
