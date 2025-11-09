@@ -6,4 +6,5 @@ export * from './CalendarSvgIcon';
 export * from './MapPinSvgIcon';
 export * from './ArrowDownTraySvgIcon';
 export * from './PayPalSvgIcon';
+export * from './CloseSvgIcon';
 export type { SvgIconProps } from './types/svgIconsTypes';

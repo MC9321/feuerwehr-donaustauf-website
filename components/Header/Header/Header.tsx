@@ -47,12 +47,16 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
                 className="inline-flex items-center justify-center rounded-full p-2 text-white transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:text-white/87 dark:hover:bg-blue-400"
                 onClick={() => setIsOn(true)}
               >
-                <svg className="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg className="hidden h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                {!isOn && (
+                  <svg className="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+                {isOn && (
+                  <svg className="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
@@ -60,7 +64,7 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
       </header>
       <div
         aria-hidden="true"
-        className={cn('fixed inset-0 z-10 transition-opacity', { hidden: !isOn })}
+        className={cn('fixed inset-0 z-10 transition-opacity', { 'inset-0 hidden': !isOn })}
         onClick={() => setIsOn(false)}
         onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
           if (event.key === 'Enter' || event.key === 'Escape') {
@@ -70,7 +74,7 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
       >
         <div className="absolute inset-0 bg-black opacity-25"></div>
       </div>
-      <HeaderSideMenu navMenuItems={navMenuItems} activeMenu={activeMenu} open={isOn} />
+      <HeaderSideMenu navMenuItems={navMenuItems} activeMenu={activeMenu} open={isOn} onClose={() => setIsOn(false)} />
     </>
   );
 }
