@@ -26,9 +26,6 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
   const prevOpenRef = useRef(open);
   const stacked = menuStack.length > 0;
 
-  // Reset menu stack when menu closes to ensure clean state on reopen
-  // Note: This is a valid use case for setState in useEffect - resetting UI state
-  // when a modal/menu closes is necessary for good UX and is a common pattern
   useEffect(() => {
     const wasOpen = prevOpenRef.current;
     prevOpenRef.current = open;
@@ -40,7 +37,6 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
     }
   }, [open, menuStack.length]);
 
-  // Compute current menu based on menu stack
   const currentMenu = useMemo(() => {
     if (menuStack.length === 0) {
       return navMenuItems;
@@ -77,7 +73,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
       )}
     >
       <div className="flex h-full w-full flex-col">
-        <div className={cn('flex h-16 w-full items-center border-b p-4', { 'border-gray-200 dark:border-gray-800': stacked, 'border-gray-100 dark:border-gray-900': !stacked })}>
+        <div className={cn('flex h-16 w-full items-center border-b border-gray-200 p-4 dark:border-gray-800')}>
           {stacked && (
             <div>
               <button
@@ -93,11 +89,11 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
           </Link>
         </div>
         {stacked && (
-          <div className={cn('mb-2 border-b px-2', { 'border-gray-200 dark:border-gray-800': stacked, 'border-gray-100 dark:border-gray-900': !stacked })}>
+          <div className={cn('border-b px-2', { 'border-gray-200 dark:border-gray-800': stacked, 'border-gray-100 dark:border-gray-900': !stacked })}>
             <NavHeaderLink href={menuStack.at(-1)?.href ?? ''}>{menuStack.at(-1)?.children}</NavHeaderLink>
           </div>
         )}
-        <div className="relative grow overflow-x-hidden overflow-y-scroll">
+        <div className="relative mt-2 grow overflow-x-hidden overflow-y-scroll">
           {currentMenu.map((item, index) => {
             const hasChildren = (item.subMenue?.length ?? 0) > 0;
 
@@ -122,7 +118,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
             href="https://www.facebook.com/feuerwehrdonaustauf/"
             target="_blank"
             rel="nofollow noreferrer"
-            className="my-2 inline-flex items-center justify-center rounded-md px-2 py-2 text-sm tracking-widest text-gray-400 shadow-xs transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-600 focus:outline-hidden sm:my-0 dark:hover:bg-gray-800 dark:focus:bg-gray-700"
+            className="focus:shadow-outline-gray my-2 inline-flex items-center justify-center rounded-md px-2 py-2 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-300 hover:text-gray-900 focus:border-gray-500 focus:bg-gray-400 focus:outline-hidden dark:text-gray-300 dark:hover:text-gray-200"
           >
             <FacebookSvgIcon className="block h-5 w-5" />
           </a>
@@ -130,7 +126,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
             href="https://www.instagram.com/feuerwehrmarktdonaustauf/"
             target="_blank"
             rel="nofollow noreferrer"
-            className="my-2 inline-flex items-center justify-center rounded-md px-2 py-2 text-sm tracking-widest text-gray-400 shadow-xs transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-600 focus:outline-hidden sm:my-0 dark:hover:bg-gray-800 dark:focus:bg-gray-700"
+            className="focus:shadow-outline-gray my-2 inline-flex items-center justify-center rounded-md px-2 py-2 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-300 hover:text-gray-900 focus:border-gray-500 focus:bg-gray-400 focus:outline-hidden dark:text-gray-300 dark:hover:text-gray-200"
           >
             <InstagramSvgIcon className="block h-5 w-5" />
           </a>
