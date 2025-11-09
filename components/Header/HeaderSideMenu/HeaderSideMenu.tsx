@@ -1,7 +1,7 @@
 import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 import Link from 'next/link';
 import cn from 'classnames';
-import { JSX, useState, useMemo, useRef, useEffect, MouseEvent, ReactNode } from 'react';
+import { JSX, useState, useMemo, useRef, useEffect, MouseEvent } from 'react';
 import NavLink from '../NavLink';
 
 import styles from '../Header/Header.module.css';

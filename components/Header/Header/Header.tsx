@@ -5,7 +5,6 @@ import cn from 'classnames';
 import Link from 'next/link';
 
 import { type ActiveMenuItem, type NavMenuItem } from '@/components/types/Menu/Menu';
-import NavBarLink from '@/components/Header/NavBarLink';
 import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 
 import styles from './Header.module.css';
