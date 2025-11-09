@@ -1,6 +1,7 @@
 import { JSX, useState, useEffect, MouseEvent } from 'react';
 import { ImageData } from '../../types/imageOverlayTypes';
 import CloudinaryImage from '@/components/Image/CloudinaryImage';
+import { useSwipeable } from 'react-swipeable';
 
 interface ImageOverlayViewerProps {
   image: ImageData;
@@ -15,6 +16,10 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   const { image, imageSeries, currentIndex, onClose, onNext, onPrevious } = props;
 
   const [hasError, setHasError] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  console.log(isZoomed);
 
   const hasPrevious = imageSeries.length > 0 && currentIndex > 0;
   const hasNext = imageSeries.length > 0 && currentIndex < imageSeries.length - 1;
@@ -39,6 +44,46 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     onPrevious();
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (isZoomed || !hasNext) return;
+      handleNext();
+    },
+    onSwipedRight: () => {
+      if (isZoomed || !hasPrevious) return;
+      handlePrevious();
+    },
+    onTouchStartOrOnMouseDown: eventData => {
+      if (eventData.event && 'touches' in eventData.event && eventData.event.touches.length > 1) {
+        return false;
+      }
+    },
+    trackMouse: true,
+    preventScrollOnSwipe: true,
+  });
+
+  useEffect(() => {
+    const updateZoomState = () => {
+      try {
+        const scale = window.visualViewport ? window.visualViewport.scale : 1;
+        setIsZoomed(!!scale && scale > 1);
+      } catch {
+        setIsZoomed(false);
+      }
+    };
+    updateZoomState();
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', updateZoomState);
+      window.visualViewport.addEventListener('scroll', updateZoomState);
+    }
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', updateZoomState);
+        window.visualViewport.removeEventListener('scroll', updateZoomState);
+      }
+    };
+  }, []);
+
   useEffect(() => {
     if (imageSeries.length === 0) return;
 
@@ -61,7 +106,18 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   }, [currentIndex, imageSeries]);
 
   return (
-    <div className="animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90" onClick={handleBackdropClick} role="dialog" aria-modal="true">
+    <div
+      className="animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90"
+      onClick={handleBackdropClick}
+      onKeyDown={e => {
+        if (e.key === 'Escape') {
+          onClose();
+        }
+      }}
+      role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
+    >
       <div className="relative max-h-[85vh] max-w-[95vw] sm:max-h-[90vh] sm:max-w-[90vw]">
         {hasError ? (
           <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white/10 p-8 text-white">
@@ -72,7 +128,17 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
             <p className="text-center text-sm text-white/70">Das Bild kann nicht angezeigt werden</p>
           </div>
         ) : (
-          <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" onError={handleImageError} />
+          <div {...handlers}>
+            <CloudinaryImage
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]"
+              onError={handleImageError}
+              onLoad={() => setLoaded(true)}
+            />
+          </div>
         )}
       </div>
       <button onClick={onClose} aria-label="Close overlay" className="absolute top-2 right-2 z-50 cursor-pointer rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus:outline-none">
@@ -81,7 +147,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      {hasPrevious && (
+      {hasPrevious && loaded && (
         <button onClick={handlePrevious} aria-label="Previous image" className="absolute inset-y-0 left-0 flex w-16 cursor-pointer items-center justify-center text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none">
           <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M15 19l-7-7 7-7" stroke="black" />
@@ -89,7 +155,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           </svg>
         </button>
       )}
-      {hasNext && (
+      {hasNext && loaded && (
         <button onClick={handleNext} aria-label="Next image" className="absolute inset-y-0 right-0 flex w-16 cursor-pointer items-center justify-center text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none">
           <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" stroke="black" />
