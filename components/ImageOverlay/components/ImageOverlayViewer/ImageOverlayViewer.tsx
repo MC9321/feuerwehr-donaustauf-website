@@ -17,6 +17,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
 
   const [hasError, setHasError] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   console.log(isZoomed);
 
@@ -35,12 +36,20 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
 
   const handleNext = () => {
     setHasError(false);
-    onNext();
+    setIsTransitioning(true);
+    setTimeout(() => {
+      onNext();
+      setIsTransitioning(false);
+    }, 200);
   };
 
   const handlePrevious = () => {
     setHasError(false);
-    onPrevious();
+    setIsTransitioning(true);
+    setTimeout(() => {
+      onPrevious();
+      setIsTransitioning(false);
+    }, 200);
   };
 
   const handlers = useSwipeable({
@@ -127,7 +136,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
             <p className="text-center text-sm text-white/70">Das Bild kann nicht angezeigt werden</p>
           </div>
         ) : (
-          <div {...handlers}>
+          <div {...handlers} className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
             <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" onError={handleImageError} />
           </div>
         )}
