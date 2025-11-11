@@ -15,7 +15,7 @@ interface FooterProps {
 function Footer(props: Readonly<FooterProps>): JSX.Element {
   const { text, menuItems, mainMenuItems } = props;
   return (
-    <footer className="w-full bg-gray-800 py-6 dark:bg-gray-900">
+    <footer className="w-full bg-gray-800 py-6 dark:bg-gray-900" role="contentinfo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FooterMainLinks menuItems={mainMenuItems} />
         <div className="flex flex-col md:flex-row md:items-stretch md:justify-end">
@@ -25,16 +25,18 @@ function Footer(props: Readonly<FooterProps>): JSX.Element {
               target="_blank"
               rel="nofollow noreferrer"
               className="my-2 inline-flex items-center justify-center rounded-md px-2 py-2 text-sm tracking-widest text-gray-400 shadow-xs transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-600 focus:outline-hidden sm:my-0 dark:hover:bg-gray-800 dark:focus:bg-gray-700"
+              aria-label="Besuche uns auf Facebook"
             >
-              <FacebookSvgIcon className="block h-5 w-5" />
+              <FacebookSvgIcon className="block h-5 w-5" aria-hidden="true" />
             </a>
             <a
               href="https://www.instagram.com/feuerwehrmarktdonaustauf/"
               target="_blank"
               rel="nofollow noreferrer"
               className="my-2 inline-flex items-center justify-center rounded-md px-2 py-2 text-sm tracking-widest text-gray-400 shadow-xs transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-600 focus:outline-hidden sm:my-0 dark:hover:bg-gray-800 dark:focus:bg-gray-700"
+              aria-label="Folge uns auf Instagram"
             >
-              <InstagramSvgIcon className="block h-5 w-5" />
+              <InstagramSvgIcon className="block h-5 w-5" aria-hidden="true" />
             </a>
           </div>
           <div className="text-center md:text-right">
@@ -52,7 +54,7 @@ function Footer(props: Readonly<FooterProps>): JSX.Element {
         </div>
         <div className="mt-4 border-t border-gray-600">
           <div className="mt-4 flex items-center justify-between text-gray-400 md:flex-wrap">
-            <FfLogoSvgIcon height={38} width={107} />
+            <FfLogoSvgIcon height={38} width={107} aria-label="Feuerwehr Markt Donaustauf Logo" />
             <div className="mt-4 text-right text-xs font-thin text-gray-400 md:text-sm">{text}</div>
           </div>
         </div>
