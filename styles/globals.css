@@ -93,16 +93,7 @@ body {
   width: auto;
 }
 
-/* Mobile Touch-Optimierungen */
 @media (hover: none) and (pointer: coarse) {
-  /* Größere Touch-Targets für mobile Geräte (min 44x44px) */
-  button,
-  a {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  /* Verhindert ungewolltes Zoomen bei Fokus auf Inputs */
   input,
   select,
   textarea {
@@ -110,12 +101,10 @@ body {
   }
 }
 
-/* Smooth Scrolling für bessere UX */
 html {
   scroll-behavior: smooth;
 }
 
-/* Reduzierte Bewegung für Nutzer mit Präferenz */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -127,7 +116,6 @@ html {
   }
 }
 
-/* Print Utility-Klassen */
 @media print {
   .no-print {
     display: none !important;
