@@ -1,7 +1,7 @@
 'use client';
 
+import ContactCard from '@/components/ContactCard/ContactCard';
 import { FfPageSection } from '@/components/FfPageSection';
-import { ContactCard } from '@salzpate/react-ui';
 import { JSX } from 'react';
 
 function Jugend(): JSX.Element {
@@ -39,21 +39,9 @@ function Jugend(): JSX.Element {
       </FfPageSection>
       <FfPageSection headline="Jugendwarte" id="jugendwarte" level="h2" className="pb-6 sm:pb-8">
         <div>Die Jugendarbeit und Ausbildung unserer Jugendgruppe liegt in den Händen der Jugendwarte. Weitere Ausbilder aus der aktiven Mannschaft unterstützen bei Bedarf.</div>
-        <div className="my-6 grid auto-rows-fr grid-cols-1 gap-6 sm:my-8 sm:grid-cols-2 lg:grid-cols-3">
-          <ContactCard
-            name="Stefanie Jobst"
-            position="Jugendwartin"
-            imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
-            email="jugend@feuerwehr-donaustauf.de"
-            emailHref="mailto:jugend@feuerwehr-donaustauf.de"
-          />
-          <ContactCard
-            name="Michael Wagner"
-            position="Jugendwart"
-            imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
-            email="jugend@feuerwehr-donaustauf.de"
-            emailHref="mailto:jugend@feuerwehr-donaustauf.de"
-          />
+        <div className="my-6 grid auto-rows-fr grid-cols-1 gap-6 sm:my-8 sm:grid-cols-2">
+          <ContactCard name="Stefanie Jobst" role="Jugendwartin" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
+          <ContactCard name="Michael Wagner" role="Jugendwart" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
         </div>
       </FfPageSection>
     </>
