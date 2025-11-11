@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import SnackBarProvider from '@/components/SnackBar';
 import ImageOverlayProvider from '@/components/ImageOverlay';
+import SkipLink from '@/components/SkipLink';
 import { MenuData } from '@/data/MenuData';
 import { SITE_DESC, SITE_KEYWORDS, SITE_TITLE } from '@/lib/constants';
 
@@ -30,6 +31,7 @@ function RootLayout({ children }: PropsWithChildren<object>): JSX.Element {
     <html lang="de">
       <head />
       <body>
+        <SkipLink />
         <SnackBarProvider>
           <ImageOverlayProvider>
             {children}

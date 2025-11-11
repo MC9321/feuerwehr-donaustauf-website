@@ -18,7 +18,9 @@ function HeaderMainLayout(props: Readonly<PropsWithChildren<HeaderMainLayoutProp
     <>
       <Header activeMenu={activeMenu} navMenuItems={navMenuItems} key={pathName} />
 
-      <main className="flex-1 pt-14 sm:pt-16" role="main">{children}</main>
+      <main id="main-content" className="flex-1 pt-14 sm:pt-16" role="main">
+        {children}
+      </main>
     </>
   );
 }

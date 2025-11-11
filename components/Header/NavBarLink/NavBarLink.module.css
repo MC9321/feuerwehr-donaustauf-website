@@ -79,6 +79,13 @@
   width: 100%;
 }
 
+.activated:focus-visible,
+.link:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--color-white);
+  outline-offset: 4px;
+}
+
 @media (prefers-color-scheme: dark) {
   .link {
     color: var(--color-gray-300);
