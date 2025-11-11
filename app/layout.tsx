@@ -9,6 +9,7 @@ import { SITE_DESC, SITE_KEYWORDS, SITE_TITLE } from '@/lib/constants';
 
 import '@salzpate/react-ui/dist/style.css';
 import '@/styles/globals.css';
+import '@/styles/print.css';
 
 const footerText = '© 2025 Feuerwehr Markt Donaustauf';
 

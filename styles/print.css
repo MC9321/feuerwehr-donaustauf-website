@@ -1,0 +1,300 @@
+/**
+ * Print Stylesheet für Feuerwehr Donaustauf Website
+ * Optimiert die Druckausgabe für bessere Lesbarkeit und Papierersparnis
+ */
+
+@media print {
+  /* === Allgemeine Einstellungen === */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  html {
+    font-size: 12pt;
+  }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* === Seitenumbrüche === */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  p,
+  blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+
+  img,
+  figure,
+  table {
+    break-inside: avoid;
+  }
+
+  /* === Versteckte Elemente === */
+  /* Navigation und interaktive Elemente */
+  header,
+  nav,
+  footer,
+  aside,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Buttons und Formulare */
+  button,
+  input,
+  select,
+  textarea,
+  .button,
+  form {
+    display: none !important;
+  }
+
+  /* Social Media und externe Links */
+  [class*='social'],
+  [class*='share'],
+  [class*='facebook'],
+  [class*='instagram'],
+  [class*='twitter'] {
+    display: none !important;
+  }
+
+  /* Menüs und Overlays */
+  [role='navigation'],
+  [role='banner'],
+  [role='contentinfo'],
+  [aria-hidden='true'] {
+    display: none !important;
+  }
+
+  /* === Hauptinhalt === */
+  main {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* === Typografie === */
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 12pt;
+  }
+
+  h2 {
+    font-size: 18pt;
+    margin-bottom: 6pt;
+    margin-top: 12pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-bottom: 6pt;
+    margin-top: 12pt;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: 12pt;
+    margin-bottom: 3pt;
+    margin-top: 6pt;
+  }
+
+  p {
+    margin-bottom: 6pt;
+  }
+
+  /* === Links === */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* URLs nach Links anzeigen */
+  a[href^='http']:after {
+    content: ' (' attr(href) ')';
+    font-size: 10pt;
+    font-style: italic;
+  }
+
+  /* Interne Links ohne URL */
+  a[href^='/']:after,
+  a[href^='#']:after {
+    content: '';
+  }
+
+  /* === Bilder === */
+  img {
+    height: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Header-Bilder verstecken (meist dekorativ) */
+  [class*='HeaderImage'],
+  [class*='header-image'] {
+    display: none !important;
+  }
+
+  /* === Tabellen === */
+  table {
+    border-collapse: collapse;
+    margin-bottom: 12pt;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid #000;
+    padding: 6pt;
+    text-align: left;
+  }
+
+  th {
+    background: #f0f0f0 !important;
+    font-weight: bold;
+  }
+
+  /* === Listen === */
+  ul,
+  ol {
+    margin-bottom: 6pt;
+    padding-left: 20pt;
+  }
+
+  li {
+    margin-bottom: 3pt;
+  }
+
+  /* === Kontaktinformationen === */
+  /* Kontaktkarten optimiert für Druck */
+  [class*='ContactCard'] {
+    border: 1px solid #000 !important;
+    margin-bottom: 12pt !important;
+    padding: 12pt !important;
+    break-inside: avoid;
+  }
+
+  /* === Einsatzberichte === */
+  /* Einsatzlisten optimiert */
+  [class*='operation'],
+  [class*='einsatz'] {
+    border-bottom: 1px solid #ccc !important;
+    margin-bottom: 6pt !important;
+    padding: 6pt 0 !important;
+  }
+
+  /* === Fahrzeugübersicht === */
+  [class*='vehicle'],
+  [class*='fahrzeug'] {
+    margin-bottom: 12pt !important;
+    break-inside: avoid;
+  }
+
+  /* === Seitenzahlen === */
+  @page {
+    margin: 2cm;
+    size: A4 portrait;
+
+    @bottom-right {
+      content: 'Seite ' counter(page) ' von ' counter(pages);
+      font-size: 10pt;
+    }
+
+    @top-left {
+      content: 'Feuerwehr Markt Donaustauf';
+      font-size: 10pt;
+      font-style: italic;
+    }
+  }
+
+  /* Erste Seite ohne Header */
+  @page :first {
+    @top-left {
+      content: '';
+    }
+  }
+
+  /* === QR-Codes und Barcodes === */
+  /* Falls vorhanden, für Druck optimieren */
+  [class*='qr-code'],
+  [class*='barcode'] {
+    display: block !important;
+    height: auto !important;
+    max-width: 3cm !important;
+  }
+
+  /* === Spezielle Inhalte === */
+  /* Warnungen und wichtige Hinweise */
+  [class*='alert'],
+  [class*='warning'],
+  [class*='notice'] {
+    border: 2px solid #000 !important;
+    margin: 12pt 0 !important;
+    padding: 12pt !important;
+    break-inside: avoid;
+  }
+
+  /* === Optimierungen für spezifische Seiten === */
+
+  /* 404-Seite - Sitemap drucken */
+  [class*='SiteMap'] {
+    display: block !important;
+  }
+
+  /* Schnellsuche auf 404 verstecken */
+  [class*='QuickSearch'] {
+    display: none !important;
+  }
+
+  /* === Accessibility === */
+  /* Skip-Links verstecken */
+  .sr-only,
+  [class*='skip-link'] {
+    display: none !important;
+  }
+
+  /* === Dark Mode Override === */
+  /* Alle Dark Mode Klassen überschreiben */
+  [class*='dark:'] {
+    background: transparent !important;
+    color: #000 !important;
+  }
+
+  /* === Utility === */
+  /* Print-only Klasse */
+  .print-only {
+    display: block !important;
+  }
+
+  /* No-break Klasse */
+  .no-break {
+    break-inside: avoid;
+  }
+
+  /* === Footer-Informationen === */
+  /* Wenn Footer gedruckt werden soll */
+  .print-footer {
+    border-top: 1px solid #000;
+    display: block !important;
+    font-size: 10pt;
+    margin-top: 24pt;
+    padding-top: 12pt;
+  }
+}
