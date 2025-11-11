@@ -7,11 +7,11 @@
   --color-secondary: #f70000;
   --color-secondary-dark: #f70000;
   --color-header: #ffffff;
-  --color-link: #f70000;
-  --color-link-dark: #f70000;
-  --color-link-dark-hover: #f70000;
+  --color-link: #c00000;
+  --color-link-dark: #ff4444;
+  --color-link-dark-hover: #ff6666;
   --color-heading: #f70000;
-  --color-heading-dark: #f70000;
+  --color-heading-dark: #ff4444;
   --color-paragraph: #101828;
   --color-paragraph-dark: #d1d5dc;
   /* Responsive Header-Höhen */
@@ -136,9 +136,5 @@ html {
 
   .images-dark {
     filter: grayscale(60%);
-  }
-
-  *:focus-visible {
-    outline-color: #ff4444;
   }
 }
