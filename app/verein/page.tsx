@@ -7,7 +7,7 @@ import { FfPageSection } from '@/components/FfPageSection';
 function Verein(): JSX.Element {
   return (
     <FfPageSection headline="Verein" id="verein">
-      <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <PageMenuLink href="/verein/vorstandschaft/" name="Vorstandschaft" image="/assets/images/menu/verein-vorstandschaft.png">
           Hier stellen wir das Vorstandsteam unseres Feuerwehrvereins vor.
         </PageMenuLink>

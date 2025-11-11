@@ -8,7 +8,7 @@ function FeuerwehrFahrzeuge(): JSX.Element {
   return (
     <FfPageSection headline="Fahrzeuge" id="fahrzeuge">
       <div className="mb-4 grid-cols-1 sm:col-span-8 lg:col-span-12">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <PageMenuLink href="/feuerwehr/fahrzeuge/11-1" name="Florian Donaustauf 11/1" image="/assets/images/menu/feuerwehr-fahrzeuge-11-1.jpg">
             Mehrzweckfahrzeug
           </PageMenuLink>
