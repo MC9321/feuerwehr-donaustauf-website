@@ -42,9 +42,19 @@ function NavBarFlyout(props: Readonly<NavBarFlyoutProps>): JSX.Element {
     setIsOpen(!isOpen);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setIsOpen(true);
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      setIsOpen(false);
+    }
+  };
+
   return (
     <div ref={menuRef} className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
-      <button type="button" onClick={toggleMenu} className={`${styles.button} ${isActive ? linkStyles.activated : linkStyles.link} ${isActive ? styles.activated : ''}`}>
+      <button type="button" onClick={toggleMenu} onKeyDown={handleKeyDown} className={`${styles.button} ${isActive ? linkStyles.activated : linkStyles.link} ${isActive ? styles.activated : ''}`}>
         <span className={styles.textWrapper}>{item.children}</span>
         <svg className={`ml-1 h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
