@@ -62,9 +62,9 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           )}
         </div>
         {showSidebar && operationPath && (
-          <div className="grid-cols-1 sm:col-span-4 lg:col-span-3">
+          <aside className="grid-cols-1 sm:col-span-4 lg:col-span-3">
             <OperationSidebar categories={categories} years={years} year={year} operationPath={operationPath} activeCategory={activeCategory} />
-          </div>
+          </aside>
         )}
       </div>
     </FfPageSection>
