@@ -11,10 +11,10 @@ function CloudinaryPageImage(props: Readonly<PropsWithChildren<CloudinaryPageIma
   const { alternate, children, className, ...rest } = props;
 
   return (
-    <div className={cn('inline-block p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate }, className)}>
+    <figure className={cn('inline-block p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate }, className)}>
       <CloudinaryImage {...rest} caption={typeof children === 'string' ? children : undefined} loading="lazy" />
-      <div className="mt-2 text-xs">{children}</div>
-    </div>
+      <figcaption className="mt-2 text-xs">{children}</figcaption>
+    </figure>
   );
 }
 
