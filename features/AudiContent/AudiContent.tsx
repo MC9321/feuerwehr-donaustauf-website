@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 
 import { FfPageSection } from '@/components/FfPageSection';
-import CloudinaryImage from '@/components/Image/CloudinaryImage';
+import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 
 function AudiContent(): JSX.Element {
   return (
@@ -26,7 +26,9 @@ function AudiContent(): JSX.Element {
           </div>
         </div>
         <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-          <CloudinaryImage src="einsatzfahrzeug_gjowy5" width={405} height={227} alt="Florian Donaustauf 79/1" />
+          <CloudinaryPageImage src="einsatzfahrzeug_gjowy5" width={405} height={227} alt="Florian Donaustauf 79/1">
+            Audi Q5 - Florian Donaustauf 79/1
+          </CloudinaryPageImage>
         </div>
       </div>
       <h3 className="mt-4 mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Fahrzeugdaten</h3>

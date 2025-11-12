@@ -3,6 +3,7 @@
 import { FfPageSection } from '@/components/FfPageSection';
 import CloudinaryImage from '@/components/Image/CloudinaryImage';
 import CloudinaryImageGalleryImage from '@/components/Image/CloudinaryImageGallery';
+import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 import { ImageData } from '@/components/ImageOverlay/types/imageOverlayTypes';
 import { JSX } from 'react';
 
@@ -173,7 +174,9 @@ function Grossbrand06102025(): JSX.Element {
             </div>
           </div>
           <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-            <CloudinaryImage src="grossbrand_am_06102025_1_vo2wyo" width={405} height={227} alt="Großbrand am 06.10.2025 1" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={0} caption="Großbrand am 06.10.2025" />
+            <CloudinaryPageImage src="grossbrand_am_06102025_1_vo2wyo" width={405} height={227} alt="Großbrand am 06.10.2025 1" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={0}>
+              Brand des Jagdschlosses Thiergarten
+            </CloudinaryPageImage>
           </div>
         </div>
       </FfPageSection>

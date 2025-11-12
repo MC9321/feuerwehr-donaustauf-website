@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 
 import { FfPageSection } from '@/components/FfPageSection';
-import CloudinaryImage from '@/components/Image/CloudinaryImage';
+import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 
 function FeuerwehrFahrzeuge401(): JSX.Element {
   return (
@@ -34,7 +34,9 @@ function FeuerwehrFahrzeuge401(): JSX.Element {
             </div>
           </div>
           <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-            <CloudinaryImage src="hlf-20_n9s3v2" width={405} height={227} alt="Florian Donaustauf 40/1" caption="Florian Donaustauf 40/1" enableOverlay overlayWidth={1600} overlayHeight={835} />
+            <CloudinaryPageImage src="hlf-20_n9s3v2" width={405} height={227} alt="Florian Donaustauf 40/1" enableOverlay overlayWidth={1600} overlayHeight={835}>
+              HLF 20 - Florian Donaustauf 40/1
+            </CloudinaryPageImage>
           </div>
         </div>
         <h3 className="mt-4 mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Fahrzeugdaten</h3>
