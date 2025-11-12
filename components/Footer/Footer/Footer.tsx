@@ -39,7 +39,7 @@ function Footer(props: Readonly<FooterProps>): JSX.Element {
               <InstagramSvgIcon className="block h-5 w-5" aria-hidden="true" />
             </a>
           </div>
-          <div className="text-center md:text-right">
+          <nav aria-label="Footer Navigation" className="text-center md:text-right">
             {menuItems.map((item, i) => {
               return (
                 <span key={'footer' + i}>
@@ -50,12 +50,12 @@ function Footer(props: Readonly<FooterProps>): JSX.Element {
                 </span>
               );
             })}
-          </div>
+          </nav>
         </div>
         <div className="mt-4 border-t border-gray-600">
           <div className="mt-4 flex items-center justify-between text-gray-400 md:flex-wrap">
             <FfLogoSvgIcon height={38} width={107} aria-label="Feuerwehr Markt Donaustauf Logo" />
-            <div className="mt-4 text-right text-xs font-thin text-gray-400 md:text-sm">{text}</div>
+            <small className="mt-4 text-right text-xs font-thin text-gray-400 md:text-sm">{text}</small>
           </div>
         </div>
       </div>
