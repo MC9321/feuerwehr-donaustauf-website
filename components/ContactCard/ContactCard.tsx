@@ -20,7 +20,7 @@ function ContactCard(props: Readonly<ContactCardProps>): JSX.Element {
   }
 
   return (
-    <div className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-gray-100 p-6 shadow-md transition-all duration-200 hover:scale-105 dark:border-gray-700 dark:bg-gray-800">
+    <article className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-gray-100 p-6 shadow-md transition-all duration-200 hover:scale-105 dark:border-gray-700 dark:bg-gray-800">
       <div className="flex flex-col items-center gap-6 md:flex-row">
         <div className="shrink-0">
           <Image src={imageSrc} alt={name} width={120} height={120} className="rounded-full border border-white/30 object-cover dark:border-white/20" />
@@ -28,11 +28,15 @@ function ContactCard(props: Readonly<ContactCardProps>): JSX.Element {
         <div className="flex-1 text-center md:text-left">
           <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">{name}</h3>
           <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{role}</p>
-          {street && <div className="text-xs text-gray-700 dark:text-gray-300">{street}</div>}
-          {town && <div className="text-xs text-gray-700 dark:text-gray-300">{town}</div>}
+          {(street || town) && (
+            <address className="text-xs text-gray-700 not-italic dark:text-gray-300">
+              {street && <div>{street}</div>}
+              {town && <div>{town}</div>}
+            </address>
+          )}
         </div>
       </div>
-      <div className="flex flex-col gap-2">
+      <address className="flex flex-col gap-2 not-italic">
         {phone && (
           <a
             href={`tel:${phone.replaceAll(/\s/g, '')}`}
@@ -60,8 +64,8 @@ function ContactCard(props: Readonly<ContactCardProps>): JSX.Element {
             </span>
           </a>
         )}
-      </div>
-    </div>
+      </address>
+    </article>
   );
 }
 
