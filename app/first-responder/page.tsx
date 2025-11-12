@@ -7,7 +7,7 @@ import { FfPageSection } from '@/components/FfPageSection';
 function FirstResponder(): JSX.Element {
   return (
     <FfPageSection headline="First Responder" id="first-responder">
-      <div className="mb-4 grid-cols-1 sm:col-span-8 lg:col-span-12">
+      <nav aria-label="First Responder Bereiche" className="mb-4 grid-cols-1 sm:col-span-8 lg:col-span-12">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <PageMenuLink href="/first-responder/informationen/" name="Informationen" image="/assets/images/menu/first-responder-einsatz.jpg">
             Was ist und was macht ein First Responder bei der Feuerwehr Donaustauf?
@@ -22,7 +22,7 @@ function FirstResponder(): JSX.Element {
             Unterstützen Sie die First Responder Einheit mit einer Spende.
           </PageMenuLink>
         </div>
-      </div>
+      </nav>
     </FfPageSection>
   );
 }
