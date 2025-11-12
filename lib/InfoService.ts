@@ -4,15 +4,11 @@ import { INFO_QUERYResult } from '@/types/sanityTypes';
 
 const INFO_QUERY = defineQuery('*[_type == "info"]{ _id, title, message, index }');
 
-const options: FilteredResponseQueryOptions = { next: { revalidate: 30 } };
+const options: FilteredResponseQueryOptions = { next: { revalidate: 60 } };
 
 class InfoService {
-  cachedInfos: INFO_QUERYResult | undefined;
-
   getInfos = async (): Promise<INFO_QUERYResult> => {
-    this.cachedInfos ??= await client.fetch<INFO_QUERYResult>(INFO_QUERY, {}, options);
-
-    return this.cachedInfos;
+    return client.fetch<INFO_QUERYResult>(INFO_QUERY, {}, options);
   };
 }
 

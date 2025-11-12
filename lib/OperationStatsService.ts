@@ -4,15 +4,11 @@ import { OPERATION_STATS_QUERYResult } from '@/types/sanityTypes';
 
 const OPERATION_STATS_QUERY = defineQuery('*[_type == "einsatzStats"]{ _id, year, ff, fr }');
 
-const options: FilteredResponseQueryOptions = { next: { revalidate: 30 } };
+const options: FilteredResponseQueryOptions = { next: { revalidate: 60 } };
 
 class OperationStatsService {
-  cachedOperationStats: OPERATION_STATS_QUERYResult | undefined;
-
   getOperationStats = async (): Promise<OPERATION_STATS_QUERYResult> => {
-    this.cachedOperationStats = await client.fetch<OPERATION_STATS_QUERYResult>(OPERATION_STATS_QUERY, {}, options);
-
-    return this.cachedOperationStats;
+    return client.fetch<OPERATION_STATS_QUERYResult>(OPERATION_STATS_QUERY, {}, options);
   };
 }
 
