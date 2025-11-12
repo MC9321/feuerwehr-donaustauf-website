@@ -3,7 +3,11 @@ import { JSX } from 'react';
 import AudiContent from '@/features/AudiContent';
 
 function FirstResponderFahrzeug(): JSX.Element {
-  return <AudiContent />;
+  return (
+    <article>
+      <AudiContent />
+    </article>
+  );
 }
 
 export default FirstResponderFahrzeug;

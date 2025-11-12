@@ -29,7 +29,7 @@ function Operation(props: Readonly<OperationsProps>): JSX.Element {
   const alert = parseOperationAlert(title);
 
   return (
-    <div className={cn('mb-2 border-l-4 p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate })} style={{ borderColor: getCategoryColor(category ?? '') }}>
+    <article className={cn('mb-2 border-l-4 p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate })} style={{ borderColor: getCategoryColor(category ?? '') }}>
       <div className="mb-2 text-base font-bold">
         <span className="border border-gray-300 p-0.5 text-sm">{opNr}</span> {opTitle}
       </div>
@@ -53,7 +53,7 @@ function Operation(props: Readonly<OperationsProps>): JSX.Element {
         </div>
         <div>{locality}</div>
       </div>
-    </div>
+    </article>
   );
 }
 

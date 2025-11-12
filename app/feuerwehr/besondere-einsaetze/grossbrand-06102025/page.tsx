@@ -72,7 +72,7 @@ const grossbrandImages: ImageData[] = [
 
 function Grossbrand06102025(): JSX.Element {
   return (
-    <>
+    <article>
       <FfPageSection headline="Großbrand am 06.10.2025" id="grossbrand">
         <div className="pt-4 text-sm font-light sm:pt-6 md:inline-flex lg:pt-8 lg:text-base lg:font-normal">
           <div className="w-full pb-4 md:w-2/3 md:pr-4 md:pb-0">
@@ -275,7 +275,7 @@ function Grossbrand06102025(): JSX.Element {
       <FfPageSection id="bilder" headline="Eindrücke" level="h2" className="pb-6 sm:pb-8">
         <CloudinaryImageGalleryImage imageSeries={grossbrandImages} />
       </FfPageSection>
-    </>
+    </article>
   );
 }
 

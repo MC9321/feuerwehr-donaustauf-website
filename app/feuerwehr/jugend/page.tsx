@@ -6,7 +6,7 @@ import { JSX } from 'react';
 
 function Jugend(): JSX.Element {
   return (
-    <>
+    <article>
       <FfPageSection headline="Jugendfeuerwehr" id="jugend" className="pb-6 sm:pb-8">
         <div>
           Unsere Jugendgruppe nimmt Mädchen und Jungen zwischen 13 und 16 Jahren auf. Wenn Du Interesse hast, schau bei uns vorbei – wir freuen uns auf Dich! Die Jugendgruppe trifft sich alle zwei Wochen donnerstags um 18 Uhr im Gerätehaus.
@@ -44,7 +44,7 @@ function Jugend(): JSX.Element {
           <ContactCard name="Michael Wagner" role="Jugendwart" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
         </div>
       </FfPageSection>
-    </>
+    </article>
   );
 }
 

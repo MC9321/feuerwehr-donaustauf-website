@@ -4,7 +4,11 @@ import SpendenContent from '@/features/SpendenContent';
 import { JSX } from 'react';
 
 function Spenden(): JSX.Element {
-  return <SpendenContent />;
+  return (
+    <article>
+      <SpendenContent />
+    </article>
+  );
 }
 
 export default Spenden;

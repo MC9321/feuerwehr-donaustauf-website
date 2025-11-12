@@ -88,7 +88,7 @@ const chronikImages: ImageData[] = [
 
 function Chronik(): JSX.Element {
   return (
-    <>
+    <article>
       <FfPageSection headline="Chronik" id="chronik">
         <div className="page-section pb-8">
           <h3 className="mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Gründungszeit 1868</h3>
@@ -338,7 +338,7 @@ function Chronik(): JSX.Element {
           beschafft wurde. Somit war das eigentliche Ziel der Leistungsprüfung - die geordnete Arbeit der Mannschaft und die Vervollständigung der Geräte - erreicht.
         </div>
       </FfPageSection>
-    </>
+    </article>
   );
 }
 
