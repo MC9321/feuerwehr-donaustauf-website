@@ -16,10 +16,12 @@ import { mainImages } from '@/data/MainImages';
 
 interface MainContentProps {
   operations?: OPERATION_QUERYResult;
+  latestFfOperations?: OPERATION_QUERYResult;
+  latestFrOperations?: OPERATION_QUERYResult;
 }
 
 function MainContent(props: Readonly<MainContentProps>): JSX.Element {
-  const { operations } = props;
+  const { operations, latestFfOperations, latestFrOperations } = props;
 
   const frOps = sortOperations(getFrOperations(operations));
   const ffOps = sortOperations(getFfOperations(operations));
@@ -43,7 +45,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
                 <OperationPieChart year={year} operations={ffOpsThisYear} />
               </div>
               <MoreLink href="/feuerwehr/einsaetze/" linkText="Weitere Einsätze">
-                <Operations operations={ffOps?.slice(0, 5)} alternate />
+                <Operations operations={latestFfOperations} alternate />
               </MoreLink>
             </div>
           </div>
@@ -53,7 +55,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
               <OperationPieChart year={year} operations={frOpsThisYear} />
             </div>
             <MoreLink href="/first-responder/einsaetze/" linkText="Weitere Einsätze">
-              <Operations operations={frOps?.slice(0, 5)} alternate />
+              <Operations operations={latestFrOperations} alternate />
             </MoreLink>
           </div>
         </div>

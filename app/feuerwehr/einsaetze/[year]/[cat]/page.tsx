@@ -4,7 +4,7 @@ import operationService from '@/lib/OperationService';
 import OperationContent from '@/features/OperationContent';
 import { Metadata } from 'next';
 import { SITE_TITLE } from '@/lib/constants';
-import { getFfOperations, getOperationCategories, getOperationsOfCategory, getOperationsOfYear, getOperationYears, parseCategory, parseToNumber, sortOperations } from '@/lib/operationUtils';
+import { getFfOperations, getOperationCategories, getOperationsOfCategory, getOperationsOfYear, getOperationYears, parseCategory, parseToNumber } from '@/lib/operationUtils';
 
 interface StaticYearCategoryParams {
   year: string;
@@ -34,22 +34,25 @@ export async function generateMetadata({ params }: Readonly<PageProps<'/feuerweh
   };
 }
 
-async function getData(): Promise<OPERATION_QUERYResult | undefined> {
-  return operationService.getOperations();
+async function getData(year: number): Promise<OPERATION_QUERYResult | undefined> {
+  return operationService.getOperationsOfYear(year);
+}
+
+async function getAvailableYears(): Promise<number[]> {
+  return operationService.getAvailableYears();
 }
 
 async function FeuerwehrEinsaetzeCategory({ params }: Readonly<PageProps<'/feuerwehr/einsaetze/[year]/[cat]'>>): Promise<JSX.Element> {
   const { year, cat } = await params;
+  const years = await getAvailableYears();
   const operationYear = parseToNumber(year);
-  const operations = await getData();
+  const operations = await getData(operationYear);
   const ffOperations = getFfOperations(operations);
-  const years = getOperationYears(ffOperations);
-  const ffOperationsOfYear = getOperationsOfYear(ffOperations, operationYear);
-  const categories = getOperationCategories(ffOperationsOfYear);
-  const ffOperationsOfCat = getOperationsOfCategory(ffOperationsOfYear, cat);
+  const categories = getOperationCategories(ffOperations);
+  const ffOperationsOfCat = getOperationsOfCategory(ffOperations, cat);
   const category = categories.find(c => parseCategory(c) === cat);
 
-  const ffOps = sortOperations(ffOperationsOfCat) ?? [];
+  const ffOps = ffOperationsOfCat ?? [];
 
   return <OperationContent operations={ffOps} year={operationYear} years={years} category={category} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} />;
 }

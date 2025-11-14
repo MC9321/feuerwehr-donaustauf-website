@@ -10,6 +10,7 @@ import { INFO_QUERYResult, OPERATION_QUERYResult } from '@/types/sanityTypes';
 import operationService from '@/lib/OperationService';
 import { FfPageSection } from '@/components/FfPageSection';
 import Link from 'next/link';
+import { getCurrentYear } from '@/lib/operationUtils';
 
 const portableTextComponents: PortableTextComponents = {
   marks: {
@@ -34,25 +35,37 @@ const portableTextComponents: PortableTextComponents = {
   },
 };
 
-async function getData(): Promise<{ infos?: INFO_QUERYResult; operations?: OPERATION_QUERYResult }> {
-  const infos = await infoService.getInfos();
-  const operations = await operationService.getOperations();
+async function getInfos(): Promise<INFO_QUERYResult> {
+  return await infoService.getInfos();
+}
 
-  return { infos, operations };
+async function getLatestFr(): Promise<OPERATION_QUERYResult> {
+  return operationService.getLatestFrOperations();
+}
+
+async function getLatestFf(): Promise<OPERATION_QUERYResult> {
+  return operationService.getLatestFfOperations();
+}
+
+async function getOperations(): Promise<OPERATION_QUERYResult | undefined> {
+  return operationService.getOperationsOfYear(getCurrentYear());
 }
 
 async function Home(): Promise<JSX.Element> {
-  const data = await getData();
+  const infos = await getInfos();
+  const operations = await getOperations();
+  const latestFf = await getLatestFf();
+  const latestFr = await getLatestFr();
 
   return (
     <HeaderMainLayout>
       <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762605631/main_yydisz.jpg)]" />
       <FfPageSection headline="Feuerwehr Markt Donaustauf" id="ffdstf" className="page-section pb-4 sm:pb-8">
-        {data?.infos && (
+        {infos && (
           <>
             <h2 className="text-xl font-medium tracking-tight text-heading uppercase sm:text-2xl lg:text-3xl dark:text-heading-dark">Aktuelles</h2>
             <div className="pt-4 text-sm font-light sm:pt-6 lg:pt-8 lg:text-base lg:font-normal">
-              {data?.infos
+              {infos
                 ?.toSorted((i1, i2) => (i1.index ?? 0) - (i2.index ?? 0))
                 .map(info => (
                   <InfoArticle key={info._id} headline={info.title || ''}>
@@ -67,7 +80,7 @@ async function Home(): Promise<JSX.Element> {
           </>
         )}
       </FfPageSection>
-      <MainContent operations={data?.operations} />
+      <MainContent operations={operations} latestFrOperations={latestFr} latestFfOperations={latestFf} />
     </HeaderMainLayout>
   );
 }

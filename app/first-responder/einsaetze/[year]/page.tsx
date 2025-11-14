@@ -4,7 +4,7 @@ import operationService from '@/lib/OperationService';
 import OperationContent from '@/features/OperationContent';
 import { Metadata } from 'next';
 import { SITE_TITLE } from '@/lib/constants';
-import { getCurrentYear, getFrOperations, getOperationsOfYear, getOperationYears, parseToNumber, sortOperations } from '@/lib/operationUtils';
+import { getCurrentYear, getFrOperations, getOperationYears, parseToNumber } from '@/lib/operationUtils';
 import operationStatsService from '@/lib/OperationStatsService';
 import { statsToChartDataFr } from '@/lib/operationStatsUtils';
 
@@ -27,24 +27,28 @@ export async function generateMetadata({ params }: Readonly<PageProps<'/first-re
   };
 }
 
-async function getData(): Promise<OPERATION_QUERYResult | undefined> {
-  return operationService.getOperations();
+async function getData(year: number): Promise<OPERATION_QUERYResult | undefined> {
+  return operationService.getOperationsOfYear(year);
+}
+
+async function getAvailableYears(): Promise<number[]> {
+  return operationService.getAvailableYears();
 }
 
 async function FirstResponderYearEinsaetze({ params }: Readonly<PageProps<'/first-responder/einsaetze/[year]'>>): Promise<JSX.Element> {
   const { year } = await params;
+  const years = await getAvailableYears();
   const operationYear = parseToNumber(year);
-  const operations = await getData();
+  const operations = await getData(operationYear);
   const operationStats = await getStatsData();
   const stats = statsToChartDataFr(operationStats);
   const frOperations = getFrOperations(operations);
-  const years = getOperationYears(frOperations);
-  const frOperationsOfYear = getOperationsOfYear(frOperations, operationYear);
 
   const currentYear = getCurrentYear();
-  stats?.push({ id: currentYear.toString(), label: currentYear.toString(), count: getOperationsOfYear(frOperations, currentYear)?.length ?? 0 });
+  const currentYearOps = getFrOperations(await getData(currentYear));
+  stats?.push({ id: currentYear.toString(), label: currentYear.toString(), count: currentYearOps?.length ?? 0 });
 
-  const frOps = sortOperations(frOperationsOfYear) ?? [];
+  const frOps = frOperations ?? [];
 
   return <OperationContent operations={frOps} year={operationYear} years={years} operationPath="/first-responder/einsaetze/" statistics={stats} />;
 }
