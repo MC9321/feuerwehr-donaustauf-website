@@ -21,8 +21,8 @@ class OperationService {
   };
 
   getOperationsOfYear = async (year: number): Promise<OPERATION_QUERYResult | undefined> => {
-    const dateFrom = `${year - 1}-12-31`;
-    const dateUntil = `${year + 1}-01-01`;
+    const dateFrom = `${year - 1}-12-30T23:00:00Z`;
+    const dateUntil = `${year + 1}-01-02T23:00:00Z`;
     const operations = await client.fetch<OPERATION_QUERYResult>(OPERATION_BY_YEAR_QUERY, { dateFrom, dateUntil }, options);
     return getOperationsOfYear(operations, year);
   };
