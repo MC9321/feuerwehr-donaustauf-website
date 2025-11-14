@@ -34,7 +34,6 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
   return (
     <>
       <FfPageSection headline="Einsätze" id="einsatz-content" level="h2" className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8 dark:bg-gray-900">
-        Test
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2">
             <div className="mr-0 md:mr-2">
