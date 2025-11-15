@@ -20,10 +20,10 @@ function ContactCard(props: Readonly<ContactCardProps>): JSX.Element {
   }
 
   return (
-    <article className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-gray-100 p-6 shadow-md transition-all duration-200 hover:scale-105 dark:border-gray-700 dark:bg-gray-800">
+    <article className="flex flex-col gap-4 rounded-2xl border border-gray-300 bg-gray-100 p-6 shadow-lg backdrop-blur-xs transition-all duration-200 hover:scale-105 hover:backdrop-blur-sm supports-backdrop-filter:bg-gray-400/20 dark:border-gray-700 dark:bg-gray-800 supports-backdrop-filter:dark:bg-gray-500/20">
       <div className="flex flex-col items-center gap-6 md:flex-row">
         <div className="shrink-0">
-          <Image src={imageSrc} alt={name} width={120} height={120} className="rounded-full border border-white/30 object-cover dark:border-white/20" />
+          <Image src={imageSrc} alt={name} width={120} height={120} className="rounded-full border border-white/30 object-cover dark:border-white/30" />
         </div>
         <div className="flex-1 text-center md:text-left">
           <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">{name}</h3>

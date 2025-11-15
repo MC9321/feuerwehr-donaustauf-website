@@ -3,6 +3,7 @@
 import { JSX } from 'react';
 import { FfPageSection } from '@/components/FfPageSection';
 import ModernContactCard from '@/components/ContactCard/ContactCard';
+import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 
 interface ContactContentProps {
   level?: 'h1' | 'h2' | 'h3';
@@ -10,9 +11,12 @@ interface ContactContentProps {
 
 function ContactContent({ level }: Readonly<ContactContentProps>): JSX.Element {
   return (
-    <FfPageSection headline="Kontakt" id="kontakt" level={level} className="page-section">
+    <FfPageSection headline="Kontakt" id="kontakt" level={level} className="page-section relative">
       <div>Hast du Fragen rund um die Feuerwehr Donaustauf? Wir versenden keine Ärmelabzeichen an Sammler.</div>
-      <div className="my-6 grid auto-rows-fr grid-cols-1 gap-6 sm:my-8 sm:grid-cols-2 lg:grid-cols-2">
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-9">
+        <FfLogoSvgIcon className="h-full w-full max-w-2xl" aria-hidden="true" />
+      </div>
+      <div className="relative z-2 my-6 grid auto-rows-fr grid-cols-1 gap-6 sm:my-8 sm:grid-cols-2 lg:grid-cols-2">
         <ModernContactCard
           name="Christopher Möck"
           role="Federführender Kommandant"
