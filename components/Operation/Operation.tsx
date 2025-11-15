@@ -15,10 +15,11 @@ interface OperationsProps {
   incident: number | null;
   slug: Slug | null;
   alternate?: boolean;
+  glass?: boolean;
 }
 
 function Operation(props: Readonly<OperationsProps>): JSX.Element {
-  const { title, locality, date, category, incident, alternate } = props;
+  const { title, locality, date, category, incident, alternate, glass } = props;
 
   const dateObject = new Date(date ?? '');
   const opDate = `${dateObject.getDate().toString().padStart(2, '0')}.${(dateObject.getMonth() + 1).toString().padStart(2, '0')}.${dateObject.getFullYear()} ${dateObject.getHours().toString().padStart(2, '0')}:${dateObject.getMinutes().toString().padStart(2, '0')}`;
@@ -26,7 +27,15 @@ function Operation(props: Readonly<OperationsProps>): JSX.Element {
   const alert = parseOperationAlert(title);
 
   return (
-    <article className={cn('mb-2 border-l-4 p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate })} style={{ borderColor: getCategoryColor(category ?? '') }}>
+    <article
+      className={cn('mb-2 border-l-4 p-2', {
+        'bg-gray-100 dark:bg-gray-900': !alternate && !glass,
+        'bg-white dark:bg-black': alternate && !glass,
+        'bg-white/30 backdrop-blur-xs hover:backdrop-blur-sm dark:bg-black/30': !alternate && glass,
+        'bg-white/60 backdrop-blur-xs hover:backdrop-blur-sm dark:bg-black/60': alternate && glass,
+      })}
+      style={{ borderColor: getCategoryColor(category ?? '') }}
+    >
       <div className="mb-2 text-base font-bold">
         <span className="border border-gray-300 p-0.5 text-sm">{incident}</span> {opTitle}
       </div>

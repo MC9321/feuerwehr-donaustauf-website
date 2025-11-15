@@ -5,16 +5,17 @@ import Operation from '../Operation/Operation';
 interface OperationsProps {
   operations?: OPERATION_QUERYResult;
   alternate?: boolean;
+  glass?: boolean;
 }
 
 function Operations(props: Readonly<OperationsProps>): JSX.Element {
-  const { operations, alternate } = props;
+  const { operations, alternate, glass } = props;
 
   return (
     <>
       {operations?.map(operation => (
         <div key={operation._id}>
-          <Operation {...operation} alternate={alternate} />
+          <Operation {...operation} alternate={alternate} glass={glass} />
         </div>
       ))}
     </>
