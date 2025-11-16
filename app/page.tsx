@@ -63,7 +63,7 @@ async function Home(): Promise<JSX.Element> {
   const latestFf = await getLatestFf();
   const latestFr = await getLatestFr();
   const images = buildImageData(await getBannerImages());
-  console.log(await getBannerImages());
+
   return (
     <HeaderMainLayout>
       <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762605631/main_yydisz.jpg)]" />

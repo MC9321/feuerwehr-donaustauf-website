@@ -22,8 +22,8 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   const [loaded, setLoaded] = useState(false);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const hasPrevious = imageSeries.length > 0 && currentIndex > 0;
-  const hasNext = imageSeries.length > 0 && currentIndex < imageSeries.length - 1;
+  const hasPrevious = true;
+  const hasNext = true;
 
   const handleBackdropClick = (e: MouseEvent) => {
     if (e.target === e.currentTarget) {

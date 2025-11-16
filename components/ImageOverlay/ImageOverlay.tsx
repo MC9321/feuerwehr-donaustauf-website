@@ -48,29 +48,23 @@ function ImageOverlayProvider(props: Readonly<ImageOverlayProviderProps>) {
 
   const nextImage = useCallback(() => {
     setState(prev => {
-      if (prev.currentIndex < prev.imageSeries.length - 1) {
-        const newIndex = prev.currentIndex + 1;
-        return {
-          ...prev,
-          currentIndex: newIndex,
-          selectedImage: prev.imageSeries[newIndex],
-        };
-      }
-      return prev;
+      const newIndex = prev.currentIndex < prev.imageSeries.length - 1 ? prev.currentIndex + 1 : 0;
+      return {
+        ...prev,
+        currentIndex: newIndex,
+        selectedImage: prev.imageSeries[newIndex],
+      };
     });
   }, []);
 
   const previousImage = useCallback(() => {
     setState(prev => {
-      if (prev.currentIndex > 0) {
-        const newIndex = prev.currentIndex - 1;
-        return {
-          ...prev,
-          currentIndex: newIndex,
-          selectedImage: prev.imageSeries[newIndex],
-        };
-      }
-      return prev;
+      const newIndex = prev.currentIndex > 0 ? prev.currentIndex - 1 : prev.imageSeries.length - 1;
+      return {
+        ...prev,
+        currentIndex: newIndex,
+        selectedImage: prev.imageSeries[newIndex],
+      };
     });
   }, []);
 

@@ -13,14 +13,15 @@ interface CloudinaryResponse {
 class CloudinaryService {
   getImagesByFolder = async (folder: string, maxResults = 500): Promise<CloudinaryResource[]> => {
     try {
-      const response = await axios.get<CloudinaryResponse>(`https://${cloudinaryApiKey}:${cloudinaryApiSecret}@api.cloudinary.com/v1_1/${cloudinaryCloudName}/resources/image`, {
+      const response = await axios.get<CloudinaryResponse>(`https://${cloudinaryApiKey}:${cloudinaryApiSecret}@api.cloudinary.com/v1_1/${cloudinaryCloudName}/resources/by_asset_folder`, {
         params: {
-          type: 'upload',
-          prefix: folder,
+          asset_folder: folder,
           context: true,
           max_results: maxResults,
+          direction: 1,
         },
       });
+
       return response.data.resources;
     } catch {
       return [];
@@ -33,8 +34,10 @@ class CloudinaryService {
         params: {
           max_results: maxResults,
           context: true,
+          direction: 1,
         },
       });
+
       return response.data.resources;
     } catch {
       return [];
