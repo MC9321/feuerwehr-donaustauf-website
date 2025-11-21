@@ -87,6 +87,26 @@ npm run typegen      # Sanity Type Generation
 - Image Optimization (AVIF, WebP)
 - Package Imports Optimization für `@salzpate/react-ui`
 - Production: Console Logs entfernt (außer error/warn)
+- Experimental: `dynamicIO: true` für Component-Level Caching
+
+### Environment Variables (.env.local)
+
+```bash
+# Sanity CMS
+SANITY_PROJECT_ID=xxx
+SANITY_DATASET=production
+
+# Cloudinary
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=xxx
+NEXT_PUBLIC_CLOUDINARY_API_KEY=xxx
+CLOUDINARY_API_SECRET=xxx
+
+# Email (MailerSend)
+MAILERSEND_API_KEY=xxx
+
+# Newsletter (Sendinblue/Brevo)
+NEWSLETTER=https://...
+```
 
 ### TypeScript (tsconfig.json)
 
@@ -101,15 +121,40 @@ npm run typegen      # Sanity Type Generation
 - Dark Mode Support
 - Print Styles verfügbar
 
+## Routen-Struktur
+
+### Statische Routen
+- `/` - Homepage
+- `/datenschutz`, `/impressum`, `/kontakt`, `/spenden`
+- `/feuerwehr/*` - Feuerwehr-Seiten (Beitritt, Jugend, Mannschaft, Fahrzeuge)
+- `/first-responder/*` - First Responder Seiten
+- `/verein/*` - Vereinsseiten (Chronik, Satzung, Vorstandschaft)
+
+### Dynamische Routen
+- `/feuerwehr/einsaetze/[year]` - Einsätze nach Jahr
+- `/feuerwehr/einsaetze/[year]/[cat]` - Einsätze nach Jahr + Kategorie
+- `/first-responder/einsaetze/[year]` - FR-Einsätze nach Jahr
+- Alle dynamischen Routen haben `generateMetadata` und `generateStaticParams`
+
+### Fahrzeuge (statische Routen)
+- `/feuerwehr/fahrzeuge/40-1` - HLF (Hilfeleistungslöschfahrzeug)
+- `/feuerwehr/fahrzeuge/11-1` - MZF (Mannschaftstransportfahrzeug)
+- `/feuerwehr/fahrzeuge/99-1` - MZB (Mehrzweckboot)
+- `/feuerwehr/fahrzeuge/59-1` - UTF (Umweltschutzfahrzeug)
+- `/feuerwehr/fahrzeuge/56-1` - Audi
+- `/feuerwehr/fahrzeuge/79-1`
+
 ## Besonderheiten
 
 1. **Mehrsprachigkeit**: Primär Deutsch (`lang="de"`)
-2. **SEO**: Metadata in `layout.tsx`, OpenGraph, Twitter Cards
+2. **SEO**: `generateMetadata` für dynamische Routen, OpenGraph, Twitter Cards
 3. **PWA**: Manifest.json vorhanden
 4. **Accessibility**: SkipLink, semantisches HTML
-5. **Performance**: Server Components, Image Optimization, Compression
+5. **Performance**: Server Components, Image Optimization, Compression, dynamicIO Caching
 6. **Sanity Integration**: Portable Text für Rich Content
 7. **Cloudinary**: Tag-basierte Bildverwaltung (z.B. "banner")
+8. **Email**: MailerSend für Kontaktformular
+9. **Newsletter**: Sendinblue/Brevo Integration
 
 ## Datenfluss
 
