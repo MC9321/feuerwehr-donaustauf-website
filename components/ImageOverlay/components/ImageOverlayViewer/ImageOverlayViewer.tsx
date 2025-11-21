@@ -22,6 +22,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   const [loaded, setLoaded] = useState(false);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
   const [previousImage, setPreviousImage] = useState<ImageData | null>(null);
+  const [thumbnailsVisible, setThumbnailsVisible] = useState(true);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const isAtFirstImage = currentIndex === 0;
@@ -110,6 +111,15 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     trackMouse: true,
     preventScrollOnSwipe: true,
     delta: 50,
+  });
+
+  const thumbnailHandlers = useSwipeable({
+    onSwipedDown: () => {
+      setThumbnailsVisible(false);
+    },
+    trackMouse: false,
+    preventScrollOnSwipe: true,
+    delta: 30,
   });
 
   useEffect(() => {
@@ -214,8 +224,20 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   };
 
   return (
-    <div {...handlers} className={`animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90 ${imageSeries.length > 1 ? 'pb-24' : ''}`} onClick={handleBackdropClick}>
-      <div className="relative max-h-[85vh] max-w-[95vw] sm:max-h-[90vh] sm:max-w-[90vw]">
+    <div
+      {...handlers}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image overlay"
+      className="animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90"
+      onClick={handleBackdropClick}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleBackdropClick(e as unknown as MouseEvent);
+        }
+      }}
+    >
+      <div className={`relative transition-all duration-300 ${imageSeries.length > 1 && thumbnailsVisible ? 'max-h-[calc(85vh-120px)] sm:max-h-[calc(90vh-120px)]' : 'max-h-[85vh] sm:max-h-[90vh]'} max-w-[95vw] sm:max-w-[90vw]`}>
         {hasError ? (
           <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white/10 p-8 text-white">
             <svg className="size-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -228,11 +250,24 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           <div className="relative">
             {previousImage && (
               <div className={getOldImageClasses()}>
-                <CloudinaryImage src={previousImage.src} alt={previousImage.alt} width={previousImage.width} height={previousImage.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" />
+                <CloudinaryImage
+                  src={previousImage.src}
+                  alt={previousImage.alt}
+                  width={previousImage.width}
+                  height={previousImage.height}
+                  className={`object-contain transition-all duration-300 ${imageSeries.length > 1 && thumbnailsVisible ? 'max-h-[calc(85vh-120px)] sm:max-h-[calc(90vh-120px)]' : 'max-h-[85vh] sm:max-h-[90vh]'} max-w-[95vw] sm:max-w-[90vw]`}
+                />
               </div>
             )}
             <div className={getNewImageClasses()}>
-              <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" onError={handleImageError} />
+              <CloudinaryImage
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className={`object-contain transition-all duration-300 ${imageSeries.length > 1 && thumbnailsVisible ? 'max-h-[calc(85vh-120px)] sm:max-h-[calc(90vh-120px)]' : 'max-h-[85vh] sm:max-h-[90vh]'} max-w-[95vw] sm:max-w-[90vw]`}
+                onError={handleImageError}
+              />
             </div>
           </div>
         )}
@@ -269,10 +304,10 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
       )}
       {imageSeries.length > 1 && (
         <>
-          <div className="absolute right-4 bottom-4 rounded-full bg-black/50 px-4 py-2 text-sm text-white">
+          <div className="absolute top-2 left-2 rounded-full bg-black/50 px-4 py-2 text-sm text-white">
             {currentIndex + 1} / {imageSeries.length}
           </div>
-          <div className="absolute inset-x-0 bottom-0 flex justify-center overflow-hidden pb-4">
+          <div {...thumbnailHandlers} className={`absolute inset-x-0 bottom-0 flex justify-center overflow-hidden pb-4 transition-transform duration-300 ${thumbnailsVisible ? 'translate-y-0' : 'translate-y-full'}`}>
             <div className="flex gap-2 rounded-lg bg-black/70 p-2 backdrop-blur-sm" style={{ transform: `translateX(calc(50% - ${currentIndex * 88 + 44}px))`, transition: 'transform 0.3s ease-out' }}>
               {imageSeries.map((img, index) => (
                 <button
@@ -289,6 +324,17 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
               ))}
             </div>
           </div>
+          {!thumbnailsVisible && (
+            <button
+              onClick={() => setThumbnailsVisible(true)}
+              aria-label="Show thumbnails"
+              className="absolute bottom-4 left-1/2 -translate-x-1/2 cursor-pointer rounded-full bg-black/70 p-2 text-white backdrop-blur-sm transition-all hover:bg-black/90"
+            >
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+              </svg>
+            </button>
+          )}
         </>
       )}
       {image.caption && <div className="absolute bottom-24 left-1/2 max-w-[90vw] -translate-x-1/2 rounded-lg bg-black/70 px-4 py-2 text-center text-sm text-white sm:max-w-[80vw]">{image.caption}</div>}
