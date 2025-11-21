@@ -186,9 +186,9 @@
   /* Kontaktkarten optimiert für Druck */
   [class*='ContactCard'] {
     border: 1px solid #000 !important;
+    break-inside: avoid;
     margin-bottom: 12pt !important;
     padding: 12pt !important;
-    break-inside: avoid;
   }
 
   /* === Einsatzberichte === */
@@ -203,8 +203,8 @@
   /* === Fahrzeugübersicht === */
   [class*='vehicle'],
   [class*='fahrzeug'] {
-    margin-bottom: 12pt !important;
     break-inside: avoid;
+    margin-bottom: 12pt !important;
   }
 
   /* === Seitenzahlen === */
@@ -246,9 +246,9 @@
   [class*='warning'],
   [class*='notice'] {
     border: 2px solid #000 !important;
+    break-inside: avoid;
     margin: 12pt 0 !important;
     padding: 12pt !important;
-    break-inside: avoid;
   }
 
   /* === Optimierungen für spezifische Seiten === */
