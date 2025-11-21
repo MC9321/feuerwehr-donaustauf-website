@@ -41,7 +41,7 @@ function UtvContent({ images }: Readonly<UtvContentProps>): JSX.Element {
             </div>
           </div>
           <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-            <CloudinaryPageImage src="utv-1_imgp0q" width={405} height={227} alt="Florian Donaustauf 59/1" enableOverlay overlayWidth={800} overlayHeight={600}>
+            <CloudinaryPageImage src="utv-1_imgp0q" width={405} height={227} alt="Florian Donaustauf 59/1" enableOverlay overlayWidth={800} overlayHeight={600} imageSeries={images}>
               UTV - Florian Donaustauf 59/1
             </CloudinaryPageImage>
           </div>

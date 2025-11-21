@@ -20,6 +20,8 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   const [isZoomed, setIsZoomed] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+  const [previousImage, setPreviousImage] = useState<ImageData | null>(null);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const isAtFirstImage = currentIndex === 0;
@@ -36,41 +38,59 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   };
 
   const handleNext = () => {
+    if (isTransitioning) return;
     setHasError(false);
-    setIsTransitioning(true);
+    setSlideDirection('right');
+    setPreviousImage(image);
     setTimeout(() => {
       if (isAtLastImage) {
-        // Loop to first image
         onSelectImage?.(0);
       } else {
         onNext();
       }
+      setIsTransitioning(true);
+    }, 10);
+    setTimeout(() => {
       setIsTransitioning(false);
-    }, 200);
+      setSlideDirection(null);
+      setPreviousImage(null);
+    }, 750);
   };
 
   const handlePrevious = () => {
+    if (isTransitioning) return;
     setHasError(false);
-    setIsTransitioning(true);
+    setSlideDirection('left');
+    setPreviousImage(image);
     setTimeout(() => {
       if (isAtFirstImage) {
-        // Loop to last image
         onSelectImage?.(imageSeries.length - 1);
       } else {
         onPrevious();
       }
+      setIsTransitioning(true);
+    }, 10);
+    setTimeout(() => {
       setIsTransitioning(false);
-    }, 200);
+      setSlideDirection(null);
+      setPreviousImage(null);
+    }, 750);
   };
 
   const handleThumbnailClick = (index: number) => {
-    if (index === currentIndex) return;
+    if (index === currentIndex || !onSelectImage || isTransitioning) return;
     setHasError(false);
-    setIsTransitioning(true);
+    setSlideDirection(index > currentIndex ? 'right' : 'left');
+    setPreviousImage(image);
     setTimeout(() => {
-      onSelectImage?.(index);
+      onSelectImage(index);
+      setIsTransitioning(true);
+    }, 10);
+    setTimeout(() => {
       setIsTransitioning(false);
-    }, 200);
+      setSlideDirection(null);
+      setPreviousImage(null);
+    }, 750);
   };
 
   const handlers = useSwipeable({
@@ -147,6 +167,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     }
   }, [currentIndex]);
 
+  // Keyboard support
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -157,8 +178,43 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     return () => globalThis.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
+  const getOldImageClasses = () => {
+    const baseClasses = 'absolute inset-0 transition-all duration-700 ease-out';
+    if (!isTransitioning) {
+      return `${baseClasses} translate-x-0 opacity-100`;
+    }
+    if (slideDirection === 'left') {
+      return `${baseClasses} translate-x-full opacity-0`;
+    }
+    if (slideDirection === 'right') {
+      return `${baseClasses} -translate-x-full opacity-0`;
+    }
+    return `${baseClasses} opacity-0`;
+  };
+
+  const getNewImageClasses = () => {
+    const baseClasses = 'relative transition-all duration-700 ease-out';
+
+    if (!previousImage) {
+      return `${baseClasses} translate-x-0 opacity-100`;
+    }
+
+    if (!isTransitioning) {
+      // Initial position: outside viewport
+      if (slideDirection === 'left') {
+        return `${baseClasses} -translate-x-full opacity-0`;
+      }
+      if (slideDirection === 'right') {
+        return `${baseClasses} translate-x-full opacity-0`;
+      }
+    }
+
+    // Final position: center
+    return `${baseClasses} translate-x-0 opacity-100`;
+  };
+
   return (
-    <div {...handlers} className="animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90" onClick={handleBackdropClick}>
+    <div {...handlers} className={`animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90 ${imageSeries.length > 1 ? 'pb-24' : ''}`} onClick={handleBackdropClick}>
       <div className="relative max-h-[85vh] max-w-[95vw] sm:max-h-[90vh] sm:max-w-[90vw]">
         {hasError ? (
           <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white/10 p-8 text-white">
@@ -169,8 +225,15 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
             <p className="text-center text-sm text-white/70">Das Bild kann nicht angezeigt werden</p>
           </div>
         ) : (
-          <div className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-            <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" onError={handleImageError} />
+          <div className="relative">
+            {previousImage && (
+              <div className={getOldImageClasses()}>
+                <CloudinaryImage src={previousImage.src} alt={previousImage.alt} width={previousImage.width} height={previousImage.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" />
+              </div>
+            )}
+            <div className={getNewImageClasses()}>
+              <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" onError={handleImageError} />
+            </div>
           </div>
         )}
       </div>
@@ -209,8 +272,8 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           <div className="absolute right-4 bottom-4 rounded-full bg-black/50 px-4 py-2 text-sm text-white">
             {currentIndex + 1} / {imageSeries.length}
           </div>
-          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-4">
-            <div className="flex max-w-[90vw] gap-2 overflow-x-auto rounded-lg bg-black/70 p-2 backdrop-blur-sm">
+          <div className="absolute inset-x-0 bottom-0 flex justify-center overflow-hidden pb-4">
+            <div className="flex gap-2 rounded-lg bg-black/70 p-2 backdrop-blur-sm" style={{ transform: `translateX(calc(50% - ${currentIndex * 88 + 44}px))`, transition: 'transform 0.3s ease-out' }}>
               {imageSeries.map((img, index) => (
                 <button
                   key={img.src}
@@ -218,7 +281,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
                     thumbnailRefs.current[index] = el;
                   }}
                   onClick={() => handleThumbnailClick(index)}
-                  className={`shrink-0 cursor-pointer overflow-hidden rounded transition-all ${index === currentIndex ? 'opacity-100 ring-2 ring-gray-400' : 'opacity-50 hover:opacity-85'}`}
+                  className={`shrink-0 cursor-pointer overflow-hidden rounded transition-all ${index === currentIndex ? 'scale-110 opacity-100 ring-2 ring-gray-400' : 'opacity-50 hover:opacity-85'}`}
                   aria-label={`Go to image ${index + 1}`}
                 >
                   <CloudinaryImage src={img.src} alt={img.alt || `Thumbnail ${index + 1}`} width={80} height={60} className="h-16 w-20 object-cover" onLoad={() => setLoaded(true)} />

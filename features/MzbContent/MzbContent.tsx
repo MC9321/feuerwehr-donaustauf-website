@@ -29,7 +29,7 @@ function MzbContent({ images }: Readonly<MzbContentProps>): JSX.Element {
             </div>
           </div>
           <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-            <CloudinaryPageImage src="mfz-1_ytfdug" width={405} height={227} alt="Florian Donaustauf 99/1" enableOverlay overlayWidth={800} overlayHeight={600}>
+            <CloudinaryPageImage src="mfz-1_ytfdug" width={405} height={227} alt="Florian Donaustauf 99/1" enableOverlay overlayWidth={800} overlayHeight={600} imageSeries={images}>
               MZB 60 - Florian Donaustauf 99/1
             </CloudinaryPageImage>
           </div>

@@ -40,7 +40,7 @@ function HlfContent({ images }: Readonly<HlfContentProps>): JSX.Element {
             </div>
           </div>
           <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-            <CloudinaryPageImage src="hlf-20-1_ldn62n" width={405} height={227} alt="Florian Donaustauf 40/1" enableOverlay overlayWidth={1600} overlayHeight={835}>
+            <CloudinaryPageImage src="hlf-20-1_ldn62n" width={405} height={227} alt="Florian Donaustauf 40/1" enableOverlay overlayWidth={1600} overlayHeight={835} imageSeries={images}>
               HLF 20 - Florian Donaustauf 40/1
             </CloudinaryPageImage>
           </div>
