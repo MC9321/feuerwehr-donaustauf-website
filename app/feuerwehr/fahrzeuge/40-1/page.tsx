@@ -2,7 +2,7 @@ import { JSX } from 'react';
 
 import HlfContent from '@/features/HlfContent/HlfContent';
 import cloudinaryService from '@/lib/CloudinaryService';
-import { buildImageData } from '@/lib/cloudinayUtils';
+import { buildImageData } from '@/lib/cloudinaryUtils';
 
 async function getBannerImages() {
   return cloudinaryService.getImagesByFolder('pages/feuerwehr/fahrzeuge/40-1');

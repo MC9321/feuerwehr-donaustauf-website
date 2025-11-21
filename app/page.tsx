@@ -12,7 +12,7 @@ import { FfPageSection } from '@/components/FfPageSection';
 import Link from 'next/link';
 import { getCurrentYear } from '@/lib/operationUtils';
 import cloudinaryService from '@/lib/CloudinaryService';
-import { buildImageData } from '@/lib/cloudinayUtils';
+import { buildImageData } from '@/lib/cloudinaryUtils';
 
 const portableTextComponents: PortableTextComponents = {
   marks: {
@@ -58,13 +58,7 @@ async function getBannerImages() {
 }
 
 async function Home(): Promise<JSX.Element> {
-  const [infos, operations, latestFf, latestFr, bannerImages] = await Promise.all([
-    getInfos(),
-    getOperations(),
-    getLatestFf(),
-    getLatestFr(),
-    getBannerImages(),
-  ]);
+  const [infos, operations, latestFf, latestFr, bannerImages] = await Promise.all([getInfos(), getOperations(), getLatestFf(), getLatestFr(), getBannerImages()]);
   const images = buildImageData(bannerImages);
 
   return (

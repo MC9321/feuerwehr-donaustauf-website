@@ -1,6 +1,6 @@
 import GrossbrandJagdschlossContent from '@/features/GrossbrandJagdschlossContent/GrossbrandJagdschlossContent';
 import cloudinaryService from '@/lib/CloudinaryService';
-import { buildImageData } from '@/lib/cloudinayUtils';
+import { buildImageData } from '@/lib/cloudinaryUtils';
 import { JSX } from 'react';
 
 async function getBannerImages() {
