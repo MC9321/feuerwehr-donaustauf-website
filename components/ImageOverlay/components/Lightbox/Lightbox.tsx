@@ -149,7 +149,7 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
 
       try {
         if (containerRef.current.requestFullscreen) {
-          await containerRef.current.requestFullscreen();
+          await containerRef.current.requestFullscreen({ navigationUI: 'hide' });
         } else if ('webkitRequestFullscreen' in containerRef.current) {
           await (containerRef.current as HTMLElement & { webkitRequestFullscreen: () => Promise<void> }).webkitRequestFullscreen();
         }
@@ -159,10 +159,12 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
       }
     };
 
-    enterFullscreen();
+    // Delay fullscreen request slightly to ensure proper initialization
+    const timer = setTimeout(enterFullscreen, 100);
 
     // Exit fullscreen on unmount
     return () => {
+      clearTimeout(timer);
       if (document.fullscreenElement) {
         document.exitFullscreen().catch(() => {
           // Ignore errors on exit
