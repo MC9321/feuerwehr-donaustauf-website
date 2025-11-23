@@ -138,38 +138,20 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
     delta: 30,
   });
 
-  // Fullscreen mode for mobile devices
+  // Hide browser toolbar on mobile by scrolling
   useEffect(() => {
-    const enterFullscreen = async () => {
-      if (!containerRef.current) return;
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) return;
 
-      // Check if device is mobile (screen width < 768px)
-      const isMobile = window.innerWidth < 768;
-      if (!isMobile) return;
+    // Scroll to hide address bar on mobile browsers
+    window.scrollTo(0, 1);
 
-      try {
-        if (containerRef.current.requestFullscreen) {
-          await containerRef.current.requestFullscreen({ navigationUI: 'hide' });
-        } else if ('webkitRequestFullscreen' in containerRef.current) {
-          await (containerRef.current as HTMLElement & { webkitRequestFullscreen: () => Promise<void> }).webkitRequestFullscreen();
-        }
-      } catch (error) {
-        // Fullscreen request failed or was denied - continue without fullscreen
-        console.warn('Fullscreen mode not available:', error);
-      }
-    };
+    // Prevent body scroll while lightbox is open
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
 
-    // Delay fullscreen request slightly to ensure proper initialization
-    const timer = setTimeout(enterFullscreen, 100);
-
-    // Exit fullscreen on unmount
     return () => {
-      clearTimeout(timer);
-      if (document.fullscreenElement) {
-        document.exitFullscreen().catch(() => {
-          // Ignore errors on exit
-        });
-      }
+      document.body.style.overflow = originalOverflow;
     };
   }, []);
 
