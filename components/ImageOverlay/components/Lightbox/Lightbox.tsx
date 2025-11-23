@@ -171,6 +171,16 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
     };
   }, []);
 
+  // Reset direction after animation completes to prevent re-triggering
+  useEffect(() => {
+    if (direction) {
+      const timer = setTimeout(() => {
+        setDirection(null);
+      }, 300); // Match animation duration
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, direction]);
+
   // Two-finger touch detection
   useEffect(() => {
     const handleTouchEnd = (e: TouchEvent) => {
