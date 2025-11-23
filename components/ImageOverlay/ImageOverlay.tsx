@@ -4,6 +4,7 @@ import { ReactNode, useState, useEffect, useCallback, useMemo } from 'react';
 import { ImageData } from './types/imageOverlayTypes';
 import ImageOverlayViewer from './components/ImageOverlayViewer/ImageOverlayViewer';
 import { ImageOverlayContext, ImageOverlayContextType } from './context/ImageOverlayContext';
+import Lightbox from './components/Lightbox';
 
 interface ImageOverlayProviderProps {
   children: ReactNode;
@@ -131,7 +132,7 @@ function ImageOverlayProvider(props: Readonly<ImageOverlayProviderProps>) {
     <ImageOverlayContext.Provider value={contextValue}>
       {children}
       {state.isOpen && state.selectedImage && (
-        <ImageOverlayViewer image={state.selectedImage} imageSeries={state.imageSeries} currentIndex={state.currentIndex} onClose={hideOverlay} onNext={nextImage} onPrevious={previousImage} onSelectImage={selectImage} />
+        <Lightbox image={state.selectedImage} imageSeries={state.imageSeries} currentIndex={state.currentIndex} onClose={hideOverlay} onNext={nextImage} onPrevious={previousImage} onSelectImage={selectImage} />
       )}
     </ImageOverlayContext.Provider>
   );
