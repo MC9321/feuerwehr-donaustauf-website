@@ -171,21 +171,33 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
     const updateZoomState = () => {
       try {
         const scale = window.visualViewport ? window.visualViewport.scale : 1;
-        setIsZoomed(!!scale && scale > 1);
+        // Add tolerance: only consider zoomed if scale > 1.1
+        setIsZoomed(scale > 1.1);
       } catch {
         setIsZoomed(false);
       }
     };
+
     updateZoomState();
+
     if (window.visualViewport) {
       window.visualViewport.addEventListener('resize', updateZoomState);
       window.visualViewport.addEventListener('scroll', updateZoomState);
     }
+
+    // Also listen to touchend to detect when user finishes zooming
+    const handleTouchEnd = () => {
+      setTimeout(updateZoomState, 100);
+    };
+
+    window.addEventListener('touchend', handleTouchEnd);
+
     return () => {
       if (window.visualViewport) {
         window.visualViewport.removeEventListener('resize', updateZoomState);
         window.visualViewport.removeEventListener('scroll', updateZoomState);
       }
+      window.removeEventListener('touchend', handleTouchEnd);
     };
   }, []);
 
