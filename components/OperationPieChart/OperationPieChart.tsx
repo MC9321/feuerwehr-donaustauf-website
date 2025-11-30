@@ -2,7 +2,7 @@
 
 import { PieCustomLayerProps, ResponsivePie } from '@nivo/pie';
 import { useTheme } from 'next-themes';
-import { JSX, useEffect, useState } from 'react';
+import { JSX } from 'react';
 
 import { getCategoryColor } from '@/lib/operationUtils';
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';

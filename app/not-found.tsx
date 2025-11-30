@@ -5,7 +5,6 @@ import { JSX } from 'react';
 import { FfPageSection } from '@/components/FfPageSection';
 import HeaderImage from '@/components/Header/HeaderImage';
 import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
-import PageSection from '@/components/PageSection/PageSection';
 import QuickSearch from '@/components/QuickSearch';
 import SiteMap from '@/components/SiteMap';
 import { MenuData } from '@/data/MenuData';
