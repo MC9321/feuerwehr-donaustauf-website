@@ -1,12 +1,13 @@
-import { JSX } from 'react';
-import { OPERATION_QUERYResult, OPERATION_STATS_QUERYResult } from '@/types/sanityTypes';
-import operationService from '@/lib/OperationService';
-import OperationContent from '@/features/OperationContent';
 import { Metadata } from 'next';
+import { JSX } from 'react';
+
+import OperationContent from '@/features/OperationContent';
 import { SITE_TITLE } from '@/lib/constants';
-import { getCurrentYear, getFfOperations, getOperationCategories, getOperationYears, parseToNumber } from '@/lib/operationUtils';
+import operationService from '@/lib/OperationService';
 import operationStatsService from '@/lib/OperationStatsService';
 import { statsToChartDataFf } from '@/lib/operationStatsUtils';
+import { getCurrentYear, getFfOperations, getOperationCategories, getOperationYears, parseToNumber } from '@/lib/operationUtils';
+import { OPERATION_QUERYResult, OPERATION_STATS_QUERYResult } from '@/types/sanityTypes';
 
 export async function generateStaticParams(): Promise<{ year: string }[]> {
   const operations = await operationService.getOperations();

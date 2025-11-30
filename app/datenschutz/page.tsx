@@ -1,5 +1,6 @@
-import { FfPageSection } from '@/components/FfPageSection';
 import { JSX } from 'react';
+
+import { FfPageSection } from '@/components/FfPageSection';
 
 function Datenschutz(): JSX.Element {
   return (

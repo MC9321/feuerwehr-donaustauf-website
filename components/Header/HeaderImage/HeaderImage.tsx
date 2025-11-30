@@ -1,7 +1,9 @@
-import { JSX, PropsWithChildren } from 'react';
-import cn from 'classnames';
-import styles from './HeaderImage.module.css';
 import Image from 'next/image';
+import { JSX, PropsWithChildren } from 'react';
+
+import { cn } from '@/lib/cn';
+
+import styles from './HeaderImage.module.css';
 
 interface HeaderImageProps {
   imageClass?: string;

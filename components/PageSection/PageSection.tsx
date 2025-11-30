@@ -1,7 +1,8 @@
 'use client';
 
-import { JSX, PropsWithChildren } from 'react';
 import { type PageSectionProps } from '@salzpate/react-ui';
+import { JSX, PropsWithChildren } from 'react';
+
 import { FfPageSection } from '../FfPageSection';
 
 function PageSection(props: PropsWithChildren<PageSectionProps>): JSX.Element {

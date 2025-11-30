@@ -1,8 +1,9 @@
-import { JSX } from 'react';
 import { Metadata } from 'next';
+import { JSX } from 'react';
+
+import HeaderImage from '@/components/Header/HeaderImage/HeaderImage';
 import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
 import { SITE_TITLE } from '@/lib/constants';
-import HeaderImage from '@/components/Header/HeaderImage/HeaderImage';
 
 export const metadata: Metadata = {
   title: `Verein - ${SITE_TITLE}`,

@@ -1,6 +1,7 @@
 import { JSX, MouseEvent, PropsWithChildren } from 'react';
-import { NavMenu } from '@/components/types/Menu/Menu';
+
 import ChevronRightSvgIcon from '@/components/SvgIcons/ChevronRightSvgIcon';
+import { NavMenu } from '@/components/types/Menu/Menu';
 
 const navLinkClassName =
   'w-full flex items-center px-4 py-3 min-h-[44px] text-sm uppercase rounded-md justify-between text-gray-700 hover:bg-gray-300 hover:text-gray-900 focus:outline-hidden focus:bg-gray-400 focus:border-gray-500 focus:shadow-outline-gray active:bg-gray-400 transition-colors duration-150 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-black dark:focus:bg-gray-800 dark:active:bg-gray-800';

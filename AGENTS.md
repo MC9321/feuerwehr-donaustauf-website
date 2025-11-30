@@ -69,13 +69,15 @@ Next.js 16 Website für die Feuerwehr Markt Donaustauf mit App Router, TypeScrip
 ## Development Commands
 
 ```bash
-npm run dev          # Development Server (Port 3000)
-npm run build        # Production Build
-npm run start        # Production Server
-npm run lint         # ESLint + TypeScript Check
-npm run lint:style   # Stylelint für CSS
-npm run prettier     # Code Formatting
-npm run typegen      # Sanity Type Generation
+npm run dev               # Development Server (Port 3000)
+npm run build             # Production Build
+npm run start             # Production Server
+npm run lint              # ESLint + TypeScript Check
+npm run lint:style        # Stylelint fix für CSS
+npm run lint:style:check  # Stylelint check für CSS
+npm run format            # Code-Formatierung
+npm run format:check      # Code-Formatierung überprüfung
+npm run typegen           # Sanity Type Generation
 ```
 
 ## Konfiguration
@@ -124,6 +126,7 @@ NEWSLETTER=https://...
 ## Routen-Struktur
 
 ### Statische Routen
+
 - `/` - Homepage
 - `/datenschutz`, `/impressum`, `/kontakt`, `/spenden`
 - `/feuerwehr/*` - Feuerwehr-Seiten (Beitritt, Jugend, Mannschaft, Fahrzeuge)
@@ -131,12 +134,14 @@ NEWSLETTER=https://...
 - `/verein/*` - Vereinsseiten (Chronik, Satzung, Vorstandschaft)
 
 ### Dynamische Routen
+
 - `/feuerwehr/einsaetze/[year]` - Einsätze nach Jahr
 - `/feuerwehr/einsaetze/[year]/[cat]` - Einsätze nach Jahr + Kategorie
 - `/first-responder/einsaetze/[year]` - FR-Einsätze nach Jahr
 - Alle dynamischen Routen haben `generateMetadata` und `generateStaticParams`
 
 ### Fahrzeuge (statische Routen)
+
 - `/feuerwehr/fahrzeuge/40-1` - HLF (Hilfeleistungslöschfahrzeug)
 - `/feuerwehr/fahrzeuge/11-1` - MZF (Mannschaftstransportfahrzeug)
 - `/feuerwehr/fahrzeuge/99-1` - MZB (Mehrzweckboot)
@@ -170,6 +175,7 @@ NEWSLETTER=https://...
 - Funktionale Komponenten mit TypeScript
 - Async Server Components für Data Fetching
 - Props mit `PropsWithChildren` oder explizite Interfaces
+- Falls es Bedingungen im Tailwindcss className String gibt, soll die utility Methode cn() verwendet werden.
 
 ## Deployment
 

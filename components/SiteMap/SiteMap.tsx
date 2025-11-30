@@ -1,6 +1,8 @@
-import { JSX } from 'react';
 import Link from 'next/link';
+import { JSX } from 'react';
+
 import { NavMenuItem } from '@/components/types/Menu/Menu';
+
 import ChevronRightSvgIcon from '../SvgIcons/ChevronRightSvgIcon';
 
 interface SiteMapProps {

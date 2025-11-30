@@ -1,5 +1,6 @@
-import type { NextConfig } from 'next';
 import path from 'node:path';
+
+import type { NextConfig } from 'next';
 
 const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || '';
 

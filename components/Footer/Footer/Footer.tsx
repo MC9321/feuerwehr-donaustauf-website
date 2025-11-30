@@ -1,10 +1,12 @@
 import { JSX, ReactNode } from 'react';
-import { NavMenuItem } from '@/components/types/Menu/Menu';
+
 import FooterLink from '@/components/Footer/FooterLink';
-import FooterMainLinks from '../components/FooterMainLinks';
 import FacebookSvgIcon from '@/components/SvgIcons/FacebookSvgIcon';
-import InstagramSvgIcon from '@/components/SvgIcons/InstagramSvgIcon';
 import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
+import InstagramSvgIcon from '@/components/SvgIcons/InstagramSvgIcon';
+import { NavMenuItem } from '@/components/types/Menu/Menu';
+
+import FooterMainLinks from '../components/FooterMainLinks';
 
 interface FooterProps {
   text: ReactNode;

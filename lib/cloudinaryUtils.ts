@@ -1,5 +1,6 @@
-import { ImageData } from '@/components/ImageOverlay';
 import { CloudinaryResource } from '@cloudinary-util/types';
+
+import { ImageData } from '@/components/ImageOverlay';
 
 function buildImageData(cloudinaryResource: CloudinaryResource[]): ImageData[] | undefined {
   return cloudinaryResource.map(img => ({

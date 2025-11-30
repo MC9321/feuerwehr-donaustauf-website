@@ -1,19 +1,21 @@
 'use client';
 
-import Operations from '@/components/Operations/Operations';
-import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 import { ButtonLink, MoreLink } from '@salzpate/react-ui';
 import { JSX } from 'react';
-import cn from 'classnames';
-import SpendenContent from '../SpendenContent';
-import OperationPieChart from '@/components/OperationPieChart/OperationPieChart';
-import { getCurrentYear, getFfOperations, getFrOperations } from '@/lib/operationUtils';
-import BeitrittContent from '../BeitrittContent';
-import ContactContent from '../ContactContent';
+
 import { FfPageSection } from '@/components/FfPageSection';
 import ImageCarousel from '@/components/ImageCarousel';
-import ArrowTopRightOnSquare from '@/components/SvgIcons/ArrowTopRightOnSquare';
 import { ImageData } from '@/components/ImageOverlay';
+import OperationPieChart from '@/components/OperationPieChart/OperationPieChart';
+import Operations from '@/components/Operations/Operations';
+import ArrowTopRightOnSquare from '@/components/SvgIcons/ArrowTopRightOnSquare';
+import { cn } from '@/lib/cn';
+import { getCurrentYear, getFfOperations, getFrOperations } from '@/lib/operationUtils';
+import { OPERATION_QUERYResult } from '@/types/sanityTypes';
+
+import BeitrittContent from '../BeitrittContent';
+import ContactContent from '../ContactContent';
+import SpendenContent from '../SpendenContent';
 
 interface MainContentProps {
   operations?: OPERATION_QUERYResult;

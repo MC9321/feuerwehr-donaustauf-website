@@ -1,7 +1,9 @@
 import { JSX } from 'react';
-import NavBarLink from '../NavBarLink';
-import NavBarFlyout from '../NavBarFlyout';
+
 import { NavMenuItem } from '@/components/types/Menu/Menu';
+
+import NavBarFlyout from '../NavBarFlyout';
+import NavBarLink from '../NavBarLink';
 
 interface HeaderBarProps {
   activeMenu?: string;

@@ -1,8 +1,9 @@
 'use client';
 
+import { JSX } from 'react';
+
 import { FfPageSection } from '@/components/FfPageSection';
 import PageMenuLink from '@/components/PageMenuLink';
-import { JSX } from 'react';
 
 function BesondereEinsaetze(): JSX.Element {
   return (

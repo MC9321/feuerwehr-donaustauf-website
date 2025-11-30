@@ -1,6 +1,7 @@
-import { NavMenuItem } from '@/components/types/Menu/Menu';
 import Link from 'next/link';
 import { JSX } from 'react';
+
+import { NavMenuItem } from '@/components/types/Menu/Menu';
 
 interface FooterMainLinksProps {
   menuItems: NavMenuItem[];

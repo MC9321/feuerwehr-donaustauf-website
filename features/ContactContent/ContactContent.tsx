@@ -1,8 +1,9 @@
 'use client';
 
 import { JSX } from 'react';
-import { FfPageSection } from '@/components/FfPageSection';
+
 import ModernContactCard from '@/components/ContactCard/ContactCard';
+import { FfPageSection } from '@/components/FfPageSection';
 import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 
 interface ContactContentProps {

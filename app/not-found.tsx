@@ -1,9 +1,10 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
 import { JSX } from 'react';
+
 import HeaderImage from '@/components/Header/HeaderImage';
 import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
-import { Metadata } from 'next';
 import PageSection from '@/components/PageSection/PageSection';
-import Link from 'next/link';
 import QuickSearch from '@/components/QuickSearch';
 import SiteMap from '@/components/SiteMap';
 import { MenuData } from '@/data/MenuData';

@@ -1,7 +1,9 @@
 import { defineQuery, FilteredResponseQueryOptions } from 'next-sanity';
-import { client } from './sanityClient';
+
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
+
 import { parseToNumber } from './operationUtils';
+import { client } from './sanityClient';
 
 const OPERATION_QUERY = defineQuery('*[_type == "einsatz"] | order(date desc) { _id, title, locality, date, category, incident, slug }');
 
@@ -46,4 +48,4 @@ class OperationService {
 const operationService = new OperationService();
 
 export default operationService;
-export { OPERATION_QUERY, OPERATION_BY_YEAR_QUERY, OPERATION_LATEST_FR_THL_QUERY, OPERATION_LATEST_NON_FR_THL_QUERY, OPERATION_YEARS_QUERY };
+export { OPERATION_BY_YEAR_QUERY, OPERATION_LATEST_FR_THL_QUERY, OPERATION_LATEST_NON_FR_THL_QUERY, OPERATION_QUERY, OPERATION_YEARS_QUERY };

@@ -1,9 +1,10 @@
 'use client';
 
-import { FfPageSection } from '@/components/FfPageSection';
-import ArrowDownTraySvgIcon from '@/components/SvgIcons/ArrowDownTraySvgIcon';
 import { ButtonLink, MoreLink } from '@salzpate/react-ui';
 import { JSX } from 'react';
+
+import { FfPageSection } from '@/components/FfPageSection';
+import ArrowDownTraySvgIcon from '@/components/SvgIcons/ArrowDownTraySvgIcon';
 
 interface BeitrittContentProps {
   level?: 'h1' | 'h2' | 'h3';

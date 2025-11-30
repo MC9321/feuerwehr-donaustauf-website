@@ -1,8 +1,9 @@
 'use client';
 
+import { JSX } from 'react';
+
 import ContactCard from '@/components/ContactCard/ContactCard';
 import { FfPageSection } from '@/components/FfPageSection';
-import { JSX } from 'react';
 
 function Jugend(): JSX.Element {
   return (

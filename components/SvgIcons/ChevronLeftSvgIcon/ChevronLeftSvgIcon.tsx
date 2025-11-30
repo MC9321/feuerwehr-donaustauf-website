@@ -1,5 +1,6 @@
 import { JSX } from 'react';
-import cn from 'classnames';
+
+import { cn } from '@/lib/cn';
 
 interface ChevronLeftSvgIconProps {
   className?: string;

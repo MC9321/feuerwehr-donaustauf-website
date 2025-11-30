@@ -1,8 +1,9 @@
 'use client';
 
 import { JSX } from 'react';
-import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
+
 import { FfPageSection } from '@/components/FfPageSection';
+import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 import { ImageData } from '@/components/ImageOverlay/types/imageOverlayTypes';
 
 // Alle Bilder der Chronik-Seite als Serie

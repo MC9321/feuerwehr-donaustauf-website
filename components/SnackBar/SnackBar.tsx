@@ -1,7 +1,8 @@
 'use client';
 
 import { createContext, JSX, ReactNode, useContext, useState } from 'react';
-import cn from 'classnames';
+
+import { cn } from '@/lib/cn';
 
 import styles from './SnackBar.module.css';
 

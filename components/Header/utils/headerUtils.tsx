@@ -1,5 +1,6 @@
-import { NavMenuItem } from '@/components/types/Menu/Menu';
 import { ReactNode } from 'react';
+
+import { NavMenuItem } from '@/components/types/Menu/Menu';
 
 function getHeaderNavLinkItemKey(item: NavMenuItem, index: number): string {
   if (item.id) {

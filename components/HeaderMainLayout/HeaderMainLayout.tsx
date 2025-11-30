@@ -1,9 +1,10 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { JSX, PropsWithChildren } from 'react';
+
 import Header from '@/components/Header';
 import { MenuData } from '@/data/MenuData';
-import { usePathname } from 'next/navigation';
 
 interface HeaderMainLayoutProps {
   activeMenu?: string;

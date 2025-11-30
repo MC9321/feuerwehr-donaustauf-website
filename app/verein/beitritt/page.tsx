@@ -1,7 +1,8 @@
 'use client';
 
-import BeitrittContent from '@/features/BeitrittContent';
 import { JSX } from 'react';
+
+import BeitrittContent from '@/features/BeitrittContent';
 
 function VereinBeitritt(): JSX.Element {
   return (

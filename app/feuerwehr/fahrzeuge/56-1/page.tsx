@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 
-import cloudinaryService from '@/lib/CloudinaryService';
 import GlwContent from '@/features/GlwContent/GlwContent';
+import cloudinaryService from '@/lib/CloudinaryService';
 import { buildImageData } from '@/lib/cloudinaryUtils';
 
 async function getGalleryImages() {

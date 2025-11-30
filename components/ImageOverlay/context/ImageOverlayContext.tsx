@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext } from 'react';
+
 import { ImageData } from '../types/imageOverlayTypes';
 
 export interface ImageOverlayContextType {

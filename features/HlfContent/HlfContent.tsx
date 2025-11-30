@@ -1,8 +1,8 @@
 import { JSX } from 'react';
 
 import { FfPageSection } from '@/components/FfPageSection';
-import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 import CloudinaryImageGalleryImage from '@/components/Image/CloudinaryImageGallery';
+import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 import { ImageData } from '@/components/ImageOverlay';
 
 interface HlfContentProps {

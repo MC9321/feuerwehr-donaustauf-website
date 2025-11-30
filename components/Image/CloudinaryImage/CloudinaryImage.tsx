@@ -1,9 +1,11 @@
 'use client';
 
-import { JSX } from 'react';
 import { CldImage, CldImageProps } from 'next-cloudinary';
+import { JSX } from 'react';
+
 import { useImageOverlay } from '@/components/ImageOverlay/hooks/useImageOverlay';
 import { ImageData } from '@/components/ImageOverlay/types/imageOverlayTypes';
+
 import { normalizeSrc, shimmer, toBase64 } from '../imageUtils/imageUtils';
 
 interface CloudinaryImageProps extends CldImageProps {

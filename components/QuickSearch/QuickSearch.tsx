@@ -1,7 +1,8 @@
 'use client';
 
-import { JSX, useState, useMemo } from 'react';
 import Link from 'next/link';
+import { JSX, useMemo, useState } from 'react';
+
 import { NavMenuItem } from '@/components/types/Menu/Menu';
 
 interface QuickSearchProps {

@@ -1,19 +1,20 @@
-import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 import Link from 'next/link';
-import cn from 'classnames';
-import { JSX, useState, useMemo, useRef, useEffect, MouseEvent } from 'react';
-import NavLink from '../NavLink';
+import { JSX, MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
+
+import ChevronLeftSvgIcon from '@/components/SvgIcons/ChevronLeftSvgIcon';
+import FacebookSvgIcon from '@/components/SvgIcons/FacebookSvgIcon';
+import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
+import InstagramSvgIcon from '@/components/SvgIcons/InstagramSvgIcon';
+import { NavMenuItem } from '@/components/types/Menu/Menu';
+import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { cn } from '@/lib/cn';
 
 import styles from '../Header/Header.module.css';
-import { NavMenuItem } from '@/components/types/Menu/Menu';
-import ChevronLeftSvgIcon from '@/components/SvgIcons/ChevronLeftSvgIcon';
-import { buildHeaderNavHeadline, getHeaderNavLinkItemKey } from '../utils/headerUtils';
 import NavButton from '../NavButton';
 import NavHeaderLink from '../NavHeaderLink';
-import FacebookSvgIcon from '@/components/SvgIcons/FacebookSvgIcon';
-import InstagramSvgIcon from '@/components/SvgIcons/InstagramSvgIcon';
-import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
+import NavLink from '../NavLink';
+import { buildHeaderNavHeadline, getHeaderNavLinkItemKey } from '../utils/headerUtils';
 
 interface HeaderSideMenuProps {
   navMenuItems: NavMenuItem[];

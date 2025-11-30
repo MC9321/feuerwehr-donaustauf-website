@@ -1,5 +1,6 @@
 import { JSX, PropsWithChildren } from 'react';
-import cn from 'classnames';
+
+import { cn } from '@/lib/cn';
 
 interface FunctionCardProps {
   role?: string;

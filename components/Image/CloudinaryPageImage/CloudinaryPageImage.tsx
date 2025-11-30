@@ -1,5 +1,7 @@
 import { JSX, PropsWithChildren } from 'react';
-import cn from 'classnames';
+
+import { cn } from '@/lib/cn';
+
 import CloudinaryImage from '../CloudinaryImage';
 import { CloudinaryImageProps } from '../CloudinaryImage/CloudinaryImage';
 

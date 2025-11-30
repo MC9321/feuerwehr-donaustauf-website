@@ -1,9 +1,9 @@
 import { JSX } from 'react';
 
 import { FfPageSection } from '@/components/FfPageSection';
+import CloudinaryImageGalleryImage from '@/components/Image/CloudinaryImageGallery';
 import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 import { ImageData } from '@/components/ImageOverlay';
-import CloudinaryImageGalleryImage from '@/components/Image/CloudinaryImageGallery';
 
 interface UtvContentProps {
   images?: ImageData[];

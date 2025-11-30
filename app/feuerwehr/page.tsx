@@ -1,8 +1,9 @@
 'use client';
 
 import { JSX } from 'react';
-import PageMenuLink from '@/components/PageMenuLink';
+
 import { FfPageSection } from '@/components/FfPageSection';
+import PageMenuLink from '@/components/PageMenuLink';
 
 function Feuerwehr(): JSX.Element {
   return (

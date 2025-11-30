@@ -1,10 +1,11 @@
-import { JSX } from 'react';
-import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import operationService from '@/lib/OperationService';
-import OperationContent from '@/features/OperationContent';
 import { Metadata } from 'next';
+import { JSX } from 'react';
+
+import OperationContent from '@/features/OperationContent';
 import { SITE_TITLE } from '@/lib/constants';
+import operationService from '@/lib/OperationService';
 import { getFfOperations, getOperationCategories, getOperationsOfCategory, getOperationsOfYear, getOperationYears, parseCategory, parseToNumber } from '@/lib/operationUtils';
+import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 
 interface StaticYearCategoryParams {
   year: string;

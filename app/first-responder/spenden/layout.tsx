@@ -1,5 +1,6 @@
-import { JSX } from 'react';
 import { Metadata } from 'next';
+import { JSX } from 'react';
+
 import { SITE_TITLE } from '@/lib/constants';
 
 export const metadata: Metadata = {

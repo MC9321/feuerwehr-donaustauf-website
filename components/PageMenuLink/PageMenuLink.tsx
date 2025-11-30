@@ -1,8 +1,10 @@
-import { JSX, PropsWithChildren } from 'react';
-import Link from 'next/link';
-import styles from './PageMenuLink.module.css';
-import Image from 'next/image';
 import type { UrlObject } from 'node:url';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { JSX, PropsWithChildren } from 'react';
+
+import styles from './PageMenuLink.module.css';
 
 type Url = string | UrlObject;
 

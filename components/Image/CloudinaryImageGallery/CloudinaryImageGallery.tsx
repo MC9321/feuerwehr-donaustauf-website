@@ -1,7 +1,9 @@
 'use client';
 
 import { JSX } from 'react';
+
 import { ImageData } from '@/components/ImageOverlay/types/imageOverlayTypes';
+
 import CloudinaryImage from '../CloudinaryImage/CloudinaryImage';
 
 interface CloudinaryImageGalleryProps {

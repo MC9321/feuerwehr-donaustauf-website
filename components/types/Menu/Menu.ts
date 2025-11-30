@@ -1,5 +1,6 @@
-import { HTMLAttributeAnchorTarget, ReactNode } from 'react';
 import { UrlObject } from 'node:url';
+
+import { HTMLAttributeAnchorTarget, ReactNode } from 'react';
 
 type Url = string | UrlObject;
 
@@ -26,4 +27,4 @@ interface AppMenu {
   footer: NavMenuItem[];
 }
 
-export type { Url, NavMenuItem, ActiveMenuItem, NavMenu, AppMenu };
+export type { ActiveMenuItem, AppMenu, NavMenu, NavMenuItem, Url };

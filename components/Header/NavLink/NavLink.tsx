@@ -1,5 +1,6 @@
-import { JSX, MouseEvent } from 'react';
 import Link from 'next/link';
+import { JSX, MouseEvent } from 'react';
+
 import { NavMenu } from '@/components/types/Menu/Menu';
 
 const navLinkClassName =

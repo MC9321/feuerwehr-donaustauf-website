@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { JSX, PropsWithChildren } from 'react';
-import cn from 'classnames';
+
+import { cn } from '@/lib/cn';
 
 interface PageImageProps {
   src: string;

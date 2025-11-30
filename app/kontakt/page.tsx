@@ -1,6 +1,7 @@
 'use client';
 
 import { JSX } from 'react';
+
 import ContactContent from '@/features/ContactContent';
 
 function Contact(): JSX.Element {

@@ -1,10 +1,12 @@
 'use client';
 
-import { JSX, useState, useEffect, useRef, MouseEvent } from 'react';
-import { useSpring, animated, config } from '@react-spring/web';
+import { animated, config, useSpring } from '@react-spring/web';
+import { JSX, MouseEvent, useEffect, useRef, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import { ImageData } from '../../types/imageOverlayTypes';
+
 import CloudinaryImage from '@/components/Image/CloudinaryImage';
+
+import { ImageData } from '../../types/imageOverlayTypes';
 
 interface LightboxProps {
   image: ImageData;

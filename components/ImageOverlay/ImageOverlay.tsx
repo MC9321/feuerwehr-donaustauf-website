@@ -1,9 +1,10 @@
 'use client';
 
-import { ReactNode, useState, useEffect, useCallback, useMemo } from 'react';
-import { ImageData } from './types/imageOverlayTypes';
-import { ImageOverlayContext, ImageOverlayContextType } from './context/ImageOverlayContext';
+import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+
 import Lightbox from './components/Lightbox';
+import { ImageOverlayContext, ImageOverlayContextType } from './context/ImageOverlayContext';
+import { ImageData } from './types/imageOverlayTypes';
 
 interface ImageOverlayProviderProps {
   children: ReactNode;

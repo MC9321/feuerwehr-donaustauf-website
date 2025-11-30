@@ -1,6 +1,7 @@
 'use client';
 
 import { JSX } from 'react';
+
 import { FfPageSection } from '@/components/FfPageSection';
 
 function Satzung(): JSX.Element {

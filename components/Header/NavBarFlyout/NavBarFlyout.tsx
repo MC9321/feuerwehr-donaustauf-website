@@ -1,7 +1,8 @@
 'use client';
 
-import { JSX, useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { JSX, useEffect, useRef, useState } from 'react';
+
 import { NavMenuItem } from '@/components/types/Menu/Menu';
 
 import linkStyles from '../NavBarLink/NavBarLink.module.css';

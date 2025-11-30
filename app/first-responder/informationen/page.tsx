@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 
-import SpendenContent from '@/features/SpendenContent';
 import { FfPageSection } from '@/components/FfPageSection';
+import SpendenContent from '@/features/SpendenContent';
 
 function FirstResponderInformationen(): JSX.Element {
   return (

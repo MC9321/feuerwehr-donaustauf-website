@@ -1,5 +1,5 @@
-import { JSX } from 'react';
 import Image from 'next/image';
+import { JSX } from 'react';
 
 interface ContactCardProps {
   name: string;

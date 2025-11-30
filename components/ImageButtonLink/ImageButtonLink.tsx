@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { JSX, PropsWithChildren, ReactNode } from 'react';
 import Link from 'next/link';
-import { Url } from '../types/Menu/Menu';
+import { JSX, PropsWithChildren, ReactNode } from 'react';
 
+import { Url } from '../types/Menu/Menu';
 import styles from './ImageButtonLink.module.css';
 
 interface ImageButtonLinkProps {

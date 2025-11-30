@@ -1,8 +1,9 @@
 'use client';
 
+import { JSX } from 'react';
+
 import { FfPageSection } from '@/components/FfPageSection';
 import FunctionCard from '@/components/FunctionCard';
-import { JSX } from 'react';
 
 function Vorstandschaft(): JSX.Element {
   return (

@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+
 import { FfPageSection } from '@/components/FfPageSection';
 
 function Impressum(): JSX.Element {

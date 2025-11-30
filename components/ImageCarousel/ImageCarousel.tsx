@@ -1,7 +1,9 @@
 'use client';
 
-import { JSX, useState, useEffect, CSSProperties } from 'react';
-import cn from 'classnames';
+import { CSSProperties, JSX, useEffect, useState } from 'react';
+
+import { cn } from '@/lib/cn';
+
 import CloudinaryImage from '../Image/CloudinaryImage';
 import { ImageData } from '../ImageOverlay/types/imageOverlayTypes';
 

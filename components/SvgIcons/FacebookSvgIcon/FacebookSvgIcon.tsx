@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+
 import { SvgIconProps } from '../types/svgIconsTypes';
 
 function FacebookSvgIcon({ className }: Readonly<SvgIconProps>): JSX.Element {

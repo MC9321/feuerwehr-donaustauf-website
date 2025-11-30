@@ -1,10 +1,12 @@
 'use client';
 
-import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { ResponsivePie, PieCustomLayerProps } from '@nivo/pie';
+import { PieCustomLayerProps, ResponsivePie } from '@nivo/pie';
 import { JSX, useEffect, useState } from 'react';
-import { OperationChartDataType } from './types/operationPieChartTypes';
+
+import { OPERATION_QUERYResult } from '@/types/sanityTypes';
+
 import CenteredMetric from '../OperationPieChart/components/CenteredMetric/CenteredMetric';
+import { OperationChartDataType } from './types/operationPieChartTypes';
 
 interface OperationPieChartProps {
   operations?: OPERATION_QUERYResult;

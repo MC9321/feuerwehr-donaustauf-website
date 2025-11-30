@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { ImageOverlayContext } from '../context/ImageOverlayContext';
 
 export function useImageOverlay() {

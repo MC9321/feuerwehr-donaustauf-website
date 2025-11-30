@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+
 import { SvgIconProps } from '../types/svgIconsTypes';
 
 function PayPalSvgIcon({ className, height, width }: Readonly<SvgIconProps>): JSX.Element {

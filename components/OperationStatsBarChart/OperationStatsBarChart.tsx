@@ -1,7 +1,8 @@
 'use client';
 
-import { JSX, useEffect, useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
+import { JSX, useEffect, useState } from 'react';
+
 import { OperationStatsBarChartDataType } from './types/operationBarChartTypes';
 
 interface OperationStatsBarChartProps {

@@ -22,4 +22,4 @@ function toBase64(str: string) {
   return typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str);
 }
 
-export { shimmer, normalizeSrc, toBase64 };
+export { normalizeSrc, shimmer, toBase64 };

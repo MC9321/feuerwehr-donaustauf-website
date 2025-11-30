@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+
 import { SvgIconProps } from '../types/svgIconsTypes';
 
 function FfLogoSvgIcon({ className, height, width }: Readonly<SvgIconProps>): JSX.Element {

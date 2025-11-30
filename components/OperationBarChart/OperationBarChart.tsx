@@ -1,9 +1,11 @@
 'use client';
 
-import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { JSX } from 'react';
-import { OperationBarChartDataType } from './types/operationBarChartTypes';
 import { ResponsiveBar } from '@nivo/bar';
+import { JSX } from 'react';
+
+import { OPERATION_QUERYResult } from '@/types/sanityTypes';
+
+import { OperationBarChartDataType } from './types/operationBarChartTypes';
 
 interface OperationBarChartProps {
   operations?: OPERATION_QUERYResult;

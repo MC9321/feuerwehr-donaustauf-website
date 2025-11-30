@@ -1,16 +1,17 @@
-import { JSX, PropsWithChildren } from 'react';
-import { Metadata } from 'next';
-import Footer from '@/components/Footer';
-import SnackBarProvider from '@/components/SnackBar';
-import ImageOverlayProvider from '@/components/ImageOverlay';
-import SkipLink from '@/components/SkipLink';
-import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
-import { MenuData } from '@/data/MenuData';
-import { SITE_DESC, SITE_KEYWORDS, SITE_TITLE } from '@/lib/constants';
-
 import '@salzpate/react-ui/dist/style.css';
 import '@/styles/globals.css';
 import '@/styles/print.css';
+
+import { Metadata } from 'next';
+import { JSX, PropsWithChildren } from 'react';
+
+import Footer from '@/components/Footer';
+import ImageOverlayProvider from '@/components/ImageOverlay';
+import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
+import SkipLink from '@/components/SkipLink';
+import SnackBarProvider from '@/components/SnackBar';
+import { MenuData } from '@/data/MenuData';
+import { SITE_DESC, SITE_KEYWORDS, SITE_TITLE } from '@/lib/constants';
 
 const footerText = '© 2025 Feuerwehr Markt Donaustauf';
 

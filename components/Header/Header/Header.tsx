@@ -1,15 +1,15 @@
 'use client';
 
-import { JSX, useState, useRef } from 'react';
-import cn from 'classnames';
 import Link from 'next/link';
+import { JSX, useRef, useState } from 'react';
 
-import { type ActiveMenuItem, type NavMenuItem } from '@/components/types/Menu/Menu';
 import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
+import { type ActiveMenuItem, type NavMenuItem } from '@/components/types/Menu/Menu';
+import { cn } from '@/lib/cn';
 
-import styles from './Header.module.css';
-import HeaderSideMenu from '../HeaderSideMenu';
 import HeaderBar from '../HeaderBar/HeaderBar';
+import HeaderSideMenu from '../HeaderSideMenu';
+import styles from './Header.module.css';
 
 interface HeaderProps extends ActiveMenuItem {
   navMenuItems: NavMenuItem[];

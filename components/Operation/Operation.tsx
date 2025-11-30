@@ -1,7 +1,9 @@
-import { Slug } from '@/types/sanityTypes';
 import { JSX } from 'react';
-import cn from 'classnames';
+
+import { cn } from '@/lib/cn';
 import { getCategoryColor, parseOperationAlert, parseOperationTitle } from '@/lib/operationUtils';
+import { Slug } from '@/types/sanityTypes';
+
 import BellAlertSvgIcon from '../SvgIcons/BellAlertSvgIcon';
 import CalendarSvgIcon from '../SvgIcons/CalendarSvgIcon';
 import MapPinSvgIcon from '../SvgIcons/MapPinSvgIcon';

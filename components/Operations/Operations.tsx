@@ -1,5 +1,7 @@
-import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 import { JSX } from 'react';
+
+import { OPERATION_QUERYResult } from '@/types/sanityTypes';
+
 import Operation from '../Operation/Operation';
 
 interface OperationsProps {

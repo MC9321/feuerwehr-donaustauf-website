@@ -1,6 +1,7 @@
+import { UrlObject } from 'node:url';
+
 import Link from 'next/link';
 import { JSX, PropsWithChildren } from 'react';
-import { UrlObject } from 'node:url';
 
 type Url = string | UrlObject;
 

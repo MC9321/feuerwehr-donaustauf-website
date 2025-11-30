@@ -1,7 +1,8 @@
 'use client';
 
-import SpendenContent from '@/features/SpendenContent';
 import { JSX } from 'react';
+
+import SpendenContent from '@/features/SpendenContent';
 
 function Spenden(): JSX.Element {
   return (

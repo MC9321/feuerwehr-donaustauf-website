@@ -1,10 +1,11 @@
 import { JSX } from 'react';
-import { OPERATION_QUERYResult, OPERATION_STATS_QUERYResult } from '@/types/sanityTypes';
-import operationService from '@/lib/OperationService';
+
 import OperationContent from '@/features/OperationContent';
-import { getCurrentYear, getFrOperations } from '@/lib/operationUtils';
-import { statsToChartDataFr } from '@/lib/operationStatsUtils';
+import operationService from '@/lib/OperationService';
 import operationStatsService from '@/lib/OperationStatsService';
+import { statsToChartDataFr } from '@/lib/operationStatsUtils';
+import { getCurrentYear, getFrOperations } from '@/lib/operationUtils';
+import { OPERATION_QUERYResult, OPERATION_STATS_QUERYResult } from '@/types/sanityTypes';
 
 async function getData(year: number): Promise<OPERATION_QUERYResult | undefined> {
   return operationService.getOperationsOfYear(year);

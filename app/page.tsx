@@ -1,18 +1,18 @@
-import { JSX } from 'react';
-import HeaderImage from '@/components/Header/HeaderImage';
-import InfoArticle from '@/components/InfoArticle';
-import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
-import infoService from '@/lib/InfoService';
-import MainContent from '@/features/MainContent';
-
-import { PortableText, PortableTextComponents } from 'next-sanity';
-import { INFO_QUERYResult, OPERATION_QUERYResult } from '@/types/sanityTypes';
-import operationService from '@/lib/OperationService';
-import { FfPageSection } from '@/components/FfPageSection';
 import Link from 'next/link';
-import { getCurrentYear } from '@/lib/operationUtils';
+import { PortableText, PortableTextComponents } from 'next-sanity';
+import { JSX } from 'react';
+
+import { FfPageSection } from '@/components/FfPageSection';
+import HeaderImage from '@/components/Header/HeaderImage';
+import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
+import InfoArticle from '@/components/InfoArticle';
+import MainContent from '@/features/MainContent';
 import cloudinaryService from '@/lib/CloudinaryService';
 import { buildImageData } from '@/lib/cloudinaryUtils';
+import infoService from '@/lib/InfoService';
+import operationService from '@/lib/OperationService';
+import { getCurrentYear } from '@/lib/operationUtils';
+import { INFO_QUERYResult, OPERATION_QUERYResult } from '@/types/sanityTypes';
 
 const portableTextComponents: PortableTextComponents = {
   marks: {

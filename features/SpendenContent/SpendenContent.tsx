@@ -1,9 +1,10 @@
 'use client';
 
-import { FfPageSection } from '@/components/FfPageSection';
-import PayPalSvgIcon from '@/components/SvgIcons/PayPalSvgIcon';
 import { ButtonLink } from '@salzpate/react-ui';
 import { JSX } from 'react';
+
+import { FfPageSection } from '@/components/FfPageSection';
+import PayPalSvgIcon from '@/components/SvgIcons/PayPalSvgIcon';
 
 interface SpendenContentProps {
   level?: 'h1' | 'h2' | 'h3';

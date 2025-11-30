@@ -1,6 +1,8 @@
 import { defineQuery, FilteredResponseQueryOptions } from 'next-sanity';
-import { client } from './sanityClient';
+
 import { OPERATION_STATS_QUERYResult } from '@/types/sanityTypes';
+
+import { client } from './sanityClient';
 
 const OPERATION_STATS_QUERY = defineQuery('*[_type == "einsatzStats"]{ _id, year, ff, fr }');
 

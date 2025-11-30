@@ -1,6 +1,9 @@
-import { JSX } from 'react';
 import path from 'node:path';
+
+import { JSX } from 'react';
+
 import { parseCategory } from '@/lib/operationUtils';
+
 import OperationCatLink from '../OperationCatLink';
 
 type OperationSidebarProps = {
