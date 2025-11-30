@@ -7,7 +7,7 @@ describe('InfoArticle', () => {
     render(
       <InfoArticle headline="Test Headline">
         <p>Test Content</p>
-      </InfoArticle>
+      </InfoArticle>,
     );
 
     expect(screen.getByText('Test Headline')).toBeInTheDocument();
@@ -25,7 +25,7 @@ describe('InfoArticle', () => {
     const { container } = render(
       <InfoArticle headline="Test" id={5}>
         Content
-      </InfoArticle>
+      </InfoArticle>,
     );
 
     const article = container.querySelector('article');
@@ -53,7 +53,7 @@ describe('InfoArticle', () => {
           <p>Paragraph 1</p>
           <p>Paragraph 2</p>
         </div>
-      </InfoArticle>
+      </InfoArticle>,
     );
 
     expect(screen.getByText('Paragraph 1')).toBeInTheDocument();

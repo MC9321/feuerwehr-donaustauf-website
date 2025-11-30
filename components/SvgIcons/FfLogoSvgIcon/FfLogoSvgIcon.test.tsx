@@ -25,14 +25,14 @@ describe('FfLogoSvgIcon', () => {
   });
 
   it('wendet height an', () => {
-    const { container } = render(<FfLogoSvgIcon height="100" />);
+    const { container } = render(<FfLogoSvgIcon height={100} />);
 
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('height', '100');
   });
 
   it('wendet width an', () => {
-    const { container } = render(<FfLogoSvgIcon width="200" />);
+    const { container } = render(<FfLogoSvgIcon width={200} />);
 
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('width', '200');
@@ -49,7 +49,7 @@ describe('FfLogoSvgIcon', () => {
     const { container } = render(<FfLogoSvgIcon />);
 
     const paths = container.querySelectorAll('path');
-    paths.forEach((path) => {
+    paths.forEach(path => {
       expect(path).toHaveAttribute('fill', 'currentColor');
     });
   });

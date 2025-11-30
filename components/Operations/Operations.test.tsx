@@ -15,7 +15,7 @@ describe('Operations', () => {
       title: 'Einsatz 1',
       locality: 'Ort 1',
       date: '2024-11-30T14:30:00Z',
-      category: 'thl',
+      category: 'THL' as const,
       incident: 1,
       slug: { current: 'einsatz-1', _type: 'slug' as const },
     },
@@ -24,7 +24,7 @@ describe('Operations', () => {
       title: 'Einsatz 2',
       locality: 'Ort 2',
       date: '2024-11-29T10:00:00Z',
-      category: 'brand',
+      category: 'Brände' as const,
       incident: 2,
       slug: { current: 'einsatz-2', _type: 'slug' as const },
     },
@@ -53,7 +53,7 @@ describe('Operations', () => {
     const { container } = render(<Operations operations={mockOperations} alternate />);
 
     const articles = container.querySelectorAll('article');
-    articles.forEach((article) => {
+    articles.forEach(article => {
       expect(article).toHaveClass('bg-white', 'dark:bg-black');
     });
   });
@@ -62,7 +62,7 @@ describe('Operations', () => {
     const { container } = render(<Operations operations={mockOperations} glass />);
 
     const articles = container.querySelectorAll('article');
-    articles.forEach((article) => {
+    articles.forEach(article => {
       expect(article).toHaveClass('backdrop-blur-xs');
     });
   });

@@ -23,7 +23,7 @@ describe('OperationCatLink', () => {
     render(
       <OperationCatLink href="/test" active>
         Test Link
-      </OperationCatLink>
+      </OperationCatLink>,
     );
 
     const link = screen.getByRole('link', { name: 'Test Link' });
@@ -43,7 +43,7 @@ describe('OperationCatLink', () => {
     render(
       <OperationCatLink href="/test" key="unique-key">
         Test Link
-      </OperationCatLink>
+      </OperationCatLink>,
     );
 
     expect(screen.getByRole('link', { name: 'Test Link' })).toBeInTheDocument();
