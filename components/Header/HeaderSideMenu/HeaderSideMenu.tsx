@@ -99,7 +99,11 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
             <div className="pl-4">
               <button
                 ref={firstFocusableRef}
-                className="mr-8 inline-flex items-center justify-center rounded-full bg-gray-300 p-2 transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:bg-gray-700 dark:text-white/87 dark:hover:bg-blue-400"
+                className={cn(
+                  'mr-8 inline-flex cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-300 ease-in-out',
+                  'bg-gray-300 hover:bg-blue-600 hover:opacity-75',
+                  'dark:bg-gray-800 dark:text-white/87 dark:hover:bg-blue-400',
+                )}
                 onClick={handleBackClick}
                 aria-label="Zurück zur vorherigen Menüebene"
               >
@@ -114,7 +118,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
           {!stacked && (
             <button
               ref={firstFocusableRef}
-              className="mr-2 ml-4 inline-flex items-center justify-center rounded-full bg-gray-100 p-2 transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:bg-gray-900 dark:text-white/87 dark:hover:bg-blue-400"
+              className="mr-2 ml-4 inline-flex cursor-pointer items-center justify-center rounded-full bg-gray-100 p-2 transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:bg-gray-900 dark:text-white/87 dark:hover:bg-blue-400"
               onClick={() => onClose?.()}
               aria-label="Menü schließen"
             >

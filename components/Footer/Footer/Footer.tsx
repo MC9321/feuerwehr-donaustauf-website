@@ -21,7 +21,7 @@ function Footer(props: Readonly<FooterProps>): JSX.Element {
     <footer className="w-full bg-gray-800 py-6 dark:bg-gray-900" role="contentinfo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FooterMainLinks menuItems={mainMenuItems} />
-        <div className="mb-4 flex justify-center sm:mb-0 md:justify-end">
+        <div className="mb-4 flex justify-center sm:mb-2 md:justify-end">
           <ThemeSwitcher />
         </div>
         <div className="flex flex-col md:flex-row md:items-stretch md:justify-end">

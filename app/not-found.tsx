@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { JSX } from 'react';
 
+import { FfPageSection } from '@/components/FfPageSection';
 import HeaderImage from '@/components/Header/HeaderImage';
 import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
 import PageSection from '@/components/PageSection/PageSection';
@@ -25,7 +26,7 @@ function FileNotFound(): JSX.Element {
   return (
     <HeaderMainLayout>
       <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762605631/main_yydisz.jpg)]" />
-      <PageSection headline="Seite nicht gefunden" id="notfound">
+      <FfPageSection headline="Seite nicht gefunden" id="notfound">
         <div className="pb-6 text-lg text-paragraph sm:pb-8 dark:text-paragraph-dark">Die gewünschte Seite wurde leider nicht gefunden. Möglicherweise wurde sie verschoben oder gelöscht.</div>
         <div className="pb-6 sm:pb-8">
           <h3 className="mt-4 mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Beliebte Seiten</h3>
@@ -76,7 +77,7 @@ function FileNotFound(): JSX.Element {
         <div className="pb-6 sm:pb-8">
           <SiteMap menuItems={MenuData.main} title="Alle Seiten" compact />
         </div>
-      </PageSection>
+      </FfPageSection>
     </HeaderMainLayout>
   );
 }

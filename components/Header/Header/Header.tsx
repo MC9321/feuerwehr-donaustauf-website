@@ -46,10 +46,10 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
             <div className="hidden md:inline-flex md:items-center md:justify-center md:space-x-6">
               <HeaderBar navMenuItems={navMenuItems} activeMenu={activeMenu} />
             </div>
-            <div className="-mr-4 bg-secondary sm:mr-1 md:hidden dark:bg-black">
+            <div className="bg-secondary sm:mr-1 md:hidden dark:bg-black">
               <button
                 ref={menuButtonRef}
-                className="inline-flex items-center justify-center rounded-full p-2 text-white transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:text-white/87 dark:hover:bg-blue-400"
+                className="inline-flex cursor-pointer items-center justify-center rounded-full p-2 text-white transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:text-white/87 dark:hover:bg-blue-400"
                 onClick={() => handleMenuToggle(true)}
                 aria-label={isOn ? 'Menü schließen' : 'Menü öffnen'}
                 aria-expanded={isOn}

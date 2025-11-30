@@ -1,7 +1,7 @@
 /* stylelint-disable at-rule-no-unknown */
 
-@import "tailwindcss";
 @import '@salzpate/react-ui/styles';
+@import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -180,7 +180,7 @@ body {
   filter: grayscale(60%);
 }
 
-.light .body {
+.light body {
   background-color: #fff;
 }
 
