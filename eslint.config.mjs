@@ -7,7 +7,7 @@ import reactPlugin from 'eslint-plugin-react';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 export default defineConfig([
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'coverage/**', 'node_modules/**', 'next-env.d.ts', 'postcss.config.mjs', 'vitest.setup.ts']),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'coverage/**', 'node_modules/**', 'next-env.d.ts', 'postcss.config.mjs', 'vitest.setup.ts', '**/*.tsbuildinfo']),
   js.configs.recommended,
   ...nextVitals,
   ...nextTs,
