@@ -1,6 +1,7 @@
 'use client';
 
 import { animated, config, useSpring } from '@react-spring/web';
+import { CldImage } from 'next-cloudinary';
 import { JSX, MouseEvent, useEffect, useRef, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
@@ -326,7 +327,7 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
                     className={`shrink-0 cursor-pointer overflow-hidden rounded transition-all ${index === currentIndex ? 'scale-110 opacity-100 ring-2 ring-gray-400' : 'opacity-50 hover:opacity-85'}`}
                     aria-label={`Go to image ${index + 1}`}
                   >
-                    <CloudinaryImage src={img.src} alt={img.alt || `Thumbnail ${index + 1}`} width={80} height={60} className="h-16 w-20 object-cover" />
+                    <CldImage src={img.src} alt={img.alt || `Thumbnail ${index + 1}`} width={80} height={60} className="h-16 w-20 object-cover" />
                   </button>
                 ))}
               </div>
